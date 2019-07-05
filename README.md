@@ -1,4 +1,4 @@
-# Solution to the MDETools'19 Challenge Problem using EMI
+# Solution to the MDETools'19 Challenge Problem using EMI (Embedded Model Interpreter)
 
 This repository contains several folders and files;
 * **model**: The model of our solution designed using the tUML syntax and exported to the standardized XMI format.
