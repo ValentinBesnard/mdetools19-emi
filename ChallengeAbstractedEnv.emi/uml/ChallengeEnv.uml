@@ -58,12 +58,12 @@
     <importedElement xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.ControllerFromRefereeUser"/>
   </elementImport>
   <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.Environment" name="Environment">
-    <ownedAttribute xmi:id="ChallengeEnv.Environment.comPlayer" name="comPlayer" type="ChallengeEnv.CommunicationPlayer" isUnique="false" aggregation="composite">
+    <ownedAttribute xmi:id="ChallengeEnv.Environment.player" name="player" type="ChallengeEnv.CommunicationPlayer" isUnique="false" aggregation="composite">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a20" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a21" value="1"/>
       <defaultValue xmi:type="uml:InstanceValue" xmi:id="a22" instance="ChallengeEnv.instCommunicationPlayer"/>
     </ownedAttribute>
-    <ownedAttribute xmi:id="ChallengeEnv.Environment.comReferee" name="comReferee" type="ChallengeEnv.CommunicationReferee" isUnique="false" aggregation="composite">
+    <ownedAttribute xmi:id="ChallengeEnv.Environment.referee" name="referee" type="ChallengeEnv.CommunicationReferee" isUnique="false" aggregation="composite">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a23" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a24" value="1"/>
       <defaultValue xmi:type="uml:InstanceValue" xmi:id="a25" instance="ChallengeEnv.instCommunicationReferee"/>
@@ -85,19 +85,19 @@
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a33" value="1"/>
     </ownedAttribute>
     <ownedConnector xmi:id="ChallengeEnv.Environment.c1" name="c1" type="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv">
-      <end xmi:id="a34" role="ChallengeEnv.Environment.comPlayer"/>
+      <end xmi:id="a34" role="ChallengeEnv.Environment.player"/>
       <end xmi:id="a35" role="ChallengeEnv.Environment.controllerToPlayerPortEnv"/>
     </ownedConnector>
     <ownedConnector xmi:id="ChallengeEnv.Environment.c2" name="c2" type="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv">
-      <end xmi:id="a36" role="ChallengeEnv.Environment.comReferee"/>
+      <end xmi:id="a36" role="ChallengeEnv.Environment.referee"/>
       <end xmi:id="a37" role="ChallengeEnv.Environment.controllerToRefereePortEnv"/>
     </ownedConnector>
     <ownedConnector xmi:id="ChallengeEnv.Environment.c3" name="c3" type="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv">
-      <end xmi:id="a38" role="ChallengeEnv.Environment.comPlayer"/>
+      <end xmi:id="a38" role="ChallengeEnv.Environment.player"/>
       <end xmi:id="a39" role="ChallengeEnv.Environment.trajToPlayerPortEnv"/>
     </ownedConnector>
     <ownedConnector xmi:id="ChallengeEnv.Environment.c4" name="c4" type="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv">
-      <end xmi:id="a40" role="ChallengeEnv.Environment.comReferee"/>
+      <end xmi:id="a40" role="ChallengeEnv.Environment.referee"/>
       <end xmi:id="a41" role="ChallengeEnv.Environment.trajToRefereePortEnv"/>
     </ownedConnector>
   </packagedElement>
@@ -111,8 +111,8 @@
       <value xmi:type="uml:LiteralInteger" xmi:id="a45" value="9007"/>
     </slot>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv" name="CommunicationPlayer_ControllerToPlayerPortEnv" memberEnd="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.comPlayer ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.controller">
-    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.comPlayer" name="comPlayer" type="ChallengeEnv.CommunicationPlayer" isUnique="false" association="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv" name="CommunicationPlayer_ControllerToPlayerPortEnv" memberEnd="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.player ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.controller">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.player" name="player" type="ChallengeEnv.CommunicationPlayer" isUnique="false" association="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a46" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a47" value="1"/>
     </ownedEnd>
@@ -121,8 +121,8 @@
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a49" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv" name="CommunicationReferee_ControllerToRefereePortEnv" memberEnd="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.comReferee ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.controller">
-    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.comReferee" name="comReferee" type="ChallengeEnv.CommunicationReferee" isUnique="false" association="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv" name="CommunicationReferee_ControllerToRefereePortEnv" memberEnd="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.referee ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.controller">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.referee" name="referee" type="ChallengeEnv.CommunicationReferee" isUnique="false" association="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a50" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a51" value="1"/>
     </ownedEnd>
@@ -131,8 +131,8 @@
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a53" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv" name="CommunicationPlayer_TrajToPlayerPortEnv" memberEnd="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.comPlayer ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.trajectoryManager">
-    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.comPlayer" name="comPlayer" type="ChallengeEnv.CommunicationPlayer" isUnique="false" association="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv" name="CommunicationPlayer_TrajToPlayerPortEnv" memberEnd="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.player ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.trajectoryManager">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.player" name="player" type="ChallengeEnv.CommunicationPlayer" isUnique="false" association="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a54" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a55" value="1"/>
     </ownedEnd>
@@ -141,8 +141,8 @@
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a57" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv" name="CommunicationReferee_TrajToRefereePortEnv" memberEnd="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.comReferee ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.trajectoryManager">
-    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.comReferee" name="comReferee" type="ChallengeEnv.CommunicationReferee" isUnique="false" association="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv" name="CommunicationReferee_TrajToRefereePortEnv" memberEnd="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.referee ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.trajectoryManager">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.referee" name="referee" type="ChallengeEnv.CommunicationReferee" isUnique="false" association="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a58" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a59" value="1"/>
     </ownedEnd>

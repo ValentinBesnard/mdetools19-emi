@@ -150,42 +150,42 @@
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a54" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys" name="Controller_ControllerToPlayerPortSys" memberEnd="ChallengeSystem.Controller_ControllerToPlayerPortSys.controller ChallengeSystem.Controller_ControllerToPlayerPortSys.comPlayer">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys" name="Controller_ControllerToPlayerPortSys" memberEnd="ChallengeSystem.Controller_ControllerToPlayerPortSys.controller ChallengeSystem.Controller_ControllerToPlayerPortSys.player">
     <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys.controller" name="controller" type="ChallengeSystem.Controller" isUnique="false" association="ChallengeSystem.Controller_ControllerToPlayerPortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a55" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a56" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys.comPlayer" name="comPlayer" type="ChallengeSystem.ControllerToPlayerPortSys" isUnique="false" association="ChallengeSystem.Controller_ControllerToPlayerPortSys">
+    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys.player" name="player" type="ChallengeSystem.ControllerToPlayerPortSys" isUnique="false" association="ChallengeSystem.Controller_ControllerToPlayerPortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a57" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a58" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys" name="Controller_ControllerToRefereePortSys" memberEnd="ChallengeSystem.Controller_ControllerToRefereePortSys.controller ChallengeSystem.Controller_ControllerToRefereePortSys.comReferee">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys" name="Controller_ControllerToRefereePortSys" memberEnd="ChallengeSystem.Controller_ControllerToRefereePortSys.controller ChallengeSystem.Controller_ControllerToRefereePortSys.referee">
     <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys.controller" name="controller" type="ChallengeSystem.Controller" isUnique="false" association="ChallengeSystem.Controller_ControllerToRefereePortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a59" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a60" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys.comReferee" name="comReferee" type="ChallengeSystem.ControllerToRefereePortSys" isUnique="false" association="ChallengeSystem.Controller_ControllerToRefereePortSys">
+    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys.referee" name="referee" type="ChallengeSystem.ControllerToRefereePortSys" isUnique="false" association="ChallengeSystem.Controller_ControllerToRefereePortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a61" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a62" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys" name="TrajectoryManager_TrajToPlayerPortSys" memberEnd="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.trajectoryManager ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.comPlayer">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys" name="TrajectoryManager_TrajToPlayerPortSys" memberEnd="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.trajectoryManager ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.player">
     <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.trajectoryManager" name="trajectoryManager" type="ChallengeSystem.TrajectoryManager" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a63" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a64" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.comPlayer" name="comPlayer" type="ChallengeSystem.TrajToPlayerPortSys" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys">
+    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.player" name="player" type="ChallengeSystem.TrajToPlayerPortSys" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a65" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a66" value="1"/>
     </ownedEnd>
   </packagedElement>
-  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys" name="TrajectoryManager_TrajToRefereePortSys" memberEnd="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.trajectoryManager ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.comReferee">
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys" name="TrajectoryManager_TrajToRefereePortSys" memberEnd="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.trajectoryManager ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.referee">
     <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.trajectoryManager" name="trajectoryManager" type="ChallengeSystem.TrajectoryManager" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a67" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a68" value="1"/>
     </ownedEnd>
-    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.comReferee" name="comReferee" type="ChallengeSystem.TrajToRefereePortSys" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys">
+    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.referee" name="referee" type="ChallengeSystem.TrajToRefereePortSys" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys">
       <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a69" value="1"/>
       <upperValue xmi:type="uml:LiteralInteger" xmi:id="a70" value="1"/>
     </ownedEnd>
@@ -298,7 +298,7 @@
         <transition xmi:id="a102" source="ChallengeSystem.Controller.SM.R.Turn" target="ChallengeSystem.Controller.SM.R.Shoot">
           <effect xmi:type="uml:OpaqueBehavior" xmi:id="a103">
             <language>C</language>
-            <body>SEND(GET(this, comPlayer), setSuction, 100);</body>
+            <body>SEND(GET(this, player), setSuction, 100);</body>
           </effect>
           <trigger xmi:id="a104" event="ChallengeSystem.finish_SE"/>
         </transition>
@@ -530,10 +530,10 @@
           <effect xmi:type="uml:OpaqueBehavior" xmi:id="a184">
             <language>C</language>
             <body>
-						SEND(GET(this, comPlayer), getPlayerGPS);
-						SEND(GET(this, comPlayer), getBallGPS);
-						SEND(GET(this, comPlayer), getCompass);
-						SEND(GET(this, comReferee), checkReferee);
+						SEND(GET(this, player), getPlayerGPS);
+						SEND(GET(this, player), getBallGPS);
+						SEND(GET(this, player), getCompass);
+						SEND(GET(this, referee), checkReferee);
 						SET(this, receivedPlayer, 0);
 						SET(this, receivedBall, 0);
 						SET(this, receivedCompass, 0);
@@ -682,7 +682,7 @@
 						}
 
 						if(abs(xDiff) + abs(zDiff) &lt; 20) {
-							SEND(GET(this, comPlayer), setSuction, -100);
+							SEND(GET(this, player), setSuction, -100);
 						}
 
 						int32_t dmf = GET(this, kp) * xRobot;
@@ -703,20 +703,20 @@
 							// The ball has been taken
 							SET(this, zArrived, 1);
 							SET(this, xArrived, 1);
-							SEND(GET(this, comPlayer), moveForward, 0);
-							SEND(GET(this, comPlayer), moveRight, 0);
+							SEND(GET(this, player), moveForward, 0);
+							SEND(GET(this, player), moveRight, 0);
 						} else {
 							if(abs(xRobot) > 2) {
-								SEND(GET(this, comPlayer), moveForward, dmf);
+								SEND(GET(this, player), moveForward, dmf);
 							} else {
-								SEND(GET(this, comPlayer), moveForward, 0);
+								SEND(GET(this, player), moveForward, 0);
 								SET(this, xArrived, 1);
 							}
 
 							if(abs(zRobot) > 2) {
-								SEND(GET(this, comPlayer), moveRight, -dmr);
+								SEND(GET(this, player), moveRight, -dmr);
 							} else {
-								SEND(GET(this, comPlayer), moveRight, 0);
+								SEND(GET(this, player), moveRight, 0);
 								SET(this, zArrived, 1);
 							}
 						}
@@ -772,7 +772,7 @@
 							aRobot += 360;
 
 						if(abs(aRobot) > 30) {
-							SEND(GET(this, comPlayer), stop);
+							SEND(GET(this, player), stop);
 						}
 
 						bool stopAfter = FALSE;
@@ -783,12 +783,12 @@
 						if(GET(this, ballInRobot) &amp;&amp; GET(this, ballTarget)) {
 							// The ball has been taken
 							SET(this, aArrived, 1);
-							SEND(GET(this, comPlayer), spin, 0, FALSE);
+							SEND(GET(this, player), spin, 0, FALSE);
 						} else {
 							if(aRobot > 3 || aRobot &lt; -3) {
-								SEND(GET(this, comPlayer), spin, ((aRobot > 0) ? 85:-85), stopAfter);
+								SEND(GET(this, player), spin, ((aRobot > 0) ? 85:-85), stopAfter);
 							} else {
-								SEND(GET(this, comPlayer), spin, 0, FALSE);
+								SEND(GET(this, player), spin, 0, FALSE);
 								SET(this, aArrived, 1);
 							}
 						}

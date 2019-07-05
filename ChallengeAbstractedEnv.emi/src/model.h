@@ -1074,8 +1074,8 @@ struct Store {
 	TrajToPlayerPortSys_store instMain_system_trajToPlayerPortSys;
 	TrajToRefereePortSys_store instMain_system_trajToRefereePortSys;
 	Environment_store instMain_environment;
-	CommunicationPlayer_store instMain_environment_comPlayer;
-	CommunicationReferee_store instMain_environment_comReferee;
+	CommunicationPlayer_store instMain_environment_player;
+	CommunicationReferee_store instMain_environment_referee;
 	ControllerToPlayerPortEnv_store instMain_environment_controllerToPlayerPortEnv;
 	ControllerToRefereePortEnv_store instMain_environment_controllerToRefereePortEnv;
 	TrajToPlayerPortEnv_store instMain_environment_trajToPlayerPortEnv;
@@ -1247,11 +1247,11 @@ struct System_operations {
 	bool trajectoryManager_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_Controller  bool trajectoryManager_isMutable		:1;	\
-	bool comPlayer_isMutable		:1;	\
-	bool comReferee_isMutable		:1;
+	bool player_isMutable		:1;	\
+	bool referee_isMutable		:1;
 
-#define ABSTRACT_MUTABILITY_TrajectoryManager  bool comPlayer_isMutable		:1;	\
-	bool comReferee_isMutable		:1;	\
+#define ABSTRACT_MUTABILITY_TrajectoryManager  bool player_isMutable		:1;	\
+	bool referee_isMutable		:1;	\
 	bool controller_isMutable		:1;	\
 	bool xPlayer_isMutable		:1;	\
 	bool zPlayer_isMutable		:1;	\
@@ -1280,23 +1280,23 @@ struct System_operations {
 	bool system_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_Environment  bool trajToPlayerPortEnv_isMutable		:1;	\
-	bool comReferee_isMutable		:1;	\
+	bool referee_isMutable		:1;	\
 	bool controllerToRefereePortEnv_isMutable		:1;	\
-	bool comPlayer_isMutable		:1;	\
+	bool player_isMutable		:1;	\
 	bool trajToRefereePortEnv_isMutable		:1;	\
 	bool controllerToPlayerPortEnv_isMutable		:1;
 
-#define ABSTRACT_MUTABILITY_ControllerToPlayerPortEnv  bool comPlayer_isMutable		:1;	\
+#define ABSTRACT_MUTABILITY_ControllerToPlayerPortEnv  bool player_isMutable		:1;	\
 	bool controllerToPlayerPortSys_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_ControllerToRefereePortEnv  bool controllerToRefereePortSys_isMutable		:1;	\
-	bool comReferee_isMutable		:1;
+	bool referee_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_TrajToPlayerPortEnv  bool trajToPlayerPortSys_isMutable		:1;	\
-	bool comPlayer_isMutable		:1;
+	bool player_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_TrajToRefereePortEnv  bool trajToRefereePortSys_isMutable		:1;	\
-	bool comReferee_isMutable		:1;
+	bool referee_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_CommunicationPlayer  bool controller_isMutable		:1;	\
 	bool trajectoryManager_isMutable		:1;	\
@@ -1495,11 +1495,11 @@ struct TrajUser_mutability {
 	TrajToRefereePortSys_properties_ro * trajectoryManager_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_Controller  Controller_properties_ro * trajectoryManager_type;	\
-	Controller_properties_ro * comPlayer_type;	\
-	Controller_properties_ro * comReferee_type;
+	Controller_properties_ro * player_type;	\
+	Controller_properties_ro * referee_type;
 
-#define ABSTRACT_PROPERTIES_TYPE_TrajectoryManager  TrajectoryManager_properties_ro * comPlayer_type;	\
-	TrajectoryManager_properties_ro * comReferee_type;	\
+#define ABSTRACT_PROPERTIES_TYPE_TrajectoryManager  TrajectoryManager_properties_ro * player_type;	\
+	TrajectoryManager_properties_ro * referee_type;	\
 	TrajectoryManager_properties_ro * controller_type;	\
 	TrajectoryManager_od * xPlayer_type;	\
 	TrajectoryManager_od * zPlayer_type;	\
@@ -1528,23 +1528,23 @@ struct TrajUser_mutability {
 	Main_properties_ro * system_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_Environment  Environment_properties_ro * trajToPlayerPortEnv_type;	\
-	Environment_properties_ro * comReferee_type;	\
+	Environment_properties_ro * referee_type;	\
 	Environment_properties_ro * controllerToRefereePortEnv_type;	\
-	Environment_properties_ro * comPlayer_type;	\
+	Environment_properties_ro * player_type;	\
 	Environment_properties_ro * trajToRefereePortEnv_type;	\
 	Environment_properties_ro * controllerToPlayerPortEnv_type;
 
-#define ABSTRACT_PROPERTIES_TYPE_ControllerToPlayerPortEnv  ControllerToPlayerPortEnv_properties_ro * comPlayer_type;	\
+#define ABSTRACT_PROPERTIES_TYPE_ControllerToPlayerPortEnv  ControllerToPlayerPortEnv_properties_ro * player_type;	\
 	ControllerToPlayerPortEnv_properties_ro * controllerToPlayerPortSys_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_ControllerToRefereePortEnv  ControllerToRefereePortEnv_properties_ro * controllerToRefereePortSys_type;	\
-	ControllerToRefereePortEnv_properties_ro * comReferee_type;
+	ControllerToRefereePortEnv_properties_ro * referee_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_TrajToPlayerPortEnv  TrajToPlayerPortEnv_properties_ro * trajToPlayerPortSys_type;	\
-	TrajToPlayerPortEnv_properties_ro * comPlayer_type;
+	TrajToPlayerPortEnv_properties_ro * player_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_TrajToRefereePortEnv  TrajToRefereePortEnv_properties_ro * trajToRefereePortSys_type;	\
-	TrajToRefereePortEnv_properties_ro * comReferee_type;
+	TrajToRefereePortEnv_properties_ro * referee_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_CommunicationPlayer  CommunicationPlayer_properties_ro * controller_type;	\
 	CommunicationPlayer_properties_ro * trajectoryManager_type;	\
@@ -1975,8 +1975,8 @@ SPECIFIC_STRUCT_ActiveObject(CommunicationReferee)
 struct ActiveObjects {
 	Controller_Object * instMain_system_controller;
 	TrajectoryManager_Object * instMain_system_trajectoryManager;
-	CommunicationPlayer_Object * instMain_environment_comPlayer;
-	CommunicationReferee_Object * instMain_environment_comReferee;
+	CommunicationPlayer_Object * instMain_environment_player;
+	CommunicationReferee_Object * instMain_environment_referee;
 	#ifdef WITH_OBSERVERS
 	DirectionObserver_Object * instObs_observer;
 	#endif /* WITH_OBSERVERS */
@@ -2053,7 +2053,7 @@ extern PassiveObjects passiveObjects;
 struct TrajToRefereePortEnv_properties_ro {
 	ABSTRACT_TRAJFROMREFEREEUSER_PROPERTIES_RO
 	TrajToRefereePortSys_Object * trajToRefereePortSys;
-	CommunicationReferee_Object * comReferee;
+	CommunicationReferee_Object * referee;
 };
 /**
  * The ControllerToPlayerPortSys_properties_ro type used to link instances of the ControllerToPlayerPortSys class with their properties.
@@ -2113,16 +2113,16 @@ struct Obs_properties_ro {
 struct Controller_properties_ro {
 	ABSTRACT_TRAJTOPLAYERUSER_PROPERTIES_RO
 	TrajectoryManager_Object * trajectoryManager;
-	ControllerToPlayerPortSys_Object * comPlayer;
-	ControllerToRefereePortSys_Object * comReferee;
+	ControllerToPlayerPortSys_Object * player;
+	ControllerToRefereePortSys_Object * referee;
 };
 /**
  * The TrajectoryManager_properties_ro type used to link instances of the TrajectoryManager class with their properties.
  */
 struct TrajectoryManager_properties_ro {
 	ABSTRACT_TRAJUSER_PROPERTIES_RO
-	TrajToPlayerPortSys_Object * comPlayer;
-	TrajToRefereePortSys_Object * comReferee;
+	TrajToPlayerPortSys_Object * player;
+	TrajToRefereePortSys_Object * referee;
 	Controller_Object * controller;
 };
 /**
@@ -2151,7 +2151,7 @@ struct ControllerFromRefereeProvider_properties_ro {
 struct ControllerToRefereePortEnv_properties_ro {
 	ABSTRACT_CONTROLLERFROMREFEREEUSER_PROPERTIES_RO
 	ControllerToRefereePortSys_Object * controllerToRefereePortSys;
-	CommunicationReferee_Object * comReferee;
+	CommunicationReferee_Object * referee;
 };
 /**
  * The TrajToRefereeUser_properties_ro type used to link instances of the TrajToRefereeUser class with their properties.
@@ -2171,7 +2171,7 @@ struct ControllerToRefereePortSys_properties_ro {
 struct TrajToPlayerPortEnv_properties_ro {
 	ABSTRACT_TRAJFROMPLAYERUSER_PROPERTIES_RO
 	TrajToPlayerPortSys_Object * trajToPlayerPortSys;
-	CommunicationPlayer_Object * comPlayer;
+	CommunicationPlayer_Object * player;
 };
 /**
  * The ControllerFromRefereeUser_properties_ro type used to link instances of the ControllerFromRefereeUser class with their properties.
@@ -2183,7 +2183,7 @@ struct ControllerFromRefereeUser_properties_ro {
  */
 struct ControllerToPlayerPortEnv_properties_ro {
 	ABSTRACT_TRAJFROMPLAYERUSER_PROPERTIES_RO
-	CommunicationPlayer_Object * comPlayer;
+	CommunicationPlayer_Object * player;
 	ControllerToPlayerPortSys_Object * controllerToPlayerPortSys;
 };
 /**
@@ -2232,9 +2232,9 @@ struct TrajFromRefereeProvider_properties_ro {
  */
 struct Environment_properties_ro {
 	TrajToPlayerPortEnv_Object * trajToPlayerPortEnv;
-	CommunicationReferee_Object * comReferee;
+	CommunicationReferee_Object * referee;
 	ControllerToRefereePortEnv_Object * controllerToRefereePortEnv;
-	CommunicationPlayer_Object * comPlayer;
+	CommunicationPlayer_Object * player;
 	TrajToRefereePortEnv_Object * trajToRefereePortEnv;
 	ControllerToPlayerPortEnv_Object * controllerToPlayerPortEnv;
 };
@@ -2262,8 +2262,8 @@ struct PropertiesRO {
 	TrajToPlayerPortSys_properties_ro instMain_system_trajToPlayerPortSys;
 	TrajToRefereePortSys_properties_ro instMain_system_trajToRefereePortSys;
 	Environment_properties_ro instMain_environment;
-	CommunicationPlayer_properties_ro instMain_environment_comPlayer;
-	CommunicationReferee_properties_ro instMain_environment_comReferee;
+	CommunicationPlayer_properties_ro instMain_environment_player;
+	CommunicationReferee_properties_ro instMain_environment_referee;
 	ControllerToPlayerPortEnv_properties_ro instMain_environment_controllerToPlayerPortEnv;
 	ControllerToRefereePortEnv_properties_ro instMain_environment_controllerToRefereePortEnv;
 	TrajToPlayerPortEnv_properties_ro instMain_environment_trajToPlayerPortEnv;

@@ -924,9 +924,9 @@ struct Store {
 	TrajToPlayerPortSys_store  instMain_system_trajToPlayerPortSys; /*   200     0 */
 	TrajToRefereePortSys_store instMain_system_trajToRefereePortSys; /*   200     0 */
 	Environment_store          instMain_environment; /*   200     0 */
-	CommunicationPlayer_store  instMain_environment_comPlayer; /*   200    96 */
+	CommunicationPlayer_store  instMain_environment_player; /*   200    96 */
 	/* --- cacheline 4 boundary (256 bytes) was 40 bytes ago --- */
-	CommunicationReferee_store instMain_environment_comReferee; /*   296    32 */
+	CommunicationReferee_store instMain_environment_referee; /*   296    32 */
 	/* --- cacheline 5 boundary (320 bytes) was 8 bytes ago --- */
 	ControllerToPlayerPortEnv_store instMain_environment_controllerToPlayerPortEnv; /*   328     0 */
 	ControllerToRefereePortEnv_store instMain_environment_controllerToRefereePortEnv; /*   328     0 */
@@ -973,7 +973,7 @@ struct SignalEvents {
 };
 struct TrajToRefereePortEnv_properties_ro {
 	TrajToRefereePortSys_Object * trajToRefereePortSys; /*     0     8 */
-	CommunicationReferee_Object * comReferee;        /*     8     8 */
+	CommunicationReferee_Object * referee;           /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
 	/* last cacheline: 16 bytes */
@@ -1014,15 +1014,15 @@ struct Obs_properties_ro {
 };
 struct Controller_properties_ro {
 	TrajectoryManager_Object * trajectoryManager;    /*     0     8 */
-	ControllerToPlayerPortSys_Object * comPlayer;    /*     8     8 */
-	ControllerToRefereePortSys_Object * comReferee;  /*    16     8 */
+	ControllerToPlayerPortSys_Object * player;       /*     8     8 */
+	ControllerToRefereePortSys_Object * referee;     /*    16     8 */
 
 	/* size: 24, cachelines: 1, members: 3 */
 	/* last cacheline: 24 bytes */
 };
 struct TrajectoryManager_properties_ro {
-	TrajToPlayerPortSys_Object * comPlayer;          /*     0     8 */
-	TrajToRefereePortSys_Object * comReferee;        /*     8     8 */
+	TrajToPlayerPortSys_Object * player;             /*     0     8 */
+	TrajToRefereePortSys_Object * referee;           /*     8     8 */
 	Controller_Object *        controller;           /*    16     8 */
 
 	/* size: 24, cachelines: 1, members: 3 */
@@ -1034,7 +1034,7 @@ struct DirectionObserver_properties_ro {
 };
 struct ControllerToRefereePortEnv_properties_ro {
 	ControllerToRefereePortSys_Object * controllerToRefereePortSys; /*     0     8 */
-	CommunicationReferee_Object * comReferee;        /*     8     8 */
+	CommunicationReferee_Object * referee;           /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
 	/* last cacheline: 16 bytes */
@@ -1048,13 +1048,13 @@ struct ControllerToRefereePortSys_properties_ro {
 };
 struct TrajToPlayerPortEnv_properties_ro {
 	TrajToPlayerPortSys_Object * trajToPlayerPortSys; /*     0     8 */
-	CommunicationPlayer_Object * comPlayer;          /*     8     8 */
+	CommunicationPlayer_Object * player;             /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
 	/* last cacheline: 16 bytes */
 };
 struct ControllerToPlayerPortEnv_properties_ro {
-	CommunicationPlayer_Object * comPlayer;          /*     0     8 */
+	CommunicationPlayer_Object * player;             /*     0     8 */
 	ControllerToPlayerPortSys_Object * controllerToPlayerPortSys; /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
@@ -1076,9 +1076,9 @@ struct TrajToRefereePortSys_properties_ro {
 };
 struct Environment_properties_ro {
 	TrajToPlayerPortEnv_Object * trajToPlayerPortEnv; /*     0     8 */
-	CommunicationReferee_Object * comReferee;        /*     8     8 */
+	CommunicationReferee_Object * referee;           /*     8     8 */
 	ControllerToRefereePortEnv_Object * controllerToRefereePortEnv; /*    16     8 */
-	CommunicationPlayer_Object * comPlayer;          /*    24     8 */
+	CommunicationPlayer_Object * player;             /*    24     8 */
 	TrajToRefereePortEnv_Object * trajToRefereePortEnv; /*    32     8 */
 	ControllerToPlayerPortEnv_Object * controllerToPlayerPortEnv; /*    40     8 */
 
@@ -1109,8 +1109,8 @@ struct PropertiesRO {
 	TrajToRefereePortSys_properties_ro instMain_system_trajToRefereePortSys; /*   160    16 */
 	Environment_properties_ro  instMain_environment; /*   176    48 */
 	/* --- cacheline 3 boundary (192 bytes) was 32 bytes ago --- */
-	CommunicationPlayer_properties_ro instMain_environment_comPlayer; /*   224    16 */
-	CommunicationReferee_properties_ro instMain_environment_comReferee; /*   240    16 */
+	CommunicationPlayer_properties_ro instMain_environment_player; /*   224    16 */
+	CommunicationReferee_properties_ro instMain_environment_referee; /*   240    16 */
 	/* --- cacheline 4 boundary (256 bytes) --- */
 	ControllerToPlayerPortEnv_properties_ro instMain_environment_controllerToPlayerPortEnv; /*   256    16 */
 	ControllerToRefereePortEnv_properties_ro instMain_environment_controllerToRefereePortEnv; /*   272    16 */
@@ -1177,16 +1177,16 @@ struct TrajToRefereePortSys_mutability {
 };
 struct Controller_mutability {
 	_Bool                      trajectoryManager_isMutable:1; /*     0: 7  1 */
-	_Bool                      comPlayer_isMutable:1; /*     0: 6  1 */
-	_Bool                      comReferee_isMutable:1; /*     0: 5  1 */
+	_Bool                      player_isMutable:1;   /*     0: 6  1 */
+	_Bool                      referee_isMutable:1;  /*     0: 5  1 */
 
 	/* size: 1, cachelines: 1, members: 3 */
 	/* bit_padding: 5 bits */
 	/* last cacheline: 1 bytes */
 };
 struct TrajectoryManager_mutability {
-	_Bool                      comPlayer_isMutable:1; /*     0: 7  1 */
-	_Bool                      comReferee_isMutable:1; /*     0: 6  1 */
+	_Bool                      player_isMutable:1;   /*     0: 7  1 */
+	_Bool                      referee_isMutable:1;  /*     0: 6  1 */
 	_Bool                      controller_isMutable:1; /*     0: 5  1 */
 	_Bool                      xPlayer_isMutable:1;  /*     0: 4  1 */
 	_Bool                      zPlayer_isMutable:1;  /*     0: 3  1 */
@@ -1225,9 +1225,9 @@ struct Main_mutability {
 };
 struct Environment_mutability {
 	_Bool                      trajToPlayerPortEnv_isMutable:1; /*     0: 7  1 */
-	_Bool                      comReferee_isMutable:1; /*     0: 6  1 */
+	_Bool                      referee_isMutable:1;  /*     0: 6  1 */
 	_Bool                      controllerToRefereePortEnv_isMutable:1; /*     0: 5  1 */
-	_Bool                      comPlayer_isMutable:1; /*     0: 4  1 */
+	_Bool                      player_isMutable:1;   /*     0: 4  1 */
 	_Bool                      trajToRefereePortEnv_isMutable:1; /*     0: 3  1 */
 	_Bool                      controllerToPlayerPortEnv_isMutable:1; /*     0: 2  1 */
 
@@ -1236,7 +1236,7 @@ struct Environment_mutability {
 	/* last cacheline: 1 bytes */
 };
 struct ControllerToPlayerPortEnv_mutability {
-	_Bool                      comPlayer_isMutable:1; /*     0: 7  1 */
+	_Bool                      player_isMutable:1;   /*     0: 7  1 */
 	_Bool                      controllerToPlayerPortSys_isMutable:1; /*     0: 6  1 */
 
 	/* size: 1, cachelines: 1, members: 2 */
@@ -1245,7 +1245,7 @@ struct ControllerToPlayerPortEnv_mutability {
 };
 struct ControllerToRefereePortEnv_mutability {
 	_Bool                      controllerToRefereePortSys_isMutable:1; /*     0: 7  1 */
-	_Bool                      comReferee_isMutable:1; /*     0: 6  1 */
+	_Bool                      referee_isMutable:1;  /*     0: 6  1 */
 
 	/* size: 1, cachelines: 1, members: 2 */
 	/* bit_padding: 6 bits */
@@ -1253,7 +1253,7 @@ struct ControllerToRefereePortEnv_mutability {
 };
 struct TrajToPlayerPortEnv_mutability {
 	_Bool                      trajToPlayerPortSys_isMutable:1; /*     0: 7  1 */
-	_Bool                      comPlayer_isMutable:1; /*     0: 6  1 */
+	_Bool                      player_isMutable:1;   /*     0: 6  1 */
 
 	/* size: 1, cachelines: 1, members: 2 */
 	/* bit_padding: 6 bits */
@@ -1261,7 +1261,7 @@ struct TrajToPlayerPortEnv_mutability {
 };
 struct TrajToRefereePortEnv_mutability {
 	_Bool                      trajToRefereePortSys_isMutable:1; /*     0: 7  1 */
-	_Bool                      comReferee_isMutable:1; /*     0: 6  1 */
+	_Bool                      referee_isMutable:1;  /*     0: 6  1 */
 
 	/* size: 1, cachelines: 1, members: 2 */
 	/* bit_padding: 6 bits */
@@ -1390,15 +1390,15 @@ struct TrajToRefereePortSys_PropertiesTypes {
 };
 struct Controller_PropertiesTypes {
 	Controller_properties_ro * trajectoryManager_type; /*     0     8 */
-	Controller_properties_ro * comPlayer_type;       /*     8     8 */
-	Controller_properties_ro * comReferee_type;      /*    16     8 */
+	Controller_properties_ro * player_type;          /*     8     8 */
+	Controller_properties_ro * referee_type;         /*    16     8 */
 
 	/* size: 24, cachelines: 1, members: 3 */
 	/* last cacheline: 24 bytes */
 };
 struct TrajectoryManager_PropertiesTypes {
-	TrajectoryManager_properties_ro * comPlayer_type; /*     0     8 */
-	TrajectoryManager_properties_ro * comReferee_type; /*     8     8 */
+	TrajectoryManager_properties_ro * player_type;   /*     0     8 */
+	TrajectoryManager_properties_ro * referee_type;  /*     8     8 */
 	TrajectoryManager_properties_ro * controller_type; /*    16     8 */
 	TrajectoryManager_od *     xPlayer_type;         /*    24     8 */
 	TrajectoryManager_od *     zPlayer_type;         /*    32     8 */
@@ -1438,9 +1438,9 @@ struct Main_PropertiesTypes {
 };
 struct Environment_PropertiesTypes {
 	Environment_properties_ro * trajToPlayerPortEnv_type; /*     0     8 */
-	Environment_properties_ro * comReferee_type;     /*     8     8 */
+	Environment_properties_ro * referee_type;        /*     8     8 */
 	Environment_properties_ro * controllerToRefereePortEnv_type; /*    16     8 */
-	Environment_properties_ro * comPlayer_type;      /*    24     8 */
+	Environment_properties_ro * player_type;         /*    24     8 */
 	Environment_properties_ro * trajToRefereePortEnv_type; /*    32     8 */
 	Environment_properties_ro * controllerToPlayerPortEnv_type; /*    40     8 */
 
@@ -1448,7 +1448,7 @@ struct Environment_PropertiesTypes {
 	/* last cacheline: 48 bytes */
 };
 struct ControllerToPlayerPortEnv_PropertiesTypes {
-	ControllerToPlayerPortEnv_properties_ro * comPlayer_type; /*     0     8 */
+	ControllerToPlayerPortEnv_properties_ro * player_type; /*     0     8 */
 	ControllerToPlayerPortEnv_properties_ro * controllerToPlayerPortSys_type; /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
@@ -1456,21 +1456,21 @@ struct ControllerToPlayerPortEnv_PropertiesTypes {
 };
 struct ControllerToRefereePortEnv_PropertiesTypes {
 	ControllerToRefereePortEnv_properties_ro * controllerToRefereePortSys_type; /*     0     8 */
-	ControllerToRefereePortEnv_properties_ro * comReferee_type; /*     8     8 */
+	ControllerToRefereePortEnv_properties_ro * referee_type; /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
 	/* last cacheline: 16 bytes */
 };
 struct TrajToPlayerPortEnv_PropertiesTypes {
 	TrajToPlayerPortEnv_properties_ro * trajToPlayerPortSys_type; /*     0     8 */
-	TrajToPlayerPortEnv_properties_ro * comPlayer_type; /*     8     8 */
+	TrajToPlayerPortEnv_properties_ro * player_type; /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
 	/* last cacheline: 16 bytes */
 };
 struct TrajToRefereePortEnv_PropertiesTypes {
 	TrajToRefereePortEnv_properties_ro * trajToRefereePortSys_type; /*     0     8 */
-	TrajToRefereePortEnv_properties_ro * comReferee_type; /*     8     8 */
+	TrajToRefereePortEnv_properties_ro * referee_type; /*     8     8 */
 
 	/* size: 16, cachelines: 1, members: 2 */
 	/* last cacheline: 16 bytes */
@@ -2099,8 +2099,8 @@ struct CommunicationReferee_Object {
 struct ActiveObjects {
 	Controller_Object *        instMain_system_controller; /*     0     8 */
 	TrajectoryManager_Object * instMain_system_trajectoryManager; /*     8     8 */
-	CommunicationPlayer_Object * instMain_environment_comPlayer; /*    16     8 */
-	CommunicationReferee_Object * instMain_environment_comReferee; /*    24     8 */
+	CommunicationPlayer_Object * instMain_environment_player; /*    16     8 */
+	CommunicationReferee_Object * instMain_environment_referee; /*    24     8 */
 
 	/* size: 32, cachelines: 1, members: 4 */
 	/* last cacheline: 32 bytes */

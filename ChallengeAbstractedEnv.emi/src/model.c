@@ -61,16 +61,16 @@ static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_
 static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_TrajectoryManager__POINT__trajectoryManager;
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys;
 static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__controller;
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__comPlayer;
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__player;
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys;
 static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__controller;
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__comReferee;
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__referee;
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys;
 static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__trajectoryManager;
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__comPlayer;
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__player;
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys;
 static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__trajectoryManager;
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__comReferee;
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__referee;
 static UML_Signal ChallengeSystem_signal_ChallengeSystem__POINT__connected;
 static UML_SignalEvent ChallengeSystem_signalEvent_ChallengeSystem__POINT__connected_SE;
 static UML_Signal ChallengeSystem_signal_ChallengeSystem__POINT__goPos;
@@ -250,8 +250,8 @@ static UML_Association ChallengeMain_association_ChallengeMain__POINT__System_En
 static UML_Property ChallengeMain_property_ChallengeMain__POINT__System_Environment_TrajToReferee__POINT__trajToRefereePortSys;
 static UML_Property ChallengeMain_property_ChallengeMain__POINT__System_Environment_TrajToReferee__POINT__trajToRefereePortEnv;
 static UML_Class ChallengeEnv_class_ChallengeEnv__POINT__Environment;
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer;
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee;
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player;
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee;
 static UML_Port ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToPlayerPortEnv;
 static UML_Port ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToRefereePortEnv;
 static UML_Port ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToPlayerPortEnv;
@@ -261,16 +261,16 @@ static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__PO
 static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c3;
 static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c4;
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv;
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__comPlayer;
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__player;
 static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__controller;
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv;
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__comReferee;
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__referee;
 static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__controller;
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv;
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__comPlayer;
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__player;
 static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__trajectoryManager;
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv;
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__comReferee;
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__referee;
 static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__trajectoryManager;
 static UML_Class ChallengeEnv_class_ChallengeEnv__POINT__ControllerToPlayerPortEnv;
 static UML_InterfaceRealization ChallengeEnv_interfaceRealization_a63;
@@ -855,8 +855,8 @@ static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__comPlayer, NULL};
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__comPlayer, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__player, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__player, NULL};
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -875,18 +875,18 @@ static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__comPlayer = {
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__player = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comPlayer",
+	.name = "player",
 	.type = &ChallengeSystem_class_ChallengeSystem__POINT__ControllerToPlayerPortSys,
 	.lower = 1,
 	.association = &ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys,
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__comReferee, NULL};
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__comReferee, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__referee, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__controller, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__referee, NULL};
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -905,18 +905,18 @@ static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__comReferee = {
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__referee = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comReferee",
+	.name = "referee",
 	.type = &ChallengeSystem_class_ChallengeSystem__POINT__ControllerToRefereePortSys,
 	.lower = 1,
 	.association = &ChallengeSystem_association_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys,
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__comPlayer, NULL};
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__comPlayer, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__player, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__player, NULL};
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -935,18 +935,18 @@ static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryM
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__comPlayer = {
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__player = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comPlayer",
+	.name = "player",
 	.type = &ChallengeSystem_class_ChallengeSystem__POINT__TrajToPlayerPortSys,
 	.lower = 1,
 	.association = &ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys,
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__comReferee, NULL};
-static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__comReferee, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys_memberEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__referee, NULL};
+static UML_Property * ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys_ownedEnd[] = {(UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__trajectoryManager, (UML_Property*)&ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__referee, NULL};
 static UML_Association ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -965,10 +965,10 @@ static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryM
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__comReferee = {
+static UML_Property ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__referee = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comReferee",
+	.name = "referee",
 	.type = &ChallengeSystem_class_ChallengeSystem__POINT__TrajToRefereePortSys,
 	.lower = 1,
 	.association = &ChallengeSystem_association_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys,
@@ -1337,7 +1337,7 @@ static UML_Transition ChallengeSystem_transition_a102 = {
 	.target = (UML_Vertex*)&ChallengeSystem_state_ChallengeSystem__POINT__Controller__POINT__SM__POINT__R__POINT__Shoot
 };
 static char * ChallengeSystem_opaqueBehavior_a103_language[] = {"C", NULL};
-static char * ChallengeSystem_opaqueBehavior_a103_body[] = {"SEND(GET(this, comPlayer), setSuction, 100);", NULL};
+static char * ChallengeSystem_opaqueBehavior_a103_body[] = {"SEND(GET(this, player), setSuction, 100);", NULL};
 static UML_OpaqueBehavior ChallengeSystem_opaqueBehavior_a103 = {
 	.c_type = DESC_TYPE_UML_OpaqueBehavior,
 	.visibility = UML_PUBLIC,
@@ -1986,7 +1986,7 @@ static UML_Transition ChallengeSystem_transition_a183 = {
 	.target = (UML_Vertex*)&ChallengeSystem_state_ChallengeSystem__POINT__TrajectoryManager__POINT__SM__POINT__R__POINT__WaitSignals
 };
 static char * ChallengeSystem_opaqueBehavior_a184_language[] = {"C", NULL};
-static char * ChallengeSystem_opaqueBehavior_a184_body[] = {"\n						SEND(GET(this, comPlayer), getPlayerGPS);\n						SEND(GET(this, comPlayer), getBallGPS);\n						SEND(GET(this, comPlayer), getCompass);\n						SEND(GET(this, comReferee), checkReferee);\n						SET(this, receivedPlayer, 0);\n						SET(this, receivedBall, 0);\n						SET(this, receivedCompass, 0);\n						SET(this, ack, FALSE);\n						", NULL};
+static char * ChallengeSystem_opaqueBehavior_a184_body[] = {"\n						SEND(GET(this, player), getPlayerGPS);\n						SEND(GET(this, player), getBallGPS);\n						SEND(GET(this, player), getCompass);\n						SEND(GET(this, referee), checkReferee);\n						SET(this, receivedPlayer, 0);\n						SET(this, receivedBall, 0);\n						SET(this, receivedCompass, 0);\n						SET(this, ack, FALSE);\n						", NULL};
 static UML_OpaqueBehavior ChallengeSystem_opaqueBehavior_a184 = {
 	.c_type = DESC_TYPE_UML_OpaqueBehavior,
 	.visibility = UML_PUBLIC,
@@ -2248,7 +2248,7 @@ static UML_OpaqueExpression ChallengeSystem_opaqueExpression_a215 = {
 	.body = ChallengeSystem_opaqueExpression_a215_body
 };
 static char * ChallengeSystem_opaqueBehavior_a216_language[] = {"C", NULL};
-static char * ChallengeSystem_opaqueBehavior_a216_body[] = {"\n						SET(this, xArrived, 0);\n						SET(this, zArrived, 0);\n\n						int32_t xDest = 0, zDest = 0;\n						if(GET(this, ballTarget)) {\n							xDest = GET(this, xBall);\n							zDest = GET(this, zBall);\n						} else {\n							xDest = GET(this, xTarget);\n							zDest = GET(this, zTarget);\n						}\n\n						int32_t xDiff = xDest - GET(this, xPlayer);\n						int32_t zDiff = zDest - GET(this, zPlayer);\n\n						double aPlayerRad = (M_PI * GET(this, aPlayer)) / 180.0;\n						int32_t xRobot = xDiff * cos(aPlayerRad) - zDiff * sin(aPlayerRad);\n						int32_t zRobot = - xDiff * sin(aPlayerRad) - zDiff * cos(aPlayerRad);\n\n						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);\n						while(aRobot > 180)\n							aRobot -= 360;\n						while(aRobot < -180)\n							aRobot += 360;\n						if(GET(this, ballTarget) && (aRobot > 6 || aRobot < -6)) {\n							SET(this, needTurn, TRUE);\n						}\n\n						if(abs(xDiff) + abs(zDiff) < 20) {\n							SEND(GET(this, comPlayer), setSuction, -100);\n						}\n\n						int32_t dmf = GET(this, kp) * xRobot;\n						int32_t dmr = GET(this, kp) * zRobot;\n\n						if(dmf > 100) {\n							dmf = 100;\n						} else if(dmf < -100) {\n							dmf = -100;\n						}\n						if(dmr > 100) {\n							dmr = 100;\n						} else if(dmr < -100) {\n							dmr = -100;\n						}\n\n						if(GET(this, ballInRobot) && GET(this, ballTarget)) {\n							// The ball has been taken\n							SET(this, zArrived, 1);\n							SET(this, xArrived, 1);\n							SEND(GET(this, comPlayer), moveForward, 0);\n							SEND(GET(this, comPlayer), moveRight, 0);\n						} else {\n							if(abs(xRobot) > 2) {\n								SEND(GET(this, comPlayer), moveForward, dmf);\n							} else {\n								SEND(GET(this, comPlayer), moveForward, 0);\n								SET(this, xArrived, 1);\n							}\n\n							if(abs(zRobot) > 2) {\n								SEND(GET(this, comPlayer), moveRight, -dmr);\n							} else {\n								SEND(GET(this, comPlayer), moveRight, 0);\n								SET(this, zArrived, 1);\n							}\n						}\n						", NULL};
+static char * ChallengeSystem_opaqueBehavior_a216_body[] = {"\n						SET(this, xArrived, 0);\n						SET(this, zArrived, 0);\n\n						int32_t xDest = 0, zDest = 0;\n						if(GET(this, ballTarget)) {\n							xDest = GET(this, xBall);\n							zDest = GET(this, zBall);\n						} else {\n							xDest = GET(this, xTarget);\n							zDest = GET(this, zTarget);\n						}\n\n						int32_t xDiff = xDest - GET(this, xPlayer);\n						int32_t zDiff = zDest - GET(this, zPlayer);\n\n						double aPlayerRad = (M_PI * GET(this, aPlayer)) / 180.0;\n						int32_t xRobot = xDiff * cos(aPlayerRad) - zDiff * sin(aPlayerRad);\n						int32_t zRobot = - xDiff * sin(aPlayerRad) - zDiff * cos(aPlayerRad);\n\n						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);\n						while(aRobot > 180)\n							aRobot -= 360;\n						while(aRobot < -180)\n							aRobot += 360;\n						if(GET(this, ballTarget) && (aRobot > 6 || aRobot < -6)) {\n							SET(this, needTurn, TRUE);\n						}\n\n						if(abs(xDiff) + abs(zDiff) < 20) {\n							SEND(GET(this, player), setSuction, -100);\n						}\n\n						int32_t dmf = GET(this, kp) * xRobot;\n						int32_t dmr = GET(this, kp) * zRobot;\n\n						if(dmf > 100) {\n							dmf = 100;\n						} else if(dmf < -100) {\n							dmf = -100;\n						}\n						if(dmr > 100) {\n							dmr = 100;\n						} else if(dmr < -100) {\n							dmr = -100;\n						}\n\n						if(GET(this, ballInRobot) && GET(this, ballTarget)) {\n							// The ball has been taken\n							SET(this, zArrived, 1);\n							SET(this, xArrived, 1);\n							SEND(GET(this, player), moveForward, 0);\n							SEND(GET(this, player), moveRight, 0);\n						} else {\n							if(abs(xRobot) > 2) {\n								SEND(GET(this, player), moveForward, dmf);\n							} else {\n								SEND(GET(this, player), moveForward, 0);\n								SET(this, xArrived, 1);\n							}\n\n							if(abs(zRobot) > 2) {\n								SEND(GET(this, player), moveRight, -dmr);\n							} else {\n								SEND(GET(this, player), moveRight, 0);\n								SET(this, zArrived, 1);\n							}\n						}\n						", NULL};
 static UML_OpaqueBehavior ChallengeSystem_opaqueBehavior_a216 = {
 	.c_type = DESC_TYPE_UML_OpaqueBehavior,
 	.visibility = UML_PUBLIC,
@@ -2351,7 +2351,7 @@ static UML_OpaqueExpression ChallengeSystem_opaqueExpression_a226 = {
 	.body = ChallengeSystem_opaqueExpression_a226_body
 };
 static char * ChallengeSystem_opaqueBehavior_a227_language[] = {"C", NULL};
-static char * ChallengeSystem_opaqueBehavior_a227_body[] = {"\n						SET(this, aArrived, 0);\n						int32_t xDest = 0, zDest = 0;\n						if(GET(this, ballTarget)) {\n							xDest = GET(this, xBall);\n							zDest = GET(this, zBall);\n						} else {\n							xDest = GET(this, xTarget);\n							zDest = GET(this, zTarget);\n						}\n						int32_t xDiff = xDest - GET(this, xPlayer);\n						int32_t zDiff = zDest - GET(this, zPlayer);\n\n						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);\n						while(aRobot > 180)\n							aRobot -= 360;\n						while(aRobot < -180)\n							aRobot += 360;\n\n						if(abs(aRobot) > 30) {\n							SEND(GET(this, comPlayer), stop);\n						}\n\n						bool stopAfter = FALSE;\n						if(abs(aRobot) < 30) {\n							stopAfter = TRUE;\n						}\n\n						if(GET(this, ballInRobot) && GET(this, ballTarget)) {\n							// The ball has been taken\n							SET(this, aArrived, 1);\n							SEND(GET(this, comPlayer), spin, 0, FALSE);\n						} else {\n							if(aRobot > 3 || aRobot < -3) {\n								SEND(GET(this, comPlayer), spin, ((aRobot > 0) ? 85:-85), stopAfter);\n							} else {\n								SEND(GET(this, comPlayer), spin, 0, FALSE);\n								SET(this, aArrived, 1);\n							}\n						}\n						", NULL};
+static char * ChallengeSystem_opaqueBehavior_a227_body[] = {"\n						SET(this, aArrived, 0);\n						int32_t xDest = 0, zDest = 0;\n						if(GET(this, ballTarget)) {\n							xDest = GET(this, xBall);\n							zDest = GET(this, zBall);\n						} else {\n							xDest = GET(this, xTarget);\n							zDest = GET(this, zTarget);\n						}\n						int32_t xDiff = xDest - GET(this, xPlayer);\n						int32_t zDiff = zDest - GET(this, zPlayer);\n\n						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);\n						while(aRobot > 180)\n							aRobot -= 360;\n						while(aRobot < -180)\n							aRobot += 360;\n\n						if(abs(aRobot) > 30) {\n							SEND(GET(this, player), stop);\n						}\n\n						bool stopAfter = FALSE;\n						if(abs(aRobot) < 30) {\n							stopAfter = TRUE;\n						}\n\n						if(GET(this, ballInRobot) && GET(this, ballTarget)) {\n							// The ball has been taken\n							SET(this, aArrived, 1);\n							SEND(GET(this, player), spin, 0, FALSE);\n						} else {\n							if(aRobot > 3 || aRobot < -3) {\n								SEND(GET(this, player), spin, ((aRobot > 0) ? 85:-85), stopAfter);\n							} else {\n								SEND(GET(this, player), spin, 0, FALSE);\n								SET(this, aArrived, 1);\n							}\n						}\n						", NULL};
 static UML_OpaqueBehavior ChallengeSystem_opaqueBehavior_a227 = {
 	.c_type = DESC_TYPE_UML_OpaqueBehavior,
 	.visibility = UML_PUBLIC,
@@ -2788,7 +2788,7 @@ static UML_Property ChallengeMain_property_ChallengeMain__POINT__System_Environm
 	.class = NULL
 };
 static UML_Connector * ChallengeEnv_class_ChallengeEnv__POINT__Environment_ownedConnector[] = {(UML_Connector*)&ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c1, (UML_Connector*)&ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c2, (UML_Connector*)&ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c3, (UML_Connector*)&ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c4, NULL};
-static UML_Property * ChallengeEnv_class_ChallengeEnv__POINT__Environment_ownedAttribute[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToPlayerPortEnv, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToRefereePortEnv, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToPlayerPortEnv, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToRefereePortEnv, NULL};
+static UML_Property * ChallengeEnv_class_ChallengeEnv__POINT__Environment_ownedAttribute[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToPlayerPortEnv, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToRefereePortEnv, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToPlayerPortEnv, (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToRefereePortEnv, NULL};
 static UML_InterfaceRealization * ChallengeEnv_class_ChallengeEnv__POINT__Environment_interfaceRealization[] = {NULL};
 static UML_Port * ChallengeEnv_class_ChallengeEnv__POINT__Environment_ownedPort[] = {(UML_Port*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToPlayerPortEnv, (UML_Port*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToRefereePortEnv, (UML_Port*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToPlayerPortEnv, (UML_Port*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToRefereePortEnv, NULL};
 static UML_Class * ChallengeEnv_class_ChallengeEnv__POINT__Environment_superClass[] = {NULL};
@@ -2807,20 +2807,20 @@ static UML_Class ChallengeEnv_class_ChallengeEnv__POINT__Environment = {
 	.isActive = 0,
 	.ownedReception = ChallengeEnv_class_ChallengeEnv__POINT__Environment_ownedReception
 };
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer = {
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comPlayer",
+	.name = "player",
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__CommunicationPlayer,
 	.lower = 1,
 	.association = NULL,
 	.aggregation = UML_COMPOSITE,
 	.class = &ChallengeEnv_class_ChallengeEnv__POINT__Environment
 };
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee = {
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comReferee",
+	.name = "referee",
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__CommunicationReferee,
 	.lower = 1,
 	.association = NULL,
@@ -2903,7 +2903,7 @@ static UML_Port ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajT
 	.isBehavior = 0,
 	.required = ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToRefereePortEnv_required
 };
-static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c1_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToPlayerPortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
+static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c1_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToPlayerPortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
 static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c1 = {
 	.c_type = DESC_TYPE_UML_Connector,
 	.visibility = UML_PUBLIC,
@@ -2911,7 +2911,7 @@ static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__PO
 	.end = ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c1_end,
 	.type = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv
 };
-static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c2_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToRefereePortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
+static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c2_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__controllerToRefereePortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
 static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c2 = {
 	.c_type = DESC_TYPE_UML_Connector,
 	.visibility = UML_PUBLIC,
@@ -2919,7 +2919,7 @@ static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__PO
 	.end = ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c2_end,
 	.type = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv
 };
-static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c3_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToPlayerPortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
+static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c3_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToPlayerPortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
 static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c3 = {
 	.c_type = DESC_TYPE_UML_Connector,
 	.visibility = UML_PUBLIC,
@@ -2927,7 +2927,7 @@ static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__PO
 	.end = ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c3_end,
 	.type = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv
 };
-static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c4_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToRefereePortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
+static UML_ConnectorEnd ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c4_end[] = {{.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee, .partWithPort = NULL}, {.c_type = DESC_TYPE_UML_ConnectorEnd, .lower = 1, .role = (UML_Property*)&ChallengeEnv_port_ChallengeEnv__POINT__Environment__POINT__trajToRefereePortEnv, .partWithPort = NULL}, C_UML_CONNECTOREND_NULL};
 static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c4 = {
 	.c_type = DESC_TYPE_UML_Connector,
 	.visibility = UML_PUBLIC,
@@ -2935,8 +2935,8 @@ static UML_Connector ChallengeEnv_connector_ChallengeEnv__POINT__Environment__PO
 	.end = ChallengeEnv_connector_ChallengeEnv__POINT__Environment__POINT__c4_end,
 	.type = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv
 };
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__comPlayer, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__controller, NULL};
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__comPlayer, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__controller, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__player, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__controller, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__player, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__controller, NULL};
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -2945,10 +2945,10 @@ static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__Communicati
 	.memberEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv_memberEnd,
 	.ownedEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv_ownedEnd
 };
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__comPlayer = {
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__player = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comPlayer",
+	.name = "player",
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__CommunicationPlayer,
 	.lower = 1,
 	.association = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv,
@@ -2965,8 +2965,8 @@ static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlay
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__comReferee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__controller, NULL};
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__comReferee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__controller, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__referee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__controller, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__referee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__controller, NULL};
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -2975,10 +2975,10 @@ static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__Communicati
 	.memberEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv_memberEnd,
 	.ownedEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv_ownedEnd
 };
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__comReferee = {
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__referee = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comReferee",
+	.name = "referee",
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__CommunicationReferee,
 	.lower = 1,
 	.association = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv,
@@ -2995,8 +2995,8 @@ static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationRefe
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__comPlayer, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__trajectoryManager, NULL};
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__comPlayer, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__trajectoryManager, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__player, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__trajectoryManager, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__player, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__trajectoryManager, NULL};
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -3005,10 +3005,10 @@ static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__Communicati
 	.memberEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv_memberEnd,
 	.ownedEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv_ownedEnd
 };
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__comPlayer = {
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__player = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comPlayer",
+	.name = "player",
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__CommunicationPlayer,
 	.lower = 1,
 	.association = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv,
@@ -3025,8 +3025,8 @@ static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlay
 	.aggregation = UML_NONE,
 	.class = NULL
 };
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__comReferee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__trajectoryManager, NULL};
-static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__comReferee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__trajectoryManager, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv_memberEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__referee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__trajectoryManager, NULL};
+static UML_Property * ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv_ownedEnd[] = {(UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__referee, (UML_Property*)&ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__trajectoryManager, NULL};
 static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv = {
 	.c_type = DESC_TYPE_UML_Association,
 	.visibility = UML_PUBLIC,
@@ -3035,10 +3035,10 @@ static UML_Association ChallengeEnv_association_ChallengeEnv__POINT__Communicati
 	.memberEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv_memberEnd,
 	.ownedEnd = ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv_ownedEnd
 };
-static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__comReferee = {
+static UML_Property ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__referee = {
 	.c_type = DESC_TYPE_UML_Property,
 	.visibility = UML_PUBLIC,
-	.name = "comReferee",
+	.name = "referee",
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__CommunicationReferee,
 	.lower = 1,
 	.association = &ChallengeEnv_association_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv,
@@ -4593,7 +4593,7 @@ static UML_Class ChallengeDAL_class_ChallengeDAL__POINT__TrajUser = {
 	 * Of transition "" from "Turn" to "Shoot".
 	 */
 	static void c_function_ChallengeSystem_opaqueBehavior_a103(Controller_Object * this, finish_signal_parameters * params) {
-		SEND(GET(this, comPlayer), setSuction, 100);
+		SEND(GET(this, player), setSuction, 100);
 	}
 	/*
 	 * Opaque behavior for the class Controller.
@@ -4651,10 +4651,10 @@ static UML_Class ChallengeDAL_class_ChallengeDAL__POINT__TrajUser = {
 	 */
 	static void c_function_ChallengeSystem_opaqueBehavior_a184(TrajectoryManager_Object * this, void * params) {
 		
-								SEND(GET(this, comPlayer), getPlayerGPS);
-		SEND(GET(this, comPlayer), getBallGPS);
-		SEND(GET(this, comPlayer), getCompass);
-		SEND(GET(this, comReferee), checkReferee);
+								SEND(GET(this, player), getPlayerGPS);
+		SEND(GET(this, player), getBallGPS);
+		SEND(GET(this, player), getCompass);
+		SEND(GET(this, referee), checkReferee);
 		SET(this, receivedPlayer, 0);
 		SET(this, receivedBall, 0);
 		SET(this, receivedCompass, 0);
@@ -4754,7 +4754,7 @@ static UML_Class ChallengeDAL_class_ChallengeDAL__POINT__TrajUser = {
 		}
 		
 								if(abs(xDiff) + abs(zDiff) < 20) {
-									SEND(GET(this, comPlayer), setSuction, -100);
+									SEND(GET(this, player), setSuction, -100);
 		}
 		
 								int32_t dmf = GET(this, kp) * xRobot;
@@ -4774,20 +4774,20 @@ static UML_Class ChallengeDAL_class_ChallengeDAL__POINT__TrajUser = {
 									// The ball has been taken
 									SET(this, zArrived, 1);
 		SET(this, xArrived, 1);
-		SEND(GET(this, comPlayer), moveForward, 0);
-		SEND(GET(this, comPlayer), moveRight, 0);
+		SEND(GET(this, player), moveForward, 0);
+		SEND(GET(this, player), moveRight, 0);
 		} else {
 									if(abs(xRobot) > 2) {
-										SEND(GET(this, comPlayer), moveForward, dmf);
+										SEND(GET(this, player), moveForward, dmf);
 		} else {
-										SEND(GET(this, comPlayer), moveForward, 0);
+										SEND(GET(this, player), moveForward, 0);
 		SET(this, xArrived, 1);
 		}
 		
 									if(abs(zRobot) > 2) {
-										SEND(GET(this, comPlayer), moveRight, -dmr);
+										SEND(GET(this, player), moveRight, -dmr);
 		} else {
-										SEND(GET(this, comPlayer), moveRight, 0);
+										SEND(GET(this, player), moveRight, 0);
 		SET(this, zArrived, 1);
 		}
 								}
@@ -4822,7 +4822,7 @@ static UML_Class ChallengeDAL_class_ChallengeDAL__POINT__TrajUser = {
 		while(aRobot < -180)
 									aRobot += 360;
 		if(abs(aRobot) > 30) {
-									SEND(GET(this, comPlayer), stop);
+									SEND(GET(this, player), stop);
 		}
 		
 								bool stopAfter = FALSE;
@@ -4833,12 +4833,12 @@ static UML_Class ChallengeDAL_class_ChallengeDAL__POINT__TrajUser = {
 								if(GET(this, ballInRobot) && GET(this, ballTarget)) {
 									// The ball has been taken
 									SET(this, aArrived, 1);
-		SEND(GET(this, comPlayer), spin, 0, FALSE);
+		SEND(GET(this, player), spin, 0, FALSE);
 		} else {
 									if(aRobot > 3 || aRobot < -3) {
-										SEND(GET(this, comPlayer), spin, ((aRobot > 0) ? 85:-85), stopAfter);
+										SEND(GET(this, player), spin, ((aRobot > 0) ? 85:-85), stopAfter);
 		} else {
-										SEND(GET(this, comPlayer), spin, 0, FALSE);
+										SEND(GET(this, player), spin, 0, FALSE);
 		SET(this, aArrived, 1);
 		}
 								}
@@ -5201,8 +5201,8 @@ UML_Signal * eventSet_DirectionObserver[0] = {
  */
  static EventPool eventPool_instMain_system_controller;
  static EventPool eventPool_instMain_system_trajectoryManager;
- static EventPool eventPool_instMain_environment_comPlayer;
- static EventPool eventPool_instMain_environment_comReferee;
+ static EventPool eventPool_instMain_environment_player;
+ static EventPool eventPool_instMain_environment_referee;
 #ifdef WITH_OBSERVERS
 static EventPool eventPool_instObs_observer;
 #endif /* WITH_OBSERVERS */
@@ -5310,22 +5310,22 @@ static EventPool eventPool_instMain_system_trajectoryManager = {
 };
 
 #if WITH_EVENT_META_DATA
-	static void * data_instMain_environment_comPlayer[3] = {
-		store.instMain_environment_comPlayer.ep.eventOccurred,
-		store.instMain_environment_comPlayer.ep_params.eventOccurred,
-		eventPool_instMain_environment_comPlayer.meta.metaData
+	static void * data_instMain_environment_player[3] = {
+		store.instMain_environment_player.ep.eventOccurred,
+		store.instMain_environment_player.ep_params.eventOccurred,
+		eventPool_instMain_environment_player.meta.metaData
 	};
-	static uint32_t element_size_instMain_environment_comPlayer[3] = {
+	static uint32_t element_size_instMain_environment_player[3] = {
 		sizeof(EventId), 
 		sizeof(CommunicationPlayer_events),
 		sizeof(EventMetaData)
 	};
 #else
-	static void * data_instMain_environment_comPlayer[2] = {
-		store.instMain_environment_comPlayer.ep.eventOccurred,
-		store.instMain_environment_comPlayer.ep_params.eventOccurred,
+	static void * data_instMain_environment_player[2] = {
+		store.instMain_environment_player.ep.eventOccurred,
+		store.instMain_environment_player.ep_params.eventOccurred,
 	};
-	static uint32_t element_size_instMain_environment_comPlayer[2] = {
+	static uint32_t element_size_instMain_environment_player[2] = {
 		sizeof(EventId),
 		sizeof(CommunicationPlayer_events),
 	};
@@ -5333,19 +5333,19 @@ static EventPool eventPool_instMain_system_trajectoryManager = {
 
 
 #if WITH_EVENT_META_DATA
-static uint8_t reorganize_buffer_instMain_environment_comPlayer[EVENT_POOL_SIZE * (sizeof(EventId) + sizeof(CommunicationPlayer_events) + sizeof(EventMetaData))];
+static uint8_t reorganize_buffer_instMain_environment_player[EVENT_POOL_SIZE * (sizeof(EventId) + sizeof(CommunicationPlayer_events) + sizeof(EventMetaData))];
 #else
-static uint8_t reorganize_buffer_instMain_environment_comPlayer[EVENT_POOL_SIZE * (sizeof(EventId) + sizeof(CommunicationPlayer_events))];
+static uint8_t reorganize_buffer_instMain_environment_player[EVENT_POOL_SIZE * (sizeof(EventId) + sizeof(CommunicationPlayer_events))];
 #endif /* WITH_EVENT_META_DATA */
 
-static EventPool eventPool_instMain_environment_comPlayer = {
+static EventPool eventPool_instMain_environment_player = {
 	// Init the fifo
-	.fifo.data = data_instMain_environment_comPlayer,
-	.fifo.element_size = element_size_instMain_environment_comPlayer,
-	.fifo.nb = &(store.instMain_environment_comPlayer.ep.nbEvents),
+	.fifo.data = data_instMain_environment_player,
+	.fifo.element_size = element_size_instMain_environment_player,
+	.fifo.nb = &(store.instMain_environment_player.ep.nbEvents),
 	.fifo.size = EVENT_POOL_SIZE,
 	.fifo.writing = 0,
-	.fifo.reorganize_buffer = reorganize_buffer_instMain_environment_comPlayer,
+	.fifo.reorganize_buffer = reorganize_buffer_instMain_environment_player,
 	#if WITH_EVENT_META_DATA
 	.fifo.nb_layers = 3,
 	#else
@@ -5361,22 +5361,22 @@ static EventPool eventPool_instMain_environment_comPlayer = {
 };
 
 #if WITH_EVENT_META_DATA
-	static void * data_instMain_environment_comReferee[3] = {
-		store.instMain_environment_comReferee.ep.eventOccurred,
+	static void * data_instMain_environment_referee[3] = {
+		store.instMain_environment_referee.ep.eventOccurred,
 		NULL,
-		eventPool_instMain_environment_comReferee.meta.metaData
+		eventPool_instMain_environment_referee.meta.metaData
 	};
-	static uint32_t element_size_instMain_environment_comReferee[3] = {
+	static uint32_t element_size_instMain_environment_referee[3] = {
 		sizeof(EventId), 
 		0,
 		sizeof(EventMetaData)
 	};
 #else
-	static void * data_instMain_environment_comReferee[2] = {
-		store.instMain_environment_comReferee.ep.eventOccurred,
+	static void * data_instMain_environment_referee[2] = {
+		store.instMain_environment_referee.ep.eventOccurred,
 		NULL,
 	};
-	static uint32_t element_size_instMain_environment_comReferee[2] = {
+	static uint32_t element_size_instMain_environment_referee[2] = {
 		sizeof(EventId),
 		0
 	};
@@ -5384,19 +5384,19 @@ static EventPool eventPool_instMain_environment_comPlayer = {
 
 
 #if WITH_EVENT_META_DATA
-static uint8_t reorganize_buffer_instMain_environment_comReferee[EVENT_POOL_SIZE * (sizeof(EventId) + sizeof(EventMetaData))];
+static uint8_t reorganize_buffer_instMain_environment_referee[EVENT_POOL_SIZE * (sizeof(EventId) + sizeof(EventMetaData))];
 #else
-static uint8_t reorganize_buffer_instMain_environment_comReferee[EVENT_POOL_SIZE * sizeof(EventId)];
+static uint8_t reorganize_buffer_instMain_environment_referee[EVENT_POOL_SIZE * sizeof(EventId)];
 #endif /* WITH_EVENT_META_DATA */
 
-static EventPool eventPool_instMain_environment_comReferee = {
+static EventPool eventPool_instMain_environment_referee = {
 	// Init the fifo
-	.fifo.data = data_instMain_environment_comReferee,
-	.fifo.element_size = element_size_instMain_environment_comReferee,
-	.fifo.nb = &(store.instMain_environment_comReferee.ep.nbEvents),
+	.fifo.data = data_instMain_environment_referee,
+	.fifo.element_size = element_size_instMain_environment_referee,
+	.fifo.nb = &(store.instMain_environment_referee.ep.nbEvents),
 	.fifo.size = EVENT_POOL_SIZE,
 	.fifo.writing = 0,
-	.fifo.reorganize_buffer = reorganize_buffer_instMain_environment_comReferee,
+	.fifo.reorganize_buffer = reorganize_buffer_instMain_environment_referee,
 	#if WITH_EVENT_META_DATA
 	.fifo.nb_layers = 3,
 	#else
@@ -5471,8 +5471,8 @@ static EventPool eventPool_instObs_observer = {
  */
 static NbOutgoings_t fireables_instMain_system_controller[3][2] = {{0}};
 static NbOutgoings_t fireables_instMain_system_trajectoryManager[6][2] = {{0}};
-static NbOutgoings_t fireables_instMain_environment_comPlayer[11][1] = {{0}};
-static NbOutgoings_t fireables_instMain_environment_comReferee[5][2] = {{0}};
+static NbOutgoings_t fireables_instMain_environment_player[11][1] = {{0}};
+static NbOutgoings_t fireables_instMain_environment_referee[5][2] = {{0}};
 #ifdef WITH_OBSERVERS
 static NbOutgoings_t fireables_instObs_observer[1][1] = {{0}};
 #endif /* WITH_OBSERVERS */
@@ -5543,16 +5543,16 @@ Controller_classInfo ChallengeSystem__POINT__Controller_classInfo = {
 	.type = &ChallengeSystem_class_ChallengeSystem__POINT__Controller,
 	.mutability = {
 		.trajectoryManager_isMutable = false,
-		.comPlayer_isMutable = false,
-		.comReferee_isMutable = false
+		.player_isMutable = false,
+		.referee_isMutable = false
 	}
 };
 
 TrajectoryManager_classInfo ChallengeSystem__POINT__TrajectoryManager_classInfo = {
 	.type = &ChallengeSystem_class_ChallengeSystem__POINT__TrajectoryManager,
 	.mutability = {
-		.comPlayer_isMutable = false,
-		.comReferee_isMutable = false,
+		.player_isMutable = false,
+		.referee_isMutable = false,
 		.controller_isMutable = false,
 		.xPlayer_isMutable = true,
 		.zPlayer_isMutable = true,
@@ -5591,9 +5591,9 @@ Environment_classInfo ChallengeEnv__POINT__Environment_classInfo = {
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__Environment,
 	.mutability = {
 		.trajToPlayerPortEnv_isMutable = false,
-		.comReferee_isMutable = false,
+		.referee_isMutable = false,
 		.controllerToRefereePortEnv_isMutable = false,
-		.comPlayer_isMutable = false,
+		.player_isMutable = false,
 		.trajToRefereePortEnv_isMutable = false,
 		.controllerToPlayerPortEnv_isMutable = false
 	}
@@ -5602,7 +5602,7 @@ Environment_classInfo ChallengeEnv__POINT__Environment_classInfo = {
 ControllerToPlayerPortEnv_classInfo ChallengeEnv__POINT__ControllerToPlayerPortEnv_classInfo = {
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__ControllerToPlayerPortEnv,
 	.mutability = {
-		.comPlayer_isMutable = false,
+		.player_isMutable = false,
 		.controllerToPlayerPortSys_isMutable = false
 	}
 };
@@ -5611,7 +5611,7 @@ ControllerToRefereePortEnv_classInfo ChallengeEnv__POINT__ControllerToRefereePor
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__ControllerToRefereePortEnv,
 	.mutability = {
 		.controllerToRefereePortSys_isMutable = false,
-		.comReferee_isMutable = false
+		.referee_isMutable = false
 	}
 };
 
@@ -5619,7 +5619,7 @@ TrajToPlayerPortEnv_classInfo ChallengeEnv__POINT__TrajToPlayerPortEnv_classInfo
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__TrajToPlayerPortEnv,
 	.mutability = {
 		.trajToPlayerPortSys_isMutable = false,
-		.comPlayer_isMutable = false
+		.player_isMutable = false
 	}
 };
 
@@ -5627,7 +5627,7 @@ TrajToRefereePortEnv_classInfo ChallengeEnv__POINT__TrajToRefereePortEnv_classIn
 	.type = &ChallengeEnv_class_ChallengeEnv__POINT__TrajToRefereePortEnv,
 	.mutability = {
 		.trajToRefereePortSys_isMutable = false,
-		.comReferee_isMutable = false
+		.referee_isMutable = false
 	}
 };
 
@@ -5786,57 +5786,57 @@ static TrajectoryManager_Object ao_instMain_system_trajectoryManager = {
 	.in_environment = false
 };
 /**
- * Struct initializer for the comPlayer active object.
+ * Struct initializer for the player active object.
  */
-static CommunicationPlayer_Object ao_instMain_environment_comPlayer = {
-	.name = "instMain_environment_comPlayer",
+static CommunicationPlayer_Object ao_instMain_environment_player = {
+	.name = "instMain_environment_player",
 	.classInfo = &ChallengeEnv__POINT__CommunicationPlayer_classInfo,
-	.part = (UML_Property *) &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer,
-	.properties_ro = (void *) &(properties_ro.instMain_environment_comPlayer),
+	.part = (UML_Property *) &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player,
+	.properties_ro = (void *) &(properties_ro.instMain_environment_player),
 	.nb_properties_ro = 2,
 	.instance = &instCommunicationPlayer_od_specification,
 	.instanceSize = sizeof(CommunicationPlayer_od),
-	.store = &(store.instMain_environment_comPlayer),
+	.store = &(store.instMain_environment_player),
 	.operations = NULL,
 	.multiplicity_id = 0,
 	.stateMachine = &ChallengeEnv_stateMachine_ChallengeEnv__POINT__CommunicationPlayer__POINT__SM,
 	.eventParamsSize = sizeof(CommunicationPlayer_events),
-	.eventPool = &eventPool_instMain_environment_comPlayer,
-	.reorganize_buffer = reorganize_buffer_instMain_environment_comPlayer,
-	.fireables = (NbOutgoings_t *) fireables_instMain_environment_comPlayer,
+	.eventPool = &eventPool_instMain_environment_player,
+	.reorganize_buffer = reorganize_buffer_instMain_environment_player,
+	.fireables = (NbOutgoings_t *) fireables_instMain_environment_player,
 	.nbFireables = 0,
 	.fireablesMax = 11,
 	.fireablesLength = 1,
-	.store_cs = &(store.instMain_environment_comPlayer.cs),
-	.store_ep_params = &(store.instMain_environment_comPlayer.ep_params),
-	.properties_rw = &(store.instMain_environment_comPlayer.od),
+	.store_cs = &(store.instMain_environment_player.cs),
+	.store_ep_params = &(store.instMain_environment_player.ep_params),
+	.properties_rw = &(store.instMain_environment_player.od),
 	.in_environment = false
 };
 /**
- * Struct initializer for the comReferee active object.
+ * Struct initializer for the referee active object.
  */
-static CommunicationReferee_Object ao_instMain_environment_comReferee = {
-	.name = "instMain_environment_comReferee",
+static CommunicationReferee_Object ao_instMain_environment_referee = {
+	.name = "instMain_environment_referee",
 	.classInfo = &ChallengeEnv__POINT__CommunicationReferee_classInfo,
-	.part = (UML_Property *) &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee,
-	.properties_ro = (void *) &(properties_ro.instMain_environment_comReferee),
+	.part = (UML_Property *) &ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee,
+	.properties_ro = (void *) &(properties_ro.instMain_environment_referee),
 	.nb_properties_ro = 2,
 	.instance = &instCommunicationReferee_od_specification,
 	.instanceSize = sizeof(CommunicationReferee_od),
-	.store = &(store.instMain_environment_comReferee),
+	.store = &(store.instMain_environment_referee),
 	.operations = NULL,
 	.multiplicity_id = 0,
 	.stateMachine = &ChallengeEnv_stateMachine_ChallengeEnv__POINT__CommunicationReferee__POINT__SM,
 	.eventParamsSize = 0,
-	.eventPool = &eventPool_instMain_environment_comReferee,
-	.reorganize_buffer = reorganize_buffer_instMain_environment_comReferee,
-	.fireables = (NbOutgoings_t *) fireables_instMain_environment_comReferee,
+	.eventPool = &eventPool_instMain_environment_referee,
+	.reorganize_buffer = reorganize_buffer_instMain_environment_referee,
+	.fireables = (NbOutgoings_t *) fireables_instMain_environment_referee,
 	.nbFireables = 0,
 	.fireablesMax = 5,
 	.fireablesLength = 2,
-	.store_cs = &(store.instMain_environment_comReferee.cs),
+	.store_cs = &(store.instMain_environment_referee.cs),
 	.store_ep_params = NULL,
-	.properties_rw = &(store.instMain_environment_comReferee.od),
+	.properties_rw = &(store.instMain_environment_referee.od),
 	.in_environment = false
 };
 #ifdef WITH_OBSERVERS
@@ -5874,8 +5874,8 @@ static DirectionObserver_Object ao_instObs_observer = {
 ActiveObjects activeObjects = {
 	.instMain_system_controller = &ao_instMain_system_controller,
 	.instMain_system_trajectoryManager = &ao_instMain_system_trajectoryManager,
-	.instMain_environment_comPlayer = &ao_instMain_environment_comPlayer,
-	.instMain_environment_comReferee = &ao_instMain_environment_comReferee,
+	.instMain_environment_player = &ao_instMain_environment_player,
+	.instMain_environment_referee = &ao_instMain_environment_referee,
 	#ifdef WITH_OBSERVERS
 	.instObs_observer = &ao_instObs_observer
 	#endif /* WITH_OBSERVERS */
@@ -6116,12 +6116,12 @@ PropertiesRO properties_ro = {
 	},
 	.instMain_system_controller = {
 		.trajectoryManager = (TrajectoryManager_Object *) &ao_instMain_system_trajectoryManager,
-		.comPlayer = (ControllerToPlayerPortSys_Object *) &po_instMain_system_controllerToPlayerPortSys,
-		.comReferee = (ControllerToRefereePortSys_Object *) &po_instMain_system_controllerToRefereePortSys
+		.player = (ControllerToPlayerPortSys_Object *) &po_instMain_system_controllerToPlayerPortSys,
+		.referee = (ControllerToRefereePortSys_Object *) &po_instMain_system_controllerToRefereePortSys
 	},
 	.instMain_system_trajectoryManager = {
-		.comPlayer = (TrajToPlayerPortSys_Object *) &po_instMain_system_trajToPlayerPortSys,
-		.comReferee = (TrajToRefereePortSys_Object *) &po_instMain_system_trajToRefereePortSys,
+		.player = (TrajToPlayerPortSys_Object *) &po_instMain_system_trajToPlayerPortSys,
+		.referee = (TrajToRefereePortSys_Object *) &po_instMain_system_trajToRefereePortSys,
 		.controller = (Controller_Object *) &ao_instMain_system_controller
 	},
 	.instMain_system_controllerToPlayerPortSys = {
@@ -6142,35 +6142,35 @@ PropertiesRO properties_ro = {
 	},
 	.instMain_environment = {
 		.trajToPlayerPortEnv = (TrajToPlayerPortEnv_Object *) &po_instMain_environment_trajToPlayerPortEnv,
-		.comReferee = (CommunicationReferee_Object *) &ao_instMain_environment_comReferee,
+		.referee = (CommunicationReferee_Object *) &ao_instMain_environment_referee,
 		.controllerToRefereePortEnv = (ControllerToRefereePortEnv_Object *) &po_instMain_environment_controllerToRefereePortEnv,
-		.comPlayer = (CommunicationPlayer_Object *) &ao_instMain_environment_comPlayer,
+		.player = (CommunicationPlayer_Object *) &ao_instMain_environment_player,
 		.trajToRefereePortEnv = (TrajToRefereePortEnv_Object *) &po_instMain_environment_trajToRefereePortEnv,
 		.controllerToPlayerPortEnv = (ControllerToPlayerPortEnv_Object *) &po_instMain_environment_controllerToPlayerPortEnv
 	},
-	.instMain_environment_comPlayer = {
+	.instMain_environment_player = {
 		.controller = (ControllerToPlayerPortEnv_Object *) &po_instMain_environment_controllerToPlayerPortEnv,
 		.trajectoryManager = (TrajToPlayerPortEnv_Object *) &po_instMain_environment_trajToPlayerPortEnv
 	},
-	.instMain_environment_comReferee = {
+	.instMain_environment_referee = {
 		.trajectoryManager = (TrajToRefereePortEnv_Object *) &po_instMain_environment_trajToRefereePortEnv,
 		.controller = (ControllerToRefereePortEnv_Object *) &po_instMain_environment_controllerToRefereePortEnv
 	},
 	.instMain_environment_controllerToPlayerPortEnv = {
-		.comPlayer = (CommunicationPlayer_Object *) &ao_instMain_environment_comPlayer,
+		.player = (CommunicationPlayer_Object *) &ao_instMain_environment_player,
 		.controllerToPlayerPortSys = (ControllerToPlayerPortSys_Object *) &po_instMain_system_controllerToPlayerPortSys
 	},
 	.instMain_environment_controllerToRefereePortEnv = {
 		.controllerToRefereePortSys = (ControllerToRefereePortSys_Object *) &po_instMain_system_controllerToRefereePortSys,
-		.comReferee = (CommunicationReferee_Object *) &ao_instMain_environment_comReferee
+		.referee = (CommunicationReferee_Object *) &ao_instMain_environment_referee
 	},
 	.instMain_environment_trajToPlayerPortEnv = {
 		.trajToPlayerPortSys = (TrajToPlayerPortSys_Object *) &po_instMain_system_trajToPlayerPortSys,
-		.comPlayer = (CommunicationPlayer_Object *) &ao_instMain_environment_comPlayer
+		.player = (CommunicationPlayer_Object *) &ao_instMain_environment_player
 	},
 	.instMain_environment_trajToRefereePortEnv = {
 		.trajToRefereePortSys = (TrajToRefereePortSys_Object *) &po_instMain_system_trajToRefereePortSys,
-		.comReferee = (CommunicationReferee_Object *) &ao_instMain_environment_comReferee
+		.referee = (CommunicationReferee_Object *) &ao_instMain_environment_referee
 	},
 	#ifdef WITH_OBSERVERS
 	.instObs = {

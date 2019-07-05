@@ -146,34 +146,34 @@ typedef struct SignalEvents SignalEvents;
  */
 typedef struct TrajToRefereePortEnv_properties_ro TrajToRefereePortEnv_properties_ro;
 typedef struct ControllerToPlayerPortSys_properties_ro ControllerToPlayerPortSys_properties_ro;
-typedef struct ControllerFromRefereeUser_properties_ro ControllerFromRefereeUser_properties_ro;
+typedef struct PlayerUser_properties_ro PlayerUser_properties_ro;
 typedef struct TrajToPlayerPortSys_properties_ro TrajToPlayerPortSys_properties_ro;
+typedef struct ControllerFromRefereeProvider_properties_ro ControllerFromRefereeProvider_properties_ro;
 typedef struct Main_properties_ro Main_properties_ro;
+typedef struct TrajFromPlayerUser_properties_ro TrajFromPlayerUser_properties_ro;
 typedef struct Obs_properties_ro Obs_properties_ro;
-typedef struct TrajToRefereeProvider_properties_ro TrajToRefereeProvider_properties_ro;
 typedef struct Controller_properties_ro Controller_properties_ro;
 typedef struct TrajectoryManager_properties_ro TrajectoryManager_properties_ro;
 typedef struct DirectionObserver_properties_ro DirectionObserver_properties_ro;
 typedef struct TrajFromPlayerProvider_properties_ro TrajFromPlayerProvider_properties_ro;
-typedef struct ControllerFromRefereeProvider_properties_ro ControllerFromRefereeProvider_properties_ro;
-typedef struct TrajToPlayerUser_properties_ro TrajToPlayerUser_properties_ro;
-typedef struct TrajUser_properties_ro TrajUser_properties_ro;
 typedef struct ControllerToRefereePortEnv_properties_ro ControllerToRefereePortEnv_properties_ro;
-typedef struct TrajToRefereeUser_properties_ro TrajToRefereeUser_properties_ro;
+typedef struct CommunicationReferee_properties_ro CommunicationReferee_properties_ro;
 typedef struct RefereeUser_properties_ro RefereeUser_properties_ro;
+typedef struct TrajUser_properties_ro TrajUser_properties_ro;
+typedef struct TrajToRefereeUser_properties_ro TrajToRefereeUser_properties_ro;
 typedef struct ControllerToRefereePortSys_properties_ro ControllerToRefereePortSys_properties_ro;
 typedef struct TrajToPlayerPortEnv_properties_ro TrajToPlayerPortEnv_properties_ro;
-typedef struct TrajFromPlayerUser_properties_ro TrajFromPlayerUser_properties_ro;
-typedef struct TrajFromRefereeUser_properties_ro TrajFromRefereeUser_properties_ro;
 typedef struct ControllerToPlayerPortEnv_properties_ro ControllerToPlayerPortEnv_properties_ro;
-typedef struct PlayerUser_properties_ro PlayerUser_properties_ro;
-typedef struct CommunicationPlayer_properties_ro CommunicationPlayer_properties_ro;
-typedef struct TrajToRefereePortSys_properties_ro TrajToRefereePortSys_properties_ro;
+typedef struct TrajFromRefereeUser_properties_ro TrajFromRefereeUser_properties_ro;
 typedef struct TrajToPlayerProvider_properties_ro TrajToPlayerProvider_properties_ro;
-typedef struct Environment_properties_ro Environment_properties_ro;
-typedef struct System_properties_ro System_properties_ro;
-typedef struct CommunicationReferee_properties_ro CommunicationReferee_properties_ro;
 typedef struct TrajFromRefereeProvider_properties_ro TrajFromRefereeProvider_properties_ro;
+typedef struct CommunicationPlayer_properties_ro CommunicationPlayer_properties_ro;
+typedef struct ControllerFromRefereeUser_properties_ro ControllerFromRefereeUser_properties_ro;
+typedef struct TrajToRefereePortSys_properties_ro TrajToRefereePortSys_properties_ro;
+typedef struct Environment_properties_ro Environment_properties_ro;
+typedef struct TrajToPlayerUser_properties_ro TrajToPlayerUser_properties_ro;
+typedef struct System_properties_ro System_properties_ro;
+typedef struct TrajToRefereeProvider_properties_ro TrajToRefereeProvider_properties_ro;
 typedef struct PropertiesRO PropertiesRO;
 
 /**
@@ -335,8 +335,11 @@ typedef void (*ControllerToPlayerPortSys_method)(ControllerToPlayerPortSys_Objec
 typedef struct TrajToPlayerPortSys_operations TrajToPlayerPortSys_operations;
 typedef void (*TrajToPlayerPortSys_method)(TrajToPlayerPortSys_Object * this, void * __unused_params);
 
-typedef struct ControllerFromRefereeUser_operations ControllerFromRefereeUser_operations;
-typedef void (*ControllerFromRefereeUser_method)(ControllerFromRefereeUser_Object * this, void * __unused_params);
+typedef struct PlayerUser_operations PlayerUser_operations;
+typedef void (*PlayerUser_method)(PlayerUser_Object * this, void * __unused_params);
+
+typedef struct ControllerFromRefereeProvider_operations ControllerFromRefereeProvider_operations;
+typedef void (*ControllerFromRefereeProvider_method)(ControllerFromRefereeProvider_Object * this, void * __unused_params);
 
 typedef struct Main_operations Main_operations;
 typedef void (*Main_method)(Main_Object * this, void * __unused_params);
@@ -344,8 +347,8 @@ typedef void (*Main_method)(Main_Object * this, void * __unused_params);
 typedef struct Obs_operations Obs_operations;
 typedef void (*Obs_method)(Obs_Object * this, void * __unused_params);
 
-typedef struct TrajToRefereeProvider_operations TrajToRefereeProvider_operations;
-typedef void (*TrajToRefereeProvider_method)(TrajToRefereeProvider_Object * this, void * __unused_params);
+typedef struct TrajFromPlayerUser_operations TrajFromPlayerUser_operations;
+typedef void (*TrajFromPlayerUser_method)(TrajFromPlayerUser_Object * this, void * __unused_params);
 
 typedef struct Controller_operations Controller_operations;
 typedef void (*Controller_method)(Controller_Object * this, void * __unused_params);
@@ -359,41 +362,38 @@ typedef void (*DirectionObserver_method)(DirectionObserver_Object * this, void *
 typedef struct TrajFromPlayerProvider_operations TrajFromPlayerProvider_operations;
 typedef void (*TrajFromPlayerProvider_method)(TrajFromPlayerProvider_Object * this, void * __unused_params);
 
-typedef struct ControllerFromRefereeProvider_operations ControllerFromRefereeProvider_operations;
-typedef void (*ControllerFromRefereeProvider_method)(ControllerFromRefereeProvider_Object * this, void * __unused_params);
-
-typedef struct TrajToPlayerUser_operations TrajToPlayerUser_operations;
-typedef void (*TrajToPlayerUser_method)(TrajToPlayerUser_Object * this, void * __unused_params);
-
-typedef struct TrajUser_operations TrajUser_operations;
-typedef void (*TrajUser_method)(TrajUser_Object * this, void * __unused_params);
-
 typedef struct ControllerToRefereePortEnv_operations ControllerToRefereePortEnv_operations;
 typedef void (*ControllerToRefereePortEnv_method)(ControllerToRefereePortEnv_Object * this, void * __unused_params);
 
-typedef struct TrajToRefereeUser_operations TrajToRefereeUser_operations;
-typedef void (*TrajToRefereeUser_method)(TrajToRefereeUser_Object * this, void * __unused_params);
-
-typedef struct ControllerToRefereePortSys_operations ControllerToRefereePortSys_operations;
-typedef void (*ControllerToRefereePortSys_method)(ControllerToRefereePortSys_Object * this, void * __unused_params);
+typedef struct CommunicationReferee_operations CommunicationReferee_operations;
+typedef void (*CommunicationReferee_method)(CommunicationReferee_Object * this, void * __unused_params);
 
 typedef struct RefereeUser_operations RefereeUser_operations;
 typedef void (*RefereeUser_method)(RefereeUser_Object * this, void * __unused_params);
 
+typedef struct ControllerToRefereePortSys_operations ControllerToRefereePortSys_operations;
+typedef void (*ControllerToRefereePortSys_method)(ControllerToRefereePortSys_Object * this, void * __unused_params);
+
+typedef struct TrajToRefereeUser_operations TrajToRefereeUser_operations;
+typedef void (*TrajToRefereeUser_method)(TrajToRefereeUser_Object * this, void * __unused_params);
+
+typedef struct TrajUser_operations TrajUser_operations;
+typedef void (*TrajUser_method)(TrajUser_Object * this, void * __unused_params);
+
 typedef struct TrajToPlayerPortEnv_operations TrajToPlayerPortEnv_operations;
 typedef void (*TrajToPlayerPortEnv_method)(TrajToPlayerPortEnv_Object * this, void * __unused_params);
-
-typedef struct TrajFromPlayerUser_operations TrajFromPlayerUser_operations;
-typedef void (*TrajFromPlayerUser_method)(TrajFromPlayerUser_Object * this, void * __unused_params);
-
-typedef struct TrajFromRefereeUser_operations TrajFromRefereeUser_operations;
-typedef void (*TrajFromRefereeUser_method)(TrajFromRefereeUser_Object * this, void * __unused_params);
 
 typedef struct ControllerToPlayerPortEnv_operations ControllerToPlayerPortEnv_operations;
 typedef void (*ControllerToPlayerPortEnv_method)(ControllerToPlayerPortEnv_Object * this, void * __unused_params);
 
-typedef struct PlayerUser_operations PlayerUser_operations;
-typedef void (*PlayerUser_method)(PlayerUser_Object * this, void * __unused_params);
+typedef struct TrajFromRefereeUser_operations TrajFromRefereeUser_operations;
+typedef void (*TrajFromRefereeUser_method)(TrajFromRefereeUser_Object * this, void * __unused_params);
+
+typedef struct TrajToPlayerProvider_operations TrajToPlayerProvider_operations;
+typedef void (*TrajToPlayerProvider_method)(TrajToPlayerProvider_Object * this, void * __unused_params);
+
+typedef struct TrajFromRefereeProvider_operations TrajFromRefereeProvider_operations;
+typedef void (*TrajFromRefereeProvider_method)(TrajFromRefereeProvider_Object * this, void * __unused_params);
 
 typedef struct CommunicationPlayer_operations CommunicationPlayer_operations;
 typedef void (*CommunicationPlayer_method)(CommunicationPlayer_Object * this, void * __unused_params);
@@ -401,8 +401,8 @@ typedef void (*CommunicationPlayer_method)(CommunicationPlayer_Object * this, vo
 typedef struct TrajToRefereePortSys_operations TrajToRefereePortSys_operations;
 typedef void (*TrajToRefereePortSys_method)(TrajToRefereePortSys_Object * this, void * __unused_params);
 
-typedef struct TrajToPlayerProvider_operations TrajToPlayerProvider_operations;
-typedef void (*TrajToPlayerProvider_method)(TrajToPlayerProvider_Object * this, void * __unused_params);
+typedef struct ControllerFromRefereeUser_operations ControllerFromRefereeUser_operations;
+typedef void (*ControllerFromRefereeUser_method)(ControllerFromRefereeUser_Object * this, void * __unused_params);
 
 typedef struct Environment_operations Environment_operations;
 typedef void (*Environment_method)(Environment_Object * this, void * __unused_params);
@@ -410,11 +410,11 @@ typedef void (*Environment_method)(Environment_Object * this, void * __unused_pa
 typedef struct System_operations System_operations;
 typedef void (*System_method)(System_Object * this, void * __unused_params);
 
-typedef struct CommunicationReferee_operations CommunicationReferee_operations;
-typedef void (*CommunicationReferee_method)(CommunicationReferee_Object * this, void * __unused_params);
+typedef struct TrajToPlayerUser_operations TrajToPlayerUser_operations;
+typedef void (*TrajToPlayerUser_method)(TrajToPlayerUser_Object * this, void * __unused_params);
 
-typedef struct TrajFromRefereeProvider_operations TrajFromRefereeProvider_operations;
-typedef void (*TrajFromRefereeProvider_method)(TrajFromRefereeProvider_Object * this, void * __unused_params);
+typedef struct TrajToRefereeProvider_operations TrajToRefereeProvider_operations;
+typedef void (*TrajToRefereeProvider_method)(TrajToRefereeProvider_Object * this, void * __unused_params);
 
 /**
  * Typedef for ports.
@@ -1076,8 +1076,8 @@ struct Store {
 	TrajToPlayerPortSys_store instMain_system_trajToPlayerPortSys;
 	TrajToRefereePortSys_store instMain_system_trajToRefereePortSys;
 	Environment_store instMain_environment;
-	CommunicationPlayer_store instMain_environment_comPlayer;
-	CommunicationReferee_store instMain_environment_comReferee;
+	CommunicationPlayer_store instMain_environment_player;
+	CommunicationReferee_store instMain_environment_referee;
 	ControllerToPlayerPortEnv_store instMain_environment_controllerToPlayerPortEnv;
 	ControllerToRefereePortEnv_store instMain_environment_controllerToRefereePortEnv;
 	TrajToPlayerPortEnv_store instMain_environment_trajToPlayerPortEnv;
@@ -1140,7 +1140,10 @@ struct ControllerToPlayerPortSys_operations {
 struct TrajToPlayerPortSys_operations {
 };
 
-struct ControllerFromRefereeUser_operations {
+struct PlayerUser_operations {
+};
+
+struct ControllerFromRefereeProvider_operations {
 };
 
 struct Main_operations {
@@ -1149,7 +1152,7 @@ struct Main_operations {
 struct Obs_operations {
 };
 
-struct TrajToRefereeProvider_operations {
+struct TrajFromPlayerUser_operations {
 };
 
 struct Controller_operations {
@@ -1164,40 +1167,37 @@ struct DirectionObserver_operations {
 struct TrajFromPlayerProvider_operations {
 };
 
-struct ControllerFromRefereeProvider_operations {
-};
-
-struct TrajToPlayerUser_operations {
-};
-
-struct TrajUser_operations {
-};
-
 struct ControllerToRefereePortEnv_operations {
 };
 
-struct TrajToRefereeUser_operations {
-};
-
-struct ControllerToRefereePortSys_operations {
+struct CommunicationReferee_operations {
 };
 
 struct RefereeUser_operations {
 };
 
+struct ControllerToRefereePortSys_operations {
+};
+
+struct TrajToRefereeUser_operations {
+};
+
+struct TrajUser_operations {
+};
+
 struct TrajToPlayerPortEnv_operations {
-};
-
-struct TrajFromPlayerUser_operations {
-};
-
-struct TrajFromRefereeUser_operations {
 };
 
 struct ControllerToPlayerPortEnv_operations {
 };
 
-struct PlayerUser_operations {
+struct TrajFromRefereeUser_operations {
+};
+
+struct TrajToPlayerProvider_operations {
+};
+
+struct TrajFromRefereeProvider_operations {
 };
 
 struct CommunicationPlayer_operations {
@@ -1206,7 +1206,7 @@ struct CommunicationPlayer_operations {
 struct TrajToRefereePortSys_operations {
 };
 
-struct TrajToPlayerProvider_operations {
+struct ControllerFromRefereeUser_operations {
 };
 
 struct Environment_operations {
@@ -1215,10 +1215,10 @@ struct Environment_operations {
 struct System_operations {
 };
 
-struct CommunicationReferee_operations {
+struct TrajToPlayerUser_operations {
 };
 
-struct TrajFromRefereeProvider_operations {
+struct TrajToRefereeProvider_operations {
 };
 
 
@@ -1249,11 +1249,11 @@ struct TrajFromRefereeProvider_operations {
 	bool trajectoryManager_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_Controller  bool trajectoryManager_isMutable		:1;	\
-	bool comPlayer_isMutable		:1;	\
-	bool comReferee_isMutable		:1;
+	bool player_isMutable		:1;	\
+	bool referee_isMutable		:1;
 
-#define ABSTRACT_MUTABILITY_TrajectoryManager  bool comPlayer_isMutable		:1;	\
-	bool comReferee_isMutable		:1;	\
+#define ABSTRACT_MUTABILITY_TrajectoryManager  bool player_isMutable		:1;	\
+	bool referee_isMutable		:1;	\
 	bool controller_isMutable		:1;	\
 	bool xPlayer_isMutable		:1;	\
 	bool zPlayer_isMutable		:1;	\
@@ -1282,23 +1282,23 @@ struct TrajFromRefereeProvider_operations {
 	bool system_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_Environment  bool trajToPlayerPortEnv_isMutable		:1;	\
-	bool comReferee_isMutable		:1;	\
+	bool referee_isMutable		:1;	\
 	bool controllerToRefereePortEnv_isMutable		:1;	\
-	bool comPlayer_isMutable		:1;	\
+	bool player_isMutable		:1;	\
 	bool trajToRefereePortEnv_isMutable		:1;	\
 	bool controllerToPlayerPortEnv_isMutable		:1;
 
-#define ABSTRACT_MUTABILITY_ControllerToPlayerPortEnv  bool comPlayer_isMutable		:1;	\
+#define ABSTRACT_MUTABILITY_ControllerToPlayerPortEnv  bool player_isMutable		:1;	\
 	bool controllerToPlayerPortSys_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_ControllerToRefereePortEnv  bool controllerToRefereePortSys_isMutable		:1;	\
-	bool comReferee_isMutable		:1;
+	bool referee_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_TrajToPlayerPortEnv  bool trajToPlayerPortSys_isMutable		:1;	\
-	bool comPlayer_isMutable		:1;
+	bool player_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_TrajToRefereePortEnv  bool trajToRefereePortSys_isMutable		:1;	\
-	bool comReferee_isMutable		:1;
+	bool referee_isMutable		:1;
 
 #define ABSTRACT_MUTABILITY_CommunicationPlayer  bool controller_isMutable		:1;	\
 	bool trajectoryManager_isMutable		:1;	\
@@ -1499,11 +1499,11 @@ struct TrajUser_mutability {
 	TrajToRefereePortSys_properties_ro * trajectoryManager_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_Controller  Controller_properties_ro * trajectoryManager_type;	\
-	Controller_properties_ro * comPlayer_type;	\
-	Controller_properties_ro * comReferee_type;
+	Controller_properties_ro * player_type;	\
+	Controller_properties_ro * referee_type;
 
-#define ABSTRACT_PROPERTIES_TYPE_TrajectoryManager  TrajectoryManager_properties_ro * comPlayer_type;	\
-	TrajectoryManager_properties_ro * comReferee_type;	\
+#define ABSTRACT_PROPERTIES_TYPE_TrajectoryManager  TrajectoryManager_properties_ro * player_type;	\
+	TrajectoryManager_properties_ro * referee_type;	\
 	TrajectoryManager_properties_ro * controller_type;	\
 	TrajectoryManager_od * xPlayer_type;	\
 	TrajectoryManager_od * zPlayer_type;	\
@@ -1532,23 +1532,23 @@ struct TrajUser_mutability {
 	Main_properties_ro * system_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_Environment  Environment_properties_ro * trajToPlayerPortEnv_type;	\
-	Environment_properties_ro * comReferee_type;	\
+	Environment_properties_ro * referee_type;	\
 	Environment_properties_ro * controllerToRefereePortEnv_type;	\
-	Environment_properties_ro * comPlayer_type;	\
+	Environment_properties_ro * player_type;	\
 	Environment_properties_ro * trajToRefereePortEnv_type;	\
 	Environment_properties_ro * controllerToPlayerPortEnv_type;
 
-#define ABSTRACT_PROPERTIES_TYPE_ControllerToPlayerPortEnv  ControllerToPlayerPortEnv_properties_ro * comPlayer_type;	\
+#define ABSTRACT_PROPERTIES_TYPE_ControllerToPlayerPortEnv  ControllerToPlayerPortEnv_properties_ro * player_type;	\
 	ControllerToPlayerPortEnv_properties_ro * controllerToPlayerPortSys_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_ControllerToRefereePortEnv  ControllerToRefereePortEnv_properties_ro * controllerToRefereePortSys_type;	\
-	ControllerToRefereePortEnv_properties_ro * comReferee_type;
+	ControllerToRefereePortEnv_properties_ro * referee_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_TrajToPlayerPortEnv  TrajToPlayerPortEnv_properties_ro * trajToPlayerPortSys_type;	\
-	TrajToPlayerPortEnv_properties_ro * comPlayer_type;
+	TrajToPlayerPortEnv_properties_ro * player_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_TrajToRefereePortEnv  TrajToRefereePortEnv_properties_ro * trajToRefereePortSys_type;	\
-	TrajToRefereePortEnv_properties_ro * comReferee_type;
+	TrajToRefereePortEnv_properties_ro * referee_type;
 
 #define ABSTRACT_PROPERTIES_TYPE_CommunicationPlayer  CommunicationPlayer_properties_ro * controller_type;	\
 	CommunicationPlayer_properties_ro * trajectoryManager_type;	\
@@ -1981,8 +1981,8 @@ SPECIFIC_STRUCT_ActiveObject(CommunicationReferee)
 struct ActiveObjects {
 	Controller_Object * instMain_system_controller;
 	TrajectoryManager_Object * instMain_system_trajectoryManager;
-	CommunicationPlayer_Object * instMain_environment_comPlayer;
-	CommunicationReferee_Object * instMain_environment_comReferee;
+	CommunicationPlayer_Object * instMain_environment_player;
+	CommunicationReferee_Object * instMain_environment_referee;
 	#ifdef WITH_OBSERVERS
 	DirectionObserver_Object * instObs_observer;
 	#endif /* WITH_OBSERVERS */
@@ -2059,7 +2059,7 @@ extern PassiveObjects passiveObjects;
 struct TrajToRefereePortEnv_properties_ro {
 	ABSTRACT_TRAJFROMREFEREEUSER_PROPERTIES_RO
 	TrajToRefereePortSys_Object * trajToRefereePortSys;
-	CommunicationReferee_Object * comReferee;
+	CommunicationReferee_Object * referee;
 };
 /**
  * The ControllerToPlayerPortSys_properties_ro type used to link instances of the ControllerToPlayerPortSys class with their properties.
@@ -2070,9 +2070,9 @@ struct ControllerToPlayerPortSys_properties_ro {
 	Controller_Object * controller;
 };
 /**
- * The ControllerFromRefereeUser_properties_ro type used to link instances of the ControllerFromRefereeUser class with their properties.
+ * The PlayerUser_properties_ro type used to link instances of the PlayerUser class with their properties.
  */
-struct ControllerFromRefereeUser_properties_ro {
+struct PlayerUser_properties_ro {
 };
 /**
  * The TrajToPlayerPortSys_properties_ro type used to link instances of the TrajToPlayerPortSys class with their properties.
@@ -2083,11 +2083,21 @@ struct TrajToPlayerPortSys_properties_ro {
 	TrajToPlayerPortEnv_Object * trajToPlayerPortEnv;
 };
 /**
+ * The ControllerFromRefereeProvider_properties_ro type used to link instances of the ControllerFromRefereeProvider class with their properties.
+ */
+struct ControllerFromRefereeProvider_properties_ro {
+};
+/**
  * The Main_properties_ro type used to link instances of the Main class with their properties.
  */
 struct Main_properties_ro {
 	Environment_Object * environment;
 	System_Object * system;
+};
+/**
+ * The TrajFromPlayerUser_properties_ro type used to link instances of the TrajFromPlayerUser class with their properties.
+ */
+struct TrajFromPlayerUser_properties_ro {
 };
 /**
  * The Obs_properties_ro type used to link instances of the Obs class with their properties.
@@ -2096,26 +2106,21 @@ struct Obs_properties_ro {
 	DirectionObserver_Object * observer;
 };
 /**
- * The TrajToRefereeProvider_properties_ro type used to link instances of the TrajToRefereeProvider class with their properties.
- */
-struct TrajToRefereeProvider_properties_ro {
-};
-/**
  * The Controller_properties_ro type used to link instances of the Controller class with their properties.
  */
 struct Controller_properties_ro {
 	ABSTRACT_TRAJTOPLAYERUSER_PROPERTIES_RO
 	TrajectoryManager_Object * trajectoryManager;
-	ControllerToPlayerPortSys_Object * comPlayer;
-	ControllerToRefereePortSys_Object * comReferee;
+	ControllerToPlayerPortSys_Object * player;
+	ControllerToRefereePortSys_Object * referee;
 };
 /**
  * The TrajectoryManager_properties_ro type used to link instances of the TrajectoryManager class with their properties.
  */
 struct TrajectoryManager_properties_ro {
 	ABSTRACT_TRAJUSER_PROPERTIES_RO
-	TrajToPlayerPortSys_Object * comPlayer;
-	TrajToRefereePortSys_Object * comReferee;
+	TrajToPlayerPortSys_Object * player;
+	TrajToRefereePortSys_Object * referee;
 	Controller_Object * controller;
 };
 /**
@@ -2129,14 +2134,25 @@ struct DirectionObserver_properties_ro {
 struct TrajFromPlayerProvider_properties_ro {
 };
 /**
- * The ControllerFromRefereeProvider_properties_ro type used to link instances of the ControllerFromRefereeProvider class with their properties.
+ * The ControllerToRefereePortEnv_properties_ro type used to link instances of the ControllerToRefereePortEnv class with their properties.
  */
-struct ControllerFromRefereeProvider_properties_ro {
+struct ControllerToRefereePortEnv_properties_ro {
+	ABSTRACT_CONTROLLERFROMREFEREEUSER_PROPERTIES_RO
+	ControllerToRefereePortSys_Object * controllerToRefereePortSys;
+	CommunicationReferee_Object * referee;
 };
 /**
- * The TrajToPlayerUser_properties_ro type used to link instances of the TrajToPlayerUser class with their properties.
+ * The CommunicationReferee_properties_ro type used to link instances of the CommunicationReferee class with their properties.
  */
-struct TrajToPlayerUser_properties_ro {
+struct CommunicationReferee_properties_ro {
+	ABSTRACT_REFEREEUSER_PROPERTIES_RO
+	TrajToRefereePortEnv_Object * trajectoryManager;
+	ControllerToRefereePortEnv_Object * controller;
+};
+/**
+ * The RefereeUser_properties_ro type used to link instances of the RefereeUser class with their properties.
+ */
+struct RefereeUser_properties_ro {
 };
 /**
  * The TrajUser_properties_ro type used to link instances of the TrajUser class with their properties.
@@ -2144,22 +2160,9 @@ struct TrajToPlayerUser_properties_ro {
 struct TrajUser_properties_ro {
 };
 /**
- * The ControllerToRefereePortEnv_properties_ro type used to link instances of the ControllerToRefereePortEnv class with their properties.
- */
-struct ControllerToRefereePortEnv_properties_ro {
-	ABSTRACT_CONTROLLERFROMREFEREEUSER_PROPERTIES_RO
-	ControllerToRefereePortSys_Object * controllerToRefereePortSys;
-	CommunicationReferee_Object * comReferee;
-};
-/**
  * The TrajToRefereeUser_properties_ro type used to link instances of the TrajToRefereeUser class with their properties.
  */
 struct TrajToRefereeUser_properties_ro {
-};
-/**
- * The RefereeUser_properties_ro type used to link instances of the RefereeUser class with their properties.
- */
-struct RefereeUser_properties_ro {
 };
 /**
  * The ControllerToRefereePortSys_properties_ro type used to link instances of the ControllerToRefereePortSys class with their properties.
@@ -2174,12 +2177,15 @@ struct ControllerToRefereePortSys_properties_ro {
 struct TrajToPlayerPortEnv_properties_ro {
 	ABSTRACT_TRAJFROMPLAYERUSER_PROPERTIES_RO
 	TrajToPlayerPortSys_Object * trajToPlayerPortSys;
-	CommunicationPlayer_Object * comPlayer;
+	CommunicationPlayer_Object * player;
 };
 /**
- * The TrajFromPlayerUser_properties_ro type used to link instances of the TrajFromPlayerUser class with their properties.
+ * The ControllerToPlayerPortEnv_properties_ro type used to link instances of the ControllerToPlayerPortEnv class with their properties.
  */
-struct TrajFromPlayerUser_properties_ro {
+struct ControllerToPlayerPortEnv_properties_ro {
+	ABSTRACT_TRAJFROMPLAYERUSER_PROPERTIES_RO
+	CommunicationPlayer_Object * player;
+	ControllerToPlayerPortSys_Object * controllerToPlayerPortSys;
 };
 /**
  * The TrajFromRefereeUser_properties_ro type used to link instances of the TrajFromRefereeUser class with their properties.
@@ -2187,17 +2193,14 @@ struct TrajFromPlayerUser_properties_ro {
 struct TrajFromRefereeUser_properties_ro {
 };
 /**
- * The ControllerToPlayerPortEnv_properties_ro type used to link instances of the ControllerToPlayerPortEnv class with their properties.
+ * The TrajToPlayerProvider_properties_ro type used to link instances of the TrajToPlayerProvider class with their properties.
  */
-struct ControllerToPlayerPortEnv_properties_ro {
-	ABSTRACT_TRAJFROMPLAYERUSER_PROPERTIES_RO
-	CommunicationPlayer_Object * comPlayer;
-	ControllerToPlayerPortSys_Object * controllerToPlayerPortSys;
+struct TrajToPlayerProvider_properties_ro {
 };
 /**
- * The PlayerUser_properties_ro type used to link instances of the PlayerUser class with their properties.
+ * The TrajFromRefereeProvider_properties_ro type used to link instances of the TrajFromRefereeProvider class with their properties.
  */
-struct PlayerUser_properties_ro {
+struct TrajFromRefereeProvider_properties_ro {
 };
 /**
  * The CommunicationPlayer_properties_ro type used to link instances of the CommunicationPlayer class with their properties.
@@ -2208,6 +2211,11 @@ struct CommunicationPlayer_properties_ro {
 	TrajToPlayerPortEnv_Object * trajectoryManager;
 };
 /**
+ * The ControllerFromRefereeUser_properties_ro type used to link instances of the ControllerFromRefereeUser class with their properties.
+ */
+struct ControllerFromRefereeUser_properties_ro {
+};
+/**
  * The TrajToRefereePortSys_properties_ro type used to link instances of the TrajToRefereePortSys class with their properties.
  */
 struct TrajToRefereePortSys_properties_ro {
@@ -2216,20 +2224,20 @@ struct TrajToRefereePortSys_properties_ro {
 	TrajectoryManager_Object * trajectoryManager;
 };
 /**
- * The TrajToPlayerProvider_properties_ro type used to link instances of the TrajToPlayerProvider class with their properties.
- */
-struct TrajToPlayerProvider_properties_ro {
-};
-/**
  * The Environment_properties_ro type used to link instances of the Environment class with their properties.
  */
 struct Environment_properties_ro {
 	TrajToPlayerPortEnv_Object * trajToPlayerPortEnv;
-	CommunicationReferee_Object * comReferee;
+	CommunicationReferee_Object * referee;
 	ControllerToRefereePortEnv_Object * controllerToRefereePortEnv;
-	CommunicationPlayer_Object * comPlayer;
+	CommunicationPlayer_Object * player;
 	TrajToRefereePortEnv_Object * trajToRefereePortEnv;
 	ControllerToPlayerPortEnv_Object * controllerToPlayerPortEnv;
+};
+/**
+ * The TrajToPlayerUser_properties_ro type used to link instances of the TrajToPlayerUser class with their properties.
+ */
+struct TrajToPlayerUser_properties_ro {
 };
 /**
  * The System_properties_ro type used to link instances of the System class with their properties.
@@ -2243,17 +2251,9 @@ struct System_properties_ro {
 	ControllerToPlayerPortSys_Object * controllerToPlayerPortSys;
 };
 /**
- * The CommunicationReferee_properties_ro type used to link instances of the CommunicationReferee class with their properties.
+ * The TrajToRefereeProvider_properties_ro type used to link instances of the TrajToRefereeProvider class with their properties.
  */
-struct CommunicationReferee_properties_ro {
-	ABSTRACT_REFEREEUSER_PROPERTIES_RO
-	TrajToRefereePortEnv_Object * trajectoryManager;
-	ControllerToRefereePortEnv_Object * controller;
-};
-/**
- * The TrajFromRefereeProvider_properties_ro type used to link instances of the TrajFromRefereeProvider class with their properties.
- */
-struct TrajFromRefereeProvider_properties_ro {
+struct TrajToRefereeProvider_properties_ro {
 };
 /**
  * The global read-only properties type used to make links between objects.
@@ -2268,8 +2268,8 @@ struct PropertiesRO {
 	TrajToPlayerPortSys_properties_ro instMain_system_trajToPlayerPortSys;
 	TrajToRefereePortSys_properties_ro instMain_system_trajToRefereePortSys;
 	Environment_properties_ro instMain_environment;
-	CommunicationPlayer_properties_ro instMain_environment_comPlayer;
-	CommunicationReferee_properties_ro instMain_environment_comReferee;
+	CommunicationPlayer_properties_ro instMain_environment_player;
+	CommunicationReferee_properties_ro instMain_environment_referee;
 	ControllerToPlayerPortEnv_properties_ro instMain_environment_controllerToPlayerPortEnv;
 	ControllerToRefereePortEnv_properties_ro instMain_environment_controllerToRefereePortEnv;
 	TrajToPlayerPortEnv_properties_ro instMain_environment_trajToPlayerPortEnv;

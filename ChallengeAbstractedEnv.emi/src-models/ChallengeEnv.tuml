@@ -23,18 +23,18 @@ model ChallengeEnv with(
 ) {
 
 	class Environment {
-		public composite comPlayer[1-1] : CommunicationPlayer = instCommunicationPlayer;
-		public composite comReferee[1-1] : CommunicationReferee = instCommunicationReferee;
+		public composite player[1-1] : CommunicationPlayer = instCommunicationPlayer;
+		public composite referee[1-1] : CommunicationReferee = instCommunicationReferee;
 
 		public composite port controllerToPlayerPortEnv[1-1] : ControllerToPlayerPortEnv;
 		public composite port controllerToRefereePortEnv[1-1] : ControllerToRefereePortEnv;
 		public composite port trajToPlayerPortEnv[1-1] : TrajToPlayerPortEnv;
 		public composite port trajToRefereePortEnv[1-1] : TrajToRefereePortEnv;
 
-		connector "c1" : CommunicationPlayer_ControllerToPlayerPortEnv between comPlayer and controllerToPlayerPortEnv;
-		connector "c2" : CommunicationReferee_ControllerToRefereePortEnv between comReferee and controllerToRefereePortEnv;
-		connector "c3" : CommunicationPlayer_TrajToPlayerPortEnv between comPlayer and trajToPlayerPortEnv;
-		connector "c4" : CommunicationReferee_TrajToRefereePortEnv between comReferee and trajToRefereePortEnv;
+		connector "c1" : CommunicationPlayer_ControllerToPlayerPortEnv between player and controllerToPlayerPortEnv;
+		connector "c2" : CommunicationReferee_ControllerToRefereePortEnv between referee and controllerToRefereePortEnv;
+		connector "c3" : CommunicationPlayer_TrajToPlayerPortEnv between player and trajToPlayerPortEnv;
+		connector "c4" : CommunicationReferee_TrajToRefereePortEnv between referee and trajToRefereePortEnv;
 	}
 
 	instance instCommunicationPlayer of CommunicationPlayer {
@@ -46,19 +46,19 @@ model ChallengeEnv with(
 	}
 
 	association CommunicationPlayer_ControllerToPlayerPortEnv {
-		comPlayer[1-1] : CommunicationPlayer in CommunicationPlayer_ControllerToPlayerPortEnv;
+		player[1-1] : CommunicationPlayer in CommunicationPlayer_ControllerToPlayerPortEnv;
 		controller[1-1] : ControllerToPlayerPortEnv in CommunicationPlayer_ControllerToPlayerPortEnv;
 	}
 	association CommunicationReferee_ControllerToRefereePortEnv {
-		comReferee[1-1] : CommunicationReferee in CommunicationReferee_ControllerToRefereePortEnv;
+		referee[1-1] : CommunicationReferee in CommunicationReferee_ControllerToRefereePortEnv;
 		controller[1-1] : ControllerToRefereePortEnv in CommunicationReferee_ControllerToRefereePortEnv;
 	}
 	association CommunicationPlayer_TrajToPlayerPortEnv {
-		comPlayer[1-1] : CommunicationPlayer in CommunicationPlayer_TrajToPlayerPortEnv;
+		player[1-1] : CommunicationPlayer in CommunicationPlayer_TrajToPlayerPortEnv;
 		trajectoryManager[1-1] : TrajToPlayerPortEnv in CommunicationPlayer_TrajToPlayerPortEnv;
 	}
 	association CommunicationReferee_TrajToRefereePortEnv {
-		comReferee[1-1] : CommunicationReferee in CommunicationReferee_TrajToRefereePortEnv;
+		referee[1-1] : CommunicationReferee in CommunicationReferee_TrajToRefereePortEnv;
 		trajectoryManager[1-1] : TrajToRefereePortEnv in CommunicationReferee_TrajToRefereePortEnv;
 	}
 

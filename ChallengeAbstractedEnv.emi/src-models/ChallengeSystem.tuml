@@ -74,19 +74,19 @@ model ChallengeSystem with(
 	}
 	association Controller_ControllerToPlayerPortSys {
 		controller[1-1] : Controller in Controller_ControllerToPlayerPortSys;
-		comPlayer[1-1] : ControllerToPlayerPortSys in Controller_ControllerToPlayerPortSys;
+		player[1-1] : ControllerToPlayerPortSys in Controller_ControllerToPlayerPortSys;
 	}
 	association Controller_ControllerToRefereePortSys {
 		controller[1-1] : Controller in Controller_ControllerToRefereePortSys;
-		comReferee[1-1] : ControllerToRefereePortSys in Controller_ControllerToRefereePortSys;
+		referee[1-1] : ControllerToRefereePortSys in Controller_ControllerToRefereePortSys;
 	}
 	association TrajectoryManager_TrajToPlayerPortSys {
 		trajectoryManager[1-1] : TrajectoryManager in TrajectoryManager_TrajToPlayerPortSys;
-		comPlayer[1-1] : TrajToPlayerPortSys in TrajectoryManager_TrajToPlayerPortSys;
+		player[1-1] : TrajToPlayerPortSys in TrajectoryManager_TrajToPlayerPortSys;
 	}
 	association TrajectoryManager_TrajToRefereePortSys {
 		trajectoryManager[1-1] : TrajectoryManager in TrajectoryManager_TrajToRefereePortSys;
-		comReferee[1-1] : TrajToRefereePortSys in TrajectoryManager_TrajToRefereePortSys;
+		referee[1-1] : TrajToRefereePortSys in TrajectoryManager_TrajToRefereePortSys;
 	}
 
 	signal connected;
@@ -126,7 +126,7 @@ model ChallengeSystem with(
 				GoToGoal -> Turn : finish_SE /
 					opaqueBehavior = 'SEND(GET(this, trajectoryManager), goAngle, FALSE, -50, 0);' in C;;
 				Turn -> Shoot : finish_SE /
-					opaqueBehavior = 'SEND(GET(this, comPlayer), setSuction, 100);' in C;;
+					opaqueBehavior = 'SEND(GET(this, player), setSuction, 100);' in C;;
 				Shoot -> IdleJunction : /
 					opaqueBehavior = 'usleep(500000);' in C;;
 
@@ -194,10 +194,10 @@ model ChallengeSystem with(
 						' in C;;
 				SendSignalsJunction -> WaitSignals : /
 					opaqueBehavior = '
-						SEND(GET(this, comPlayer), getPlayerGPS);
-						SEND(GET(this, comPlayer), getBallGPS);
-						SEND(GET(this, comPlayer), getCompass);
-						SEND(GET(this, comReferee), checkReferee);
+						SEND(GET(this, player), getPlayerGPS);
+						SEND(GET(this, player), getBallGPS);
+						SEND(GET(this, player), getCompass);
+						SEND(GET(this, referee), checkReferee);
 						SET(this, receivedPlayer, 0);
 						SET(this, receivedBall, 0);
 						SET(this, receivedCompass, 0);
@@ -271,7 +271,7 @@ model ChallengeSystem with(
 						}
 
 						if(abs(xDiff) + abs(zDiff) < 20) {
-							SEND(GET(this, comPlayer), setSuction, -100);
+							SEND(GET(this, player), setSuction, -100);
 						}
 
 						int32_t dmf = GET(this, kp) * xRobot;
@@ -292,20 +292,20 @@ model ChallengeSystem with(
 							// The ball has been taken
 							SET(this, zArrived, 1);
 							SET(this, xArrived, 1);
-							SEND(GET(this, comPlayer), moveForward, 0);
-							SEND(GET(this, comPlayer), moveRight, 0);
+							SEND(GET(this, player), moveForward, 0);
+							SEND(GET(this, player), moveRight, 0);
 						} else {
 							if(abs(xRobot) > 2) {
-								SEND(GET(this, comPlayer), moveForward, dmf);
+								SEND(GET(this, player), moveForward, dmf);
 							} else {
-								SEND(GET(this, comPlayer), moveForward, 0);
+								SEND(GET(this, player), moveForward, 0);
 								SET(this, xArrived, 1);
 							}
 
 							if(abs(zRobot) > 2) {
-								SEND(GET(this, comPlayer), moveRight, -dmr);
+								SEND(GET(this, player), moveRight, -dmr);
 							} else {
-								SEND(GET(this, comPlayer), moveRight, 0);
+								SEND(GET(this, player), moveRight, 0);
 								SET(this, zArrived, 1);
 							}
 						}
@@ -335,7 +335,7 @@ model ChallengeSystem with(
 							aRobot += 360;
 
 						if(abs(aRobot) > 30) {
-							SEND(GET(this, comPlayer), stop);
+							SEND(GET(this, player), stop);
 						}
 
 						bool stopAfter = FALSE;
@@ -346,12 +346,12 @@ model ChallengeSystem with(
 						if(GET(this, ballInRobot) && GET(this, ballTarget)) {
 							// The ball has been taken
 							SET(this, aArrived, 1);
-							SEND(GET(this, comPlayer), spin, 0, FALSE);
+							SEND(GET(this, player), spin, 0, FALSE);
 						} else {
 							if(aRobot > 3 || aRobot < -3) {
-								SEND(GET(this, comPlayer), spin, ((aRobot > 0) ? 85:-85), stopAfter);
+								SEND(GET(this, player), spin, ((aRobot > 0) ? 85:-85), stopAfter);
 							} else {
-								SEND(GET(this, comPlayer), spin, 0, FALSE);
+								SEND(GET(this, player), spin, 0, FALSE);
 								SET(this, aArrived, 1);
 							}
 						}

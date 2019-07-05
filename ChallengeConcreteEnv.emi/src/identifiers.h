@@ -67,7 +67,6 @@
 #define STATE_CommunicationPlayer_ReadPlayerGPS			6
 #define STATE_CommunicationPlayer_ReadBallGPS			7
 #define STATE_CommunicationPlayer_ReadCompass			8
-#define STATE_CommunicationPlayer_Error			9
 
 #define STATE_CommunicationReferee_Initial			0
 #define STATE_CommunicationReferee_Connection			1

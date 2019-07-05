@@ -3677,13 +3677,13 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x00001bc6>
                         DW_AT_data_member_location  200 (-56)
 < 2><0x00001e3c>      DW_TAG_member
-                        DW_AT_name                  instMain_environment_comPlayer
+                        DW_AT_name                  instMain_environment_player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000435
                         DW_AT_type                  <0x00001c8e>
                         DW_AT_data_member_location  200 (-56)
 < 2><0x00001e49>      DW_TAG_member
-                        DW_AT_name                  instMain_environment_comReferee
+                        DW_AT_name                  instMain_environment_referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000436
                         DW_AT_type                  <0x00001d31>
@@ -3903,7 +3903,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000476b>
                         DW_AT_data_member_location  0
 < 2><0x0000202d>      DW_TAG_member
-                        DW_AT_name                  comReferee
+                        DW_AT_name                  referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000808
                         DW_AT_type                  <0x0000465d>
@@ -4035,13 +4035,13 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x000046ae>
                         DW_AT_data_member_location  0
 < 2><0x00002152>      DW_TAG_member
-                        DW_AT_name                  comPlayer
+                        DW_AT_name                  player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000844
                         DW_AT_type                  <0x00004627>
                         DW_AT_data_member_location  8
 < 2><0x0000215f>      DW_TAG_member
-                        DW_AT_name                  comReferee
+                        DW_AT_name                  referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000845
                         DW_AT_type                  <0x000046ff>
@@ -4058,13 +4058,13 @@ LOCAL_SYMBOLS:
                       DW_AT_decl_line             0x0000084a
                       DW_AT_sibling               <0x000021ad>
 < 2><0x00002185>      DW_TAG_member
-                        DW_AT_name                  comPlayer
+                        DW_AT_name                  player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000084c
                         DW_AT_type                  <0x00004642>
                         DW_AT_data_member_location  0
 < 2><0x00002192>      DW_TAG_member
-                        DW_AT_name                  comReferee
+                        DW_AT_name                  referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000084d
                         DW_AT_type                  <0x0000476b>
@@ -4103,7 +4103,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x000046ff>
                         DW_AT_data_member_location  0
 < 2><0x000021e6>      DW_TAG_member
-                        DW_AT_name                  comReferee
+                        DW_AT_name                  referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000086a
                         DW_AT_type                  <0x0000465d>
@@ -4149,7 +4149,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x00004642>
                         DW_AT_data_member_location  0
 < 2><0x0000224c>      DW_TAG_member
-                        DW_AT_name                  comPlayer
+                        DW_AT_name                  player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000087e
                         DW_AT_type                  <0x00004750>
@@ -4166,7 +4166,7 @@ LOCAL_SYMBOLS:
                       DW_AT_decl_line             0x00000888
                       DW_AT_sibling               <0x0000228d>
 < 2><0x00002272>      DW_TAG_member
-                        DW_AT_name                  comPlayer
+                        DW_AT_name                  player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000088a
                         DW_AT_type                  <0x00004750>
@@ -4241,7 +4241,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000471a>
                         DW_AT_data_member_location  0
 < 2><0x00002318>      DW_TAG_member
-                        DW_AT_name                  comReferee
+                        DW_AT_name                  referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x000008bb
                         DW_AT_type                  <0x0000465d>
@@ -4253,7 +4253,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x000046e4>
                         DW_AT_data_member_location  16
 < 2><0x00002332>      DW_TAG_member
-                        DW_AT_name                  comPlayer
+                        DW_AT_name                  player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x000008bd
                         DW_AT_type                  <0x00004750>
@@ -4383,13 +4383,13 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x000022f3>
                         DW_AT_data_member_location  176 (-80)
 < 2><0x0000244f>      DW_TAG_member
-                        DW_AT_name                  instMain_environment_comPlayer
+                        DW_AT_name                  instMain_environment_player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x000008d9
                         DW_AT_type                  <0x0000228d>
                         DW_AT_data_member_location  224 (-32)
 < 2><0x0000245c>      DW_TAG_member
-                        DW_AT_name                  instMain_environment_comReferee
+                        DW_AT_name                  instMain_environment_referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x000008da
                         DW_AT_type                  <0x000020a1>
@@ -4650,7 +4650,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000007
                         DW_AT_data_member_location  0
 < 2><0x00002664>      DW_TAG_member
-                        DW_AT_name                  comPlayer_isMutable
+                        DW_AT_name                  player_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000055d
                         DW_AT_type                  <0x00001159>
@@ -4659,7 +4659,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000006
                         DW_AT_data_member_location  0
 < 2><0x00002674>      DW_TAG_member
-                        DW_AT_name                  comReferee_isMutable
+                        DW_AT_name                  referee_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000055d
                         DW_AT_type                  <0x00001159>
@@ -4679,7 +4679,7 @@ LOCAL_SYMBOLS:
                       DW_AT_decl_line             0x00000560
                       DW_AT_sibling               <0x0000282e>
 < 2><0x0000269d>      DW_TAG_member
-                        DW_AT_name                  comPlayer_isMutable
+                        DW_AT_name                  player_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000562
                         DW_AT_type                  <0x00001159>
@@ -4688,7 +4688,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000007
                         DW_AT_data_member_location  0
 < 2><0x000026ad>      DW_TAG_member
-                        DW_AT_name                  comReferee_isMutable
+                        DW_AT_name                  referee_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000562
                         DW_AT_type                  <0x00001159>
@@ -4953,7 +4953,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000007
                         DW_AT_data_member_location  0
 < 2><0x0000288f>      DW_TAG_member
-                        DW_AT_name                  comReferee_isMutable
+                        DW_AT_name                  referee_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000056a
                         DW_AT_type                  <0x00001159>
@@ -4971,7 +4971,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000005
                         DW_AT_data_member_location  0
 < 2><0x000028af>      DW_TAG_member
-                        DW_AT_name                  comPlayer_isMutable
+                        DW_AT_name                  player_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000056a
                         DW_AT_type                  <0x00001159>
@@ -5009,7 +5009,7 @@ LOCAL_SYMBOLS:
                       DW_AT_decl_line             0x0000056d
                       DW_AT_sibling               <0x00002919>
 < 2><0x000028f8>      DW_TAG_member
-                        DW_AT_name                  comPlayer_isMutable
+                        DW_AT_name                  player_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000056f
                         DW_AT_type                  <0x00001159>
@@ -5047,7 +5047,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000007
                         DW_AT_data_member_location  0
 < 2><0x00002941>      DW_TAG_member
-                        DW_AT_name                  comReferee_isMutable
+                        DW_AT_name                  referee_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000574
                         DW_AT_type                  <0x00001159>
@@ -5076,7 +5076,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000007
                         DW_AT_data_member_location  0
 < 2><0x0000297a>      DW_TAG_member
-                        DW_AT_name                  comPlayer_isMutable
+                        DW_AT_name                  player_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000579
                         DW_AT_type                  <0x00001159>
@@ -5105,7 +5105,7 @@ LOCAL_SYMBOLS:
                         DW_AT_bit_offset            0x00000007
                         DW_AT_data_member_location  0
 < 2><0x000029b3>      DW_TAG_member
-                        DW_AT_name                  comReferee_isMutable
+                        DW_AT_name                  referee_isMutable
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000057e
                         DW_AT_type                  <0x00001159>
@@ -5537,13 +5537,13 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x00004933>
                         DW_AT_data_member_location  0
 < 2><0x00002d34>      DW_TAG_member
-                        DW_AT_name                  comPlayer_type
+                        DW_AT_name                  player_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000655
                         DW_AT_type                  <0x00004933>
                         DW_AT_data_member_location  8
 < 2><0x00002d41>      DW_TAG_member
-                        DW_AT_name                  comReferee_type
+                        DW_AT_name                  referee_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000655
                         DW_AT_type                  <0x00004933>
@@ -5562,13 +5562,13 @@ LOCAL_SYMBOLS:
                       DW_AT_decl_line             0x00000658
                       DW_AT_sibling               <0x00002eb2>
 < 2><0x00002d6c>      DW_TAG_member
-                        DW_AT_name                  comPlayer_type
+                        DW_AT_name                  player_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000065a
                         DW_AT_type                  <0x00004939>
                         DW_AT_data_member_location  0
 < 2><0x00002d79>      DW_TAG_member
-                        DW_AT_name                  comReferee_type
+                        DW_AT_name                  referee_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000065a
                         DW_AT_type                  <0x00004939>
@@ -5756,7 +5756,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000494b>
                         DW_AT_data_member_location  0
 < 2><0x00002f14>      DW_TAG_member
-                        DW_AT_name                  comReferee_type
+                        DW_AT_name                  referee_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000662
                         DW_AT_type                  <0x0000494b>
@@ -5768,7 +5768,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000494b>
                         DW_AT_data_member_location  16
 < 2><0x00002f2e>      DW_TAG_member
-                        DW_AT_name                  comPlayer_type
+                        DW_AT_name                  player_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000662
                         DW_AT_type                  <0x0000494b>
@@ -5799,7 +5799,7 @@ LOCAL_SYMBOLS:
                       DW_AT_decl_line             0x00000665
                       DW_AT_sibling               <0x00002f8e>
 < 2><0x00002f73>      DW_TAG_member
-                        DW_AT_name                  comPlayer_type
+                        DW_AT_name                  player_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000667
                         DW_AT_type                  <0x00004951>
@@ -5830,7 +5830,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x00004957>
                         DW_AT_data_member_location  0
 < 2><0x00002fb8>      DW_TAG_member
-                        DW_AT_name                  comReferee_type
+                        DW_AT_name                  referee_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x0000066c
                         DW_AT_type                  <0x00004957>
@@ -5855,7 +5855,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000495d>
                         DW_AT_data_member_location  0
 < 2><0x00002ff0>      DW_TAG_member
-                        DW_AT_name                  comPlayer_type
+                        DW_AT_name                  player_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000671
                         DW_AT_type                  <0x0000495d>
@@ -5880,7 +5880,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x00004963>
                         DW_AT_data_member_location  0
 < 2><0x00003028>      DW_TAG_member
-                        DW_AT_name                  comReferee_type
+                        DW_AT_name                  referee_type
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x00000676
                         DW_AT_type                  <0x00004963>
@@ -7484,13 +7484,13 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x000046ae>
                         DW_AT_data_member_location  8
 < 2><0x00003df0>      DW_TAG_member
-                        DW_AT_name                  instMain_environment_comPlayer
+                        DW_AT_name                  instMain_environment_player
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x000007ba
                         DW_AT_type                  <0x00004750>
                         DW_AT_data_member_location  16
 < 2><0x00003dfd>      DW_TAG_member
-                        DW_AT_name                  instMain_environment_comReferee
+                        DW_AT_name                  instMain_environment_referee
                         DW_AT_decl_file             0x00000014 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.h
                         DW_AT_decl_line             0x000007bb
                         DW_AT_type                  <0x0000465d>
@@ -9891,7 +9891,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000b55>
                       DW_AT_location              len 0x0009: 03e006000000000000: DW_OP_addr 0x000006e0
 < 1><0x0000531d>    DW_TAG_variable
-                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__comPlayer
+                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToPlayerPortSys__POINT__player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00000040
                       DW_AT_type                  <0x00000b55>
@@ -9909,7 +9909,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000b55>
                       DW_AT_location              len 0x0009: 03a007000000000000: DW_OP_addr 0x000007a0
 < 1><0x0000535c>    DW_TAG_variable
-                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__comReferee
+                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__Controller_ControllerToRefereePortSys__POINT__referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00000043
                       DW_AT_type                  <0x00000b55>
@@ -9927,7 +9927,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000b55>
                       DW_AT_location              len 0x0009: 036008000000000000: DW_OP_addr 0x00000860
 < 1><0x0000539b>    DW_TAG_variable
-                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__comPlayer
+                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToPlayerPortSys__POINT__player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00000046
                       DW_AT_type                  <0x00000b55>
@@ -9945,7 +9945,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000b55>
                       DW_AT_location              len 0x0009: 032009000000000000: DW_OP_addr 0x00000920
 < 1><0x000053da>    DW_TAG_variable
-                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__comReferee
+                      DW_AT_name                  ChallengeSystem_property_ChallengeSystem__POINT__TrajectoryManager_TrajToRefereePortSys__POINT__referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00000049
                       DW_AT_type                  <0x00000b55>
@@ -11025,13 +11025,13 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000ecd>
                       DW_AT_location              len 0x0009: 03e031000000000000: DW_OP_addr 0x000031e0
 < 1><0x0000629e>    DW_TAG_variable
-                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comPlayer
+                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000000fd
                       DW_AT_type                  <0x00000b55>
                       DW_AT_location              len 0x0009: 034032000000000000: DW_OP_addr 0x00003240
 < 1><0x000062b3>    DW_TAG_variable
-                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__comReferee
+                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__Environment__POINT__referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000000fe
                       DW_AT_type                  <0x00000b55>
@@ -11091,7 +11091,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000ac8>
                       DW_AT_location              len 0x0009: 03c034000000000000: DW_OP_addr 0x000034c0
 < 1><0x0000638d>    DW_TAG_variable
-                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__comPlayer
+                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_ControllerToPlayerPortEnv__POINT__player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00000108
                       DW_AT_type                  <0x00000b55>
@@ -11109,7 +11109,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000ac8>
                       DW_AT_location              len 0x0009: 038035000000000000: DW_OP_addr 0x00003580
 < 1><0x000063cf>    DW_TAG_variable
-                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__comReferee
+                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_ControllerToRefereePortEnv__POINT__referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x0000010b
                       DW_AT_type                  <0x00000b55>
@@ -11127,7 +11127,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000ac8>
                       DW_AT_location              len 0x0009: 034036000000000000: DW_OP_addr 0x00003640
 < 1><0x00006411>    DW_TAG_variable
-                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__comPlayer
+                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationPlayer_TrajToPlayerPortEnv__POINT__player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x0000010e
                       DW_AT_type                  <0x00000b55>
@@ -11145,7 +11145,7 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x00000ac8>
                       DW_AT_location              len 0x0009: 030037000000000000: DW_OP_addr 0x00003700
 < 1><0x00006453>    DW_TAG_variable
-                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__comReferee
+                      DW_AT_name                  ChallengeEnv_property_ChallengeEnv__POINT__CommunicationReferee_TrajToRefereePortEnv__POINT__referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00000111
                       DW_AT_type                  <0x00000b55>
@@ -15725,13 +15725,13 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x000011e9>
                       DW_AT_location              len 0x0009: 03e088000000000000: DW_OP_addr 0x000088e0
 < 1><0x0000a469>    DW_TAG_variable
-                      DW_AT_name                  eventPool_instMain_environment_comPlayer
+                      DW_AT_name                  eventPool_instMain_environment_player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00001454
                       DW_AT_type                  <0x000011e9>
                       DW_AT_location              len 0x0009: 034089000000000000: DW_OP_addr 0x00008940
 < 1><0x0000a47f>    DW_TAG_variable
-                      DW_AT_name                  eventPool_instMain_environment_comReferee
+                      DW_AT_name                  eventPool_instMain_environment_referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00001455
                       DW_AT_type                  <0x000011e9>
@@ -15797,13 +15797,13 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x0000a533>
                       DW_AT_location              len 0x0009: 03c006000000000000: DW_OP_addr 0x000006c0
 < 1><0x0000a559>    DW_TAG_variable
-                      DW_AT_name                  data_instMain_environment_comPlayer
+                      DW_AT_name                  data_instMain_environment_player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000014cc
                       DW_AT_type                  <0x0000a495>
                       DW_AT_location              len 0x0009: 03108a000000000000: DW_OP_addr 0x00008a10
 < 1><0x0000a56f>    DW_TAG_variable
-                      DW_AT_name                  element_size_instMain_environment_comPlayer
+                      DW_AT_name                  element_size_instMain_environment_player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000014d0
                       DW_AT_type                  <0x0000a4bb>
@@ -15815,25 +15815,25 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000005b>
                         DW_AT_upper_bound           79
 < 1><0x0000a595>    DW_TAG_variable
-                      DW_AT_name                  reorganize_buffer_instMain_environment_comPlayer
+                      DW_AT_name                  reorganize_buffer_instMain_environment_player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000014da
                       DW_AT_type                  <0x0000a585>
                       DW_AT_location              len 0x0009: 034007000000000000: DW_OP_addr 0x00000740
 < 1><0x0000a5ab>    DW_TAG_variable
-                      DW_AT_name                  data_instMain_environment_comReferee
+                      DW_AT_name                  data_instMain_environment_referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000014ff
                       DW_AT_type                  <0x0000a495>
                       DW_AT_location              len 0x0009: 03208a000000000000: DW_OP_addr 0x00008a20
 < 1><0x0000a5c1>    DW_TAG_variable
-                      DW_AT_name                  element_size_instMain_environment_comReferee
+                      DW_AT_name                  element_size_instMain_environment_referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00001503
                       DW_AT_type                  <0x0000a4bb>
                       DW_AT_location              len 0x0009: 03c004000000000000: DW_OP_addr 0x000004c0
 < 1><0x0000a5d7>    DW_TAG_variable
-                      DW_AT_name                  reorganize_buffer_instMain_environment_comReferee
+                      DW_AT_name                  reorganize_buffer_instMain_environment_referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x0000150d
                       DW_AT_type                  <0x0000a4e1>
@@ -15878,7 +15878,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000005b>
                         DW_AT_upper_bound           0
 < 1><0x0000a65b>    DW_TAG_variable
-                      DW_AT_name                  fireables_instMain_environment_comPlayer
+                      DW_AT_name                  fireables_instMain_environment_player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00001562
                       DW_AT_type                  <0x0000a645>
@@ -15893,7 +15893,7 @@ LOCAL_SYMBOLS:
                         DW_AT_type                  <0x0000005b>
                         DW_AT_upper_bound           1
 < 1><0x0000a687>    DW_TAG_variable
-                      DW_AT_name                  fireables_instMain_environment_comReferee
+                      DW_AT_name                  fireables_instMain_environment_referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x00001563
                       DW_AT_type                  <0x0000a671>
@@ -16121,13 +16121,13 @@ LOCAL_SYMBOLS:
                       DW_AT_type                  <0x000039ee>
                       DW_AT_location              len 0x0009: 03608c000000000000: DW_OP_addr 0x00008c60
 < 1><0x0000a95d>    DW_TAG_variable
-                      DW_AT_name                  ao_instMain_environment_comPlayer
+                      DW_AT_name                  ao_instMain_environment_player
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x0000169f
                       DW_AT_type                  <0x00003b33>
                       DW_AT_location              len 0x0009: 03008d000000000000: DW_OP_addr 0x00008d00
 < 1><0x0000a973>    DW_TAG_variable
-                      DW_AT_name                  ao_instMain_environment_comReferee
+                      DW_AT_name                  ao_instMain_environment_referee
                       DW_AT_decl_file             0x00000001 /home/vbesnard/Doctorat/Recherche/code/gits/uml-interpreter-c/samples/ChallengeMDETools/ChallengeModularv2/ChallengeAbstractedEnv.emi/src/model.c
                       DW_AT_decl_line             0x000016ba
                       DW_AT_type                  <0x00003c78>
