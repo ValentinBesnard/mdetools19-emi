@@ -1,0 +1,855 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="ChallengeSystem" name="ChallengeSystem">
+  <elementImport xmi:id="a1" visibility="private">
+    <importedElement xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+  </elementImport>
+  <elementImport xmi:id="a2" visibility="private">
+    <importedElement xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="a3" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.rspPlayerGPS_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a4" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.rspBallGPS_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a5" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.rspCompass_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a6" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.playerConnected_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a7" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.refereeConnected_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a8" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.possession_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a9" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.done_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a10" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.opponentScored_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a11" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.timeout_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a12" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.abort_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a13" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.refereeAck_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a14" visibility="private">
+    <importedElement xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajUser"/>
+  </elementImport>
+  <elementImport xmi:id="a15" visibility="private">
+    <importedElement xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajToPlayerUser"/>
+  </elementImport>
+  <elementImport xmi:id="a16" visibility="private">
+    <importedElement xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajToRefereeUser"/>
+  </elementImport>
+  <elementImport xmi:id="a17" visibility="private">
+    <importedElement xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromPlayer"/>
+  </elementImport>
+  <elementImport xmi:id="a18" visibility="private">
+    <importedElement xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromReferee"/>
+  </elementImport>
+  <elementImport xmi:id="a19" visibility="private">
+    <importedElement xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_ControllerFromReferee"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Package" xmi:id="ChallengeSystem.observers" name="observers">
+    <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.observers.Obs" name="Obs">
+      <ownedAttribute xmi:id="ChallengeSystem.observers.Obs.observer" name="observer" type="ChallengeSystem.observers.DirectionObserver" isUnique="false" aggregation="composite">
+        <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a20" value="1"/>
+        <upperValue xmi:type="uml:LiteralInteger" xmi:id="a21" value="1"/>
+      </ownedAttribute>
+    </packagedElement>
+    <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="ChallengeSystem.observers.instObs" name="instObs" classifier="ChallengeSystem.observers.Obs"/>
+    <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.observers.DirectionObserver" name="DirectionObserver" classifierBehavior="ChallengeSystem.observers.DirectionObserver.SM" isActive="true">
+      <ownedBehavior xmi:type="uml:StateMachine" xmi:id="ChallengeSystem.observers.DirectionObserver.SM" name="SM">
+        <region xmi:id="ChallengeSystem.observers.DirectionObserver.SM.R" name="R">
+          <transition xmi:id="a22" source="ChallengeSystem.observers.DirectionObserver.SM.R.Initial" target="ChallengeSystem.observers.DirectionObserver.SM.R.Running"/>
+          <transition xmi:id="a23" source="ChallengeSystem.observers.DirectionObserver.SM.R.Running" target="ChallengeSystem.observers.DirectionObserver.SM.R.Fail">
+            <ownedRule xmi:id="a24" name="guard">
+              <specification xmi:type="uml:OpaqueExpression" xmi:id="a25">
+                <language>C</language>
+                <body>
+							IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_Shoot)
+							&amp;&amp; 
+							!(GET(GET(GET(ROOT_instMain, system), trajectoryManager), aPlayer) > 170 &amp;&amp; GET(GET(GET(ROOT_instMain, system), trajectoryManager), aPlayer) &lt; 190)
+						</body>
+              </specification>
+            </ownedRule>
+          </transition>
+          <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.observers.DirectionObserver.SM.R.Initial" name="Initial"/>
+          <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.observers.DirectionObserver.SM.R.Running" name="Running"/>
+          <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.observers.DirectionObserver.SM.R.Fail" name="Fail"/>
+        </region>
+      </ownedBehavior>
+    </packagedElement>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.System" name="System">
+    <ownedAttribute xmi:id="ChallengeSystem.System.controller" name="controller" type="ChallengeSystem.Controller" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a26" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a27" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.System.trajectoryManager" name="trajectoryManager" type="ChallengeSystem.TrajectoryManager" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a28" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a29" value="1"/>
+      <defaultValue xmi:type="uml:InstanceValue" xmi:id="a30" instance="ChallengeSystem.instTrajectoryManager"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeSystem.System.controllerToPlayerPortSys" name="controllerToPlayerPortSys" type="ChallengeSystem.ControllerToPlayerPortSys" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a31" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a32" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeSystem.System.controllerToRefereePortSys" name="controllerToRefereePortSys" type="ChallengeSystem.ControllerToRefereePortSys" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a33" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a34" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeSystem.System.trajToPlayerPortSys" name="trajToPlayerPortSys" type="ChallengeSystem.TrajToPlayerPortSys" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a35" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a36" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeSystem.System.trajToRefereePortSys" name="trajToRefereePortSys" type="ChallengeSystem.TrajToRefereePortSys" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a37" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a38" value="1"/>
+    </ownedAttribute>
+    <ownedConnector xmi:id="ChallengeSystem.System.c1" name="c1" type="ChallengeSystem.Controller_TrajectoryManager">
+      <end xmi:id="a39" role="ChallengeSystem.System.controller"/>
+      <end xmi:id="a40" role="ChallengeSystem.System.trajectoryManager"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeSystem.System.c2" name="c2" type="ChallengeSystem.Controller_ControllerToPlayerPortSys">
+      <end xmi:id="a41" role="ChallengeSystem.System.controller"/>
+      <end xmi:id="a42" role="ChallengeSystem.System.controllerToPlayerPortSys"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeSystem.System.c3" name="c3" type="ChallengeSystem.Controller_ControllerToRefereePortSys">
+      <end xmi:id="a43" role="ChallengeSystem.System.controller"/>
+      <end xmi:id="a44" role="ChallengeSystem.System.controllerToRefereePortSys"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeSystem.System.c4" name="c4" type="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys">
+      <end xmi:id="a45" role="ChallengeSystem.System.trajectoryManager"/>
+      <end xmi:id="a46" role="ChallengeSystem.System.trajToPlayerPortSys"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeSystem.System.c5" name="c5" type="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys">
+      <end xmi:id="a47" role="ChallengeSystem.System.trajectoryManager"/>
+      <end xmi:id="a48" role="ChallengeSystem.System.trajToRefereePortSys"/>
+    </ownedConnector>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="ChallengeSystem.instTrajectoryManager" name="instTrajectoryManager" classifier="ChallengeSystem.TrajectoryManager">
+    <slot xmi:id="a49" definingFeature="ChallengeSystem.TrajectoryManager.kp">
+      <value xmi:type="uml:LiteralInteger" xmi:id="a50" value="20"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_TrajectoryManager" name="Controller_TrajectoryManager" memberEnd="ChallengeSystem.Controller_TrajectoryManager.controller ChallengeSystem.Controller_TrajectoryManager.trajectoryManager">
+    <ownedEnd xmi:id="ChallengeSystem.Controller_TrajectoryManager.controller" name="controller" type="ChallengeSystem.Controller" isUnique="false" association="ChallengeSystem.Controller_TrajectoryManager">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a51" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a52" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeSystem.Controller_TrajectoryManager.trajectoryManager" name="trajectoryManager" type="ChallengeSystem.TrajectoryManager" isUnique="false" association="ChallengeSystem.Controller_TrajectoryManager">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a53" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a54" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys" name="Controller_ControllerToPlayerPortSys" memberEnd="ChallengeSystem.Controller_ControllerToPlayerPortSys.controller ChallengeSystem.Controller_ControllerToPlayerPortSys.comPlayer">
+    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys.controller" name="controller" type="ChallengeSystem.Controller" isUnique="false" association="ChallengeSystem.Controller_ControllerToPlayerPortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a55" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a56" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToPlayerPortSys.comPlayer" name="comPlayer" type="ChallengeSystem.ControllerToPlayerPortSys" isUnique="false" association="ChallengeSystem.Controller_ControllerToPlayerPortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a57" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a58" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys" name="Controller_ControllerToRefereePortSys" memberEnd="ChallengeSystem.Controller_ControllerToRefereePortSys.controller ChallengeSystem.Controller_ControllerToRefereePortSys.comReferee">
+    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys.controller" name="controller" type="ChallengeSystem.Controller" isUnique="false" association="ChallengeSystem.Controller_ControllerToRefereePortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a59" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a60" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeSystem.Controller_ControllerToRefereePortSys.comReferee" name="comReferee" type="ChallengeSystem.ControllerToRefereePortSys" isUnique="false" association="ChallengeSystem.Controller_ControllerToRefereePortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a61" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a62" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys" name="TrajectoryManager_TrajToPlayerPortSys" memberEnd="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.trajectoryManager ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.comPlayer">
+    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.trajectoryManager" name="trajectoryManager" type="ChallengeSystem.TrajectoryManager" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a63" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a64" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys.comPlayer" name="comPlayer" type="ChallengeSystem.TrajToPlayerPortSys" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToPlayerPortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a65" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a66" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys" name="TrajectoryManager_TrajToRefereePortSys" memberEnd="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.trajectoryManager ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.comReferee">
+    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.trajectoryManager" name="trajectoryManager" type="ChallengeSystem.TrajectoryManager" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a67" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a68" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys.comReferee" name="comReferee" type="ChallengeSystem.TrajToRefereePortSys" isUnique="false" association="ChallengeSystem.TrajectoryManager_TrajToRefereePortSys">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a69" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a70" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeSystem.connected" name="connected"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeSystem.connected_SE" name="connected_SE" signal="ChallengeSystem.connected"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeSystem.goPos" name="goPos">
+    <ownedAttribute xmi:id="ChallengeSystem.goPos.ball" name="ball" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a71" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a72" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.goPos.x" name="x" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a73" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a74" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.goPos.z" name="z" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a75" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a76" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeSystem.goPos_SE" name="goPos_SE" signal="ChallengeSystem.goPos"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeSystem.goAngle" name="goAngle">
+    <ownedAttribute xmi:id="ChallengeSystem.goAngle.ball" name="ball" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a77" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a78" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.goAngle.x" name="x" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a79" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a80" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.goAngle.z" name="z" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a81" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a82" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeSystem.goAngle_SE" name="goAngle_SE" signal="ChallengeSystem.goAngle"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeSystem.finish" name="finish"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeSystem.finish_SE" name="finish_SE" signal="ChallengeSystem.finish"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeSystem.error" name="error"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeSystem.error_SE" name="error_SE" signal="ChallengeSystem.error"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.ControllerToPlayerPortSys" name="ControllerToPlayerPortSys">
+    <generalization xmi:id="a83">
+      <general xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajToPlayerUser"/>
+    </generalization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.ControllerToRefereePortSys" clientDependency="a84" name="ControllerToRefereePortSys">
+    <interfaceRealization xmi:id="a84" client="ChallengeSystem.ControllerToRefereePortSys">
+      <supplier xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_ControllerFromReferee"/>
+      <contract href="ChallengeDAL.uml#ChallengeDAL.I_ControllerFromReferee"/>
+    </interfaceRealization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.TrajToPlayerPortSys" clientDependency="a86" name="TrajToPlayerPortSys">
+    <generalization xmi:id="a85">
+      <general xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajToPlayerUser"/>
+    </generalization>
+    <interfaceRealization xmi:id="a86" client="ChallengeSystem.TrajToPlayerPortSys">
+      <supplier xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromPlayer"/>
+      <contract href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromPlayer"/>
+    </interfaceRealization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.TrajToRefereePortSys" clientDependency="a88" name="TrajToRefereePortSys">
+    <generalization xmi:id="a87">
+      <general xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajToRefereeUser"/>
+    </generalization>
+    <interfaceRealization xmi:id="a88" client="ChallengeSystem.TrajToRefereePortSys">
+      <supplier xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromReferee"/>
+      <contract href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromReferee"/>
+    </interfaceRealization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.Controller" clientDependency="a90" name="Controller" classifierBehavior="ChallengeSystem.Controller.SM" isActive="true">
+    <generalization xmi:id="a89">
+      <general xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajToPlayerUser"/>
+    </generalization>
+    <interfaceRealization xmi:id="a90" client="ChallengeSystem.Controller">
+      <supplier xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_ControllerFromReferee"/>
+      <contract href="ChallengeDAL.uml#ChallengeDAL.I_ControllerFromReferee"/>
+    </interfaceRealization>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="ChallengeSystem.Controller.SM" name="SM">
+      <region xmi:id="ChallengeSystem.Controller.SM.R" name="R">
+        <transition xmi:id="a91" source="ChallengeSystem.Controller.SM.R.Initial" target="ChallengeSystem.Controller.SM.R.WaitConnection"/>
+        <transition xmi:id="a92" source="ChallengeSystem.Controller.SM.R.WaitConnection" target="ChallengeSystem.Controller.SM.R.IdleJunction">
+          <trigger xmi:id="a93" event="ChallengeSystem.connected_SE"/>
+        </transition>
+        <transition xmi:id="a94" source="ChallengeSystem.Controller.SM.R.IdleJunction" target="ChallengeSystem.Controller.SM.R.GoToBall">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a95">
+            <language>C</language>
+            <body>SEND(GET(this, trajectoryManager), goPos, TRUE, 0, 0);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a96" source="ChallengeSystem.Controller.SM.R.GoToBall" target="ChallengeSystem.Controller.SM.R.GoToGoal">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a97">
+            <language>C</language>
+            <body>SEND(GET(this, trajectoryManager), goPos, FALSE, -20, 0);</body>
+          </effect>
+          <trigger xmi:id="a98" event="ChallengeSystem.finish_SE"/>
+        </transition>
+        <transition xmi:id="a99" source="ChallengeSystem.Controller.SM.R.GoToGoal" target="ChallengeSystem.Controller.SM.R.Turn">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a100">
+            <language>C</language>
+            <body>SEND(GET(this, trajectoryManager), goAngle, FALSE, -50, 0);</body>
+          </effect>
+          <trigger xmi:id="a101" event="ChallengeSystem.finish_SE"/>
+        </transition>
+        <transition xmi:id="a102" source="ChallengeSystem.Controller.SM.R.Turn" target="ChallengeSystem.Controller.SM.R.Shoot">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a103">
+            <language>C</language>
+            <body>SEND(GET(this, comPlayer), setSuction, 100);</body>
+          </effect>
+          <trigger xmi:id="a104" event="ChallengeSystem.finish_SE"/>
+        </transition>
+        <transition xmi:id="a105" source="ChallengeSystem.Controller.SM.R.Shoot" target="ChallengeSystem.Controller.SM.R.IdleJunction">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a106">
+            <language>C</language>
+            <body>usleep(500000);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a107" source="ChallengeSystem.Controller.SM.R.GoToBall" target="ChallengeSystem.Controller.SM.R.ListenReferee">
+          <trigger xmi:id="a108" event="ChallengeSystem.error_SE"/>
+        </transition>
+        <transition xmi:id="a109" source="ChallengeSystem.Controller.SM.R.GoToGoal" target="ChallengeSystem.Controller.SM.R.ListenReferee">
+          <trigger xmi:id="a110" event="ChallengeSystem.error_SE"/>
+        </transition>
+        <transition xmi:id="a111" source="ChallengeSystem.Controller.SM.R.Turn" target="ChallengeSystem.Controller.SM.R.ListenReferee">
+          <trigger xmi:id="a112" event="ChallengeSystem.error_SE"/>
+        </transition>
+        <transition xmi:id="a113" source="ChallengeSystem.Controller.SM.R.ListenReferee" target="ChallengeSystem.Controller.SM.R.End">
+          <trigger xmi:id="a114">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.done_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a115" source="ChallengeSystem.Controller.SM.R.ListenReferee" target="ChallengeSystem.Controller.SM.R.IdleJunction">
+          <trigger xmi:id="a116">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.opponentScored_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a117" source="ChallengeSystem.Controller.SM.R.ListenReferee" target="ChallengeSystem.Controller.SM.R.IdleJunction">
+          <trigger xmi:id="a118">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.timeout_SE"/>
+          </trigger>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.Controller.SM.R.Initial" name="Initial"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.Controller.SM.R.IdleJunction" name="IdleJunction" kind="junction"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.WaitConnection" name="WaitConnection"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.GoToBall" name="GoToBall"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.GoToGoal" name="GoToGoal"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.Turn" name="Turn"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.Shoot" name="Shoot"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.ListenReferee" name="ListenReferee"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.Controller.SM.R.End" name="End"/>
+      </region>
+    </ownedBehavior>
+    <ownedReception xmi:id="ChallengeSystem.Controller.connected" name="connected" signal="ChallengeSystem.connected"/>
+    <ownedReception xmi:id="ChallengeSystem.Controller.finish" name="finish" signal="ChallengeSystem.finish"/>
+    <ownedReception xmi:id="ChallengeSystem.Controller.error" name="error" signal="ChallengeSystem.error"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeSystem.TrajectoryManager" clientDependency="a164 a165" name="TrajectoryManager" classifierBehavior="ChallengeSystem.TrajectoryManager.SM" isActive="true">
+    <generalization xmi:id="a119">
+      <general xmi:type="uml:Class" href="ChallengeDAL.uml#ChallengeDAL.TrajUser"/>
+    </generalization>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.xPlayer" name="xPlayer" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a120" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a121" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.zPlayer" name="zPlayer" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a122" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a123" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.aPlayer" name="aPlayer" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a124" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a125" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.xBall" name="xBall" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a126" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a127" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.zBall" name="zBall" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a128" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a129" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.xArrived" name="xArrived" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a130" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a131" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.zArrived" name="zArrived" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a132" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a133" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.aArrived" name="aArrived" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a134" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a135" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.trajectory" name="trajectory" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a136" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a137" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.xTarget" name="xTarget" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a138" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a139" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.zTarget" name="zTarget" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a140" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a141" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.ballTarget" name="ballTarget" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a142" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a143" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.receivedBall" name="receivedBall" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a144" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a145" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.receivedPlayer" name="receivedPlayer" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a146" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a147" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.receivedCompass" name="receivedCompass" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a148" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a149" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.needTurn" name="needTurn" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a150" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a151" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.ballInRobot" name="ballInRobot" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a152" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a153" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.playerConnected" name="playerConnected" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a154" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a155" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.refereeConnected" name="refereeConnected" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a156" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a157" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.error" name="error" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a158" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a159" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.ack" name="ack" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a160" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a161" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeSystem.TrajectoryManager.kp" name="kp" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a162" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a163" value="1"/>
+    </ownedAttribute>
+    <interfaceRealization xmi:id="a164" client="ChallengeSystem.TrajectoryManager">
+      <supplier xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromPlayer"/>
+      <contract href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromPlayer"/>
+    </interfaceRealization>
+    <interfaceRealization xmi:id="a165" client="ChallengeSystem.TrajectoryManager">
+      <supplier xmi:type="uml:Interface" href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromReferee"/>
+      <contract href="ChallengeDAL.uml#ChallengeDAL.I_TrajFromReferee"/>
+    </interfaceRealization>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="ChallengeSystem.TrajectoryManager.SM" name="SM">
+      <region xmi:id="ChallengeSystem.TrajectoryManager.SM.R" name="R">
+        <transition xmi:id="a166" source="ChallengeSystem.TrajectoryManager.SM.R.Initial" target="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection"/>
+        <transition xmi:id="a167" source="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection" target="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a168">
+            <language>C</language>
+            <body>SET(this, playerConnected, TRUE);</body>
+          </effect>
+          <trigger xmi:id="a169">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.playerConnected_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a170" source="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection" target="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a171">
+            <language>C</language>
+            <body>SET(this, refereeConnected, TRUE);</body>
+          </effect>
+          <trigger xmi:id="a172">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.refereeConnected_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a173" source="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection" target="ChallengeSystem.TrajectoryManager.SM.R.Idle">
+          <ownedRule xmi:id="a174">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a175">
+              <language>C</language>
+              <body>GET(this, refereeConnected) &amp;&amp; GET(this, playerConnected)</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a176">
+            <language>C</language>
+            <body>SEND(GET(this, controller), connected);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a177" source="ChallengeSystem.TrajectoryManager.SM.R.Idle" target="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a178">
+            <language>C</language>
+            <body>
+						SET(this, trajectory, 0);
+						SET(this, ballTarget, params->ball);
+						SET(this, xTarget, params->x);
+						SET(this, zTarget, params->z);
+						</body>
+          </effect>
+          <trigger xmi:id="a179" event="ChallengeSystem.goPos_SE"/>
+        </transition>
+        <transition xmi:id="a180" source="ChallengeSystem.TrajectoryManager.SM.R.Idle" target="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a181">
+            <language>C</language>
+            <body>
+						SET(this, trajectory, 1);
+						SET(this, ballTarget, params->ball);
+						SET(this, xTarget, params->x);
+						SET(this, zTarget, params->z);
+						</body>
+          </effect>
+          <trigger xmi:id="a182" event="ChallengeSystem.goAngle_SE"/>
+        </transition>
+        <transition xmi:id="a183" source="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a184">
+            <language>C</language>
+            <body>
+						SEND(GET(this, comPlayer), getPlayerGPS);
+						SEND(GET(this, comPlayer), getBallGPS);
+						SEND(GET(this, comPlayer), getCompass);
+						SEND(GET(this, comReferee), checkReferee);
+						SET(this, receivedPlayer, 0);
+						SET(this, receivedBall, 0);
+						SET(this, receivedCompass, 0);
+						SET(this, ack, FALSE);
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a185" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a186">
+            <language>C</language>
+            <body>
+						SET(this, xPlayer, params->x);
+						SET(this, zPlayer, params->z);
+						SET(this, receivedPlayer, 1);
+						</body>
+          </effect>
+          <trigger xmi:id="a187">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.rspPlayerGPS_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a188" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a189">
+            <language>C</language>
+            <body>
+						SET(this, xBall, params->x);
+						SET(this, zBall, params->z);
+						SET(this, receivedBall, 1);
+						</body>
+          </effect>
+          <trigger xmi:id="a190">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.rspBallGPS_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a191" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a192">
+            <language>C</language>
+            <body>
+						SET(this, aPlayer, params->direction);
+						SET(this, receivedCompass, 1);
+						</body>
+          </effect>
+          <trigger xmi:id="a193">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.rspCompass_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a194" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a195">
+            <language>C</language>
+            <body>
+						SET(this, ballInRobot, TRUE);
+						</body>
+          </effect>
+          <trigger xmi:id="a196">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.possession_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a197" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a198">
+            <language>C</language>
+            <body>
+						SET(this, error, TRUE);
+						</body>
+          </effect>
+          <trigger xmi:id="a199">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.abort_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a200" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a201">
+            <language>C</language>
+            <body>
+						SET(this, ack, TRUE);
+						</body>
+          </effect>
+          <trigger xmi:id="a202">
+            <event xmi:type="uml:SignalEvent" href="ChallengeDAL.uml#ChallengeDAL.refereeAck_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a203" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice" target="ChallengeSystem.TrajectoryManager.SM.R.Idle">
+          <ownedRule xmi:id="a204">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a205">
+              <language>C</language>
+              <body>GET(this, ack) &amp;&amp; GET(this, error) &amp;&amp; GET(this, receivedBall) &amp;&amp; GET(this, receivedPlayer) &amp;&amp; GET(this, receivedCompass)</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a206">
+            <language>C</language>
+            <body>
+							SEND(GET(this, controller), error);
+							SET(this, error, FALSE);
+							</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a207" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice" target="ChallengeSystem.TrajectoryManager.SM.R.ComputeTraj">
+          <ownedRule xmi:id="a208">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a209">
+              <language>C</language>
+              <body>GET(this, ack) &amp;&amp; !GET(this, error) &amp;&amp; GET(this, receivedBall) &amp;&amp; GET(this, receivedPlayer) &amp;&amp; GET(this, receivedCompass)</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a210" source="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice" target="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals">
+          <ownedRule xmi:id="a211">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a212">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a213" source="ChallengeSystem.TrajectoryManager.SM.R.ComputeTraj" target="ChallengeSystem.TrajectoryManager.SM.R.TrajGoPos">
+          <ownedRule xmi:id="a214">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a215">
+              <language>C</language>
+              <body>GET(this, trajectory) == 0 &amp;&amp; GET(this, needTurn) == 0</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a216">
+            <language>C</language>
+            <body>
+						SET(this, xArrived, 0);
+						SET(this, zArrived, 0);
+
+						int32_t xDest = 0, zDest = 0;
+						if(GET(this, ballTarget)) {
+							xDest = GET(this, xBall);
+							zDest = GET(this, zBall);
+						} else {
+							xDest = GET(this, xTarget);
+							zDest = GET(this, zTarget);
+						}
+
+						int32_t xDiff = xDest - GET(this, xPlayer);
+						int32_t zDiff = zDest - GET(this, zPlayer);
+
+						double aPlayerRad = (M_PI * GET(this, aPlayer)) / 180.0;
+						int32_t xRobot = xDiff * cos(aPlayerRad) - zDiff * sin(aPlayerRad);
+						int32_t zRobot = - xDiff * sin(aPlayerRad) - zDiff * cos(aPlayerRad);
+
+						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);
+						while(aRobot > 180)
+							aRobot -= 360;
+						while(aRobot &lt; -180)
+							aRobot += 360;
+						if(GET(this, ballTarget) &amp;&amp; (aRobot > 6 || aRobot &lt; -6)) {
+							SET(this, needTurn, TRUE);
+						}
+
+						if(abs(xDiff) + abs(zDiff) &lt; 20) {
+							SEND(GET(this, comPlayer), setSuction, -100);
+						}
+
+						int32_t dmf = GET(this, kp) * xRobot;
+						int32_t dmr = GET(this, kp) * zRobot;
+
+						if(dmf > 100) {
+							dmf = 100;
+						} else if(dmf &lt; -100) {
+							dmf = -100;
+						}
+						if(dmr > 100) {
+							dmr = 100;
+						} else if(dmr &lt; -100) {
+							dmr = -100;
+						}
+
+						if(GET(this, ballInRobot) &amp;&amp; GET(this, ballTarget)) {
+							// The ball has been taken
+							SET(this, zArrived, 1);
+							SET(this, xArrived, 1);
+							SEND(GET(this, comPlayer), moveForward, 0);
+							SEND(GET(this, comPlayer), moveRight, 0);
+						} else {
+							if(abs(xRobot) > 2) {
+								SEND(GET(this, comPlayer), moveForward, dmf);
+							} else {
+								SEND(GET(this, comPlayer), moveForward, 0);
+								SET(this, xArrived, 1);
+							}
+
+							if(abs(zRobot) > 2) {
+								SEND(GET(this, comPlayer), moveRight, -dmr);
+							} else {
+								SEND(GET(this, comPlayer), moveRight, 0);
+								SET(this, zArrived, 1);
+							}
+						}
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a217" source="ChallengeSystem.TrajectoryManager.SM.R.TrajGoPos" target="ChallengeSystem.TrajectoryManager.SM.R.Idle">
+          <ownedRule xmi:id="a218">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a219">
+              <language>C</language>
+              <body>GET(this, xArrived) &amp;&amp; GET(this, zArrived)</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a220">
+            <language>C</language>
+            <body>SEND(GET(this, controller), finish);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a221" source="ChallengeSystem.TrajectoryManager.SM.R.TrajGoPos" target="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction">
+          <ownedRule xmi:id="a222">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a223">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a224" source="ChallengeSystem.TrajectoryManager.SM.R.ComputeTraj" target="ChallengeSystem.TrajectoryManager.SM.R.TrajGoAngle">
+          <ownedRule xmi:id="a225">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a226">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a227">
+            <language>C</language>
+            <body>
+						SET(this, aArrived, 0);
+						int32_t xDest = 0, zDest = 0;
+						if(GET(this, ballTarget)) {
+							xDest = GET(this, xBall);
+							zDest = GET(this, zBall);
+						} else {
+							xDest = GET(this, xTarget);
+							zDest = GET(this, zTarget);
+						}
+						int32_t xDiff = xDest - GET(this, xPlayer);
+						int32_t zDiff = zDest - GET(this, zPlayer);
+
+						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);
+						while(aRobot > 180)
+							aRobot -= 360;
+						while(aRobot &lt; -180)
+							aRobot += 360;
+
+						if(abs(aRobot) > 30) {
+							SEND(GET(this, comPlayer), stop);
+						}
+
+						bool stopAfter = FALSE;
+						if(abs(aRobot) &lt; 30) {
+							stopAfter = TRUE;
+						}
+
+						if(GET(this, ballInRobot) &amp;&amp; GET(this, ballTarget)) {
+							// The ball has been taken
+							SET(this, aArrived, 1);
+							SEND(GET(this, comPlayer), spin, 0, FALSE);
+						} else {
+							if(aRobot > 3 || aRobot &lt; -3) {
+								SEND(GET(this, comPlayer), spin, ((aRobot > 0) ? 85:-85), stopAfter);
+							} else {
+								SEND(GET(this, comPlayer), spin, 0, FALSE);
+								SET(this, aArrived, 1);
+							}
+						}
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a228" source="ChallengeSystem.TrajectoryManager.SM.R.TrajGoAngle" target="ChallengeSystem.TrajectoryManager.SM.R.Idle">
+          <ownedRule xmi:id="a229">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a230">
+              <language>C</language>
+              <body>GET(this, trajectory) == 1 &amp;&amp; GET(this, aArrived)</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a231">
+            <language>C</language>
+            <body>SEND(GET(this, controller), finish);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a232" source="ChallengeSystem.TrajectoryManager.SM.R.TrajGoAngle" target="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction">
+          <ownedRule xmi:id="a233">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a234">
+              <language>C</language>
+              <body>GET(this, trajectory) == 0 &amp;&amp; GET(this, aArrived)</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a235">
+            <language>C</language>
+            <body>SET(this, needTurn, FALSE);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a236" source="ChallengeSystem.TrajectoryManager.SM.R.TrajGoAngle" target="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction">
+          <ownedRule xmi:id="a237">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a238">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.Initial" name="Initial"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.SendSignalsJunction" name="SendSignalsJunction" kind="junction"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.WaitSignalsChoice" name="WaitSignalsChoice" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.ComputeTraj" name="ComputeTraj" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.TrajGoPos" name="TrajGoPos" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.TrajGoAngle" name="TrajGoAngle" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.Idle" name="Idle">
+          <entry xmi:type="uml:OpaqueBehavior" xmi:id="a239">
+            <language>C</language>
+            <body>
+					SET(this, needTurn, FALSE);
+					SET(this, ballInRobot, FALSE);
+					SET(this, xArrived, 0);
+					SET(this, zArrived, 0);
+					SET(this, aArrived, 0);
+					</body>
+          </entry>
+        </subvertex>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.WaitConnection" name="WaitConnection"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeSystem.TrajectoryManager.SM.R.WaitSignals" name="WaitSignals"/>
+      </region>
+    </ownedBehavior>
+    <ownedReception xmi:id="ChallengeSystem.TrajectoryManager.goPos" name="goPos" signal="ChallengeSystem.goPos"/>
+    <ownedReception xmi:id="ChallengeSystem.TrajectoryManager.goAngle" name="goAngle" signal="ChallengeSystem.goAngle"/>
+  </packagedElement>
+</uml:Model>

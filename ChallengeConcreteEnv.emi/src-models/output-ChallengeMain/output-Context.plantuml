@@ -1,0 +1,10 @@
+
+
+@startuml
+	rectangle "<u>system : System</u>" as ChallengeMain_Main_system
+	rectangle "<u>environment : Environment</u>" as ChallengeMain_Main_environment
+	ChallengeMain_Main_system -- ChallengeMain_Main_environment
+	ChallengeMain_Main_system -- ChallengeMain_Main_environment
+	ChallengeMain_Main_system -- ChallengeMain_Main_environment
+	ChallengeMain_Main_system -- ChallengeMain_Main_environment
+@enduml

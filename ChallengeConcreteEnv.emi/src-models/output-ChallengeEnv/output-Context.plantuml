@@ -1,0 +1,14 @@
+
+
+@startuml
+	rectangle "<u>comPlayer : CommunicationPlayer</u>" as ChallengeEnv_Environment_comPlayer
+	rectangle "<u>comReferee : CommunicationReferee</u>" as ChallengeEnv_Environment_comReferee
+	rectangle "<u>controllerToPlayerPortEnv : ControllerToPlayerPortEnv</u>" as ChallengeEnv_Environment_controllerToPlayerPortEnv
+	rectangle "<u>controllerToRefereePortEnv : ControllerToRefereePortEnv</u>" as ChallengeEnv_Environment_controllerToRefereePortEnv
+	rectangle "<u>trajToPlayerPortEnv : TrajToPlayerPortEnv</u>" as ChallengeEnv_Environment_trajToPlayerPortEnv
+	rectangle "<u>trajToRefereePortEnv : TrajToRefereePortEnv</u>" as ChallengeEnv_Environment_trajToRefereePortEnv
+	ChallengeEnv_Environment_comPlayer -- ChallengeEnv_Environment_controllerToPlayerPortEnv
+	ChallengeEnv_Environment_comReferee -- ChallengeEnv_Environment_controllerToRefereePortEnv
+	ChallengeEnv_Environment_comPlayer -- ChallengeEnv_Environment_trajToPlayerPortEnv
+	ChallengeEnv_Environment_comReferee -- ChallengeEnv_Environment_trajToRefereePortEnv
+@enduml

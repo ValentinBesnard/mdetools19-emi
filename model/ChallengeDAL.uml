@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="ChallengeDAL" name="ChallengeDAL">
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="ChallengeDAL.Integer" name="Integer"/>
+  <packagedElement xmi:type="uml:PrimitiveType" xmi:id="ChallengeDAL.Boolean" name="Boolean"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.moveForward" name="moveForward">
+    <ownedAttribute xmi:id="ChallengeDAL.moveForward.speed" name="speed" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a1" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a2" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.moveForward_SE" name="moveForward_SE" signal="ChallengeDAL.moveForward"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.moveRight" name="moveRight">
+    <ownedAttribute xmi:id="ChallengeDAL.moveRight.speed" name="speed" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a3" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a4" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.moveRight_SE" name="moveRight_SE" signal="ChallengeDAL.moveRight"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.spin" name="spin">
+    <ownedAttribute xmi:id="ChallengeDAL.spin.speed" name="speed" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a5" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a6" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeDAL.spin.stopAfter" name="stopAfter" type="ChallengeDAL.Boolean" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a7" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a8" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.spin_SE" name="spin_SE" signal="ChallengeDAL.spin"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.stop" name="stop"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.stop_SE" name="stop_SE" signal="ChallengeDAL.stop"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.setSuction" name="setSuction">
+    <ownedAttribute xmi:id="ChallengeDAL.setSuction.power" name="power" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a9" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a10" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.setSuction_SE" name="setSuction_SE" signal="ChallengeDAL.setSuction"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.getSuction" name="getSuction"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.getSuction_SE" name="getSuction_SE" signal="ChallengeDAL.getSuction"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.getPlayerGPS" name="getPlayerGPS"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.getPlayerGPS_SE" name="getPlayerGPS_SE" signal="ChallengeDAL.getPlayerGPS"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.getBallGPS" name="getBallGPS"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.getBallGPS_SE" name="getBallGPS_SE" signal="ChallengeDAL.getBallGPS"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.getCompass" name="getCompass"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.getCompass_SE" name="getCompass_SE" signal="ChallengeDAL.getCompass"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.rspPlayerGPS" name="rspPlayerGPS">
+    <ownedAttribute xmi:id="ChallengeDAL.rspPlayerGPS.x" name="x" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a11" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a12" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeDAL.rspPlayerGPS.z" name="z" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a13" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a14" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.rspPlayerGPS_SE" name="rspPlayerGPS_SE" signal="ChallengeDAL.rspPlayerGPS"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.rspBallGPS" name="rspBallGPS">
+    <ownedAttribute xmi:id="ChallengeDAL.rspBallGPS.x" name="x" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a15" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a16" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeDAL.rspBallGPS.z" name="z" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a17" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a18" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.rspBallGPS_SE" name="rspBallGPS_SE" signal="ChallengeDAL.rspBallGPS"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.rspSuction" name="rspSuction">
+    <ownedAttribute xmi:id="ChallengeDAL.rspSuction.power" name="power" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a19" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a20" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.rspSuction_SE" name="rspSuction_SE" signal="ChallengeDAL.rspSuction"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.rspCompass" name="rspCompass">
+    <ownedAttribute xmi:id="ChallengeDAL.rspCompass.direction" name="direction" type="ChallengeDAL.Integer" isUnique="false">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a21" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a22" value="1"/>
+    </ownedAttribute>
+  </packagedElement>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.rspCompass_SE" name="rspCompass_SE" signal="ChallengeDAL.rspCompass"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.playerConnected" name="playerConnected"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.playerConnected_SE" name="playerConnected_SE" signal="ChallengeDAL.playerConnected"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.refereeConnected" name="refereeConnected"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.refereeConnected_SE" name="refereeConnected_SE" signal="ChallengeDAL.refereeConnected"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.possession" name="possession"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.possession_SE" name="possession_SE" signal="ChallengeDAL.possession"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.abort" name="abort"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.abort_SE" name="abort_SE" signal="ChallengeDAL.abort"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.done" name="done"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.done_SE" name="done_SE" signal="ChallengeDAL.done"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.opponentScored" name="opponentScored"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.opponentScored_SE" name="opponentScored_SE" signal="ChallengeDAL.opponentScored"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.timeout" name="timeout"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.timeout_SE" name="timeout_SE" signal="ChallengeDAL.timeout"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.refereeAck" name="refereeAck"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.refereeAck_SE" name="refereeAck_SE" signal="ChallengeDAL.refereeAck"/>
+  <packagedElement xmi:type="uml:Signal" xmi:id="ChallengeDAL.checkReferee" name="checkReferee"/>
+  <packagedElement xmi:type="uml:SignalEvent" xmi:id="ChallengeDAL.checkReferee_SE" name="checkReferee_SE" signal="ChallengeDAL.checkReferee"/>
+  <packagedElement xmi:type="uml:Interface" xmi:id="ChallengeDAL.I_TrajFromPlayer" name="I_TrajFromPlayer">
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromPlayer.playerConnected" name="playerConnected" signal="ChallengeDAL.playerConnected"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromPlayer.rspPlayerGPS" name="rspPlayerGPS" signal="ChallengeDAL.rspPlayerGPS"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromPlayer.rspBallGPS" name="rspBallGPS" signal="ChallengeDAL.rspBallGPS"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromPlayer.rspCompass" name="rspCompass" signal="ChallengeDAL.rspCompass"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="ChallengeDAL.I_TrajFromReferee" name="I_TrajFromReferee">
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromReferee.refereeConnected" name="refereeConnected" signal="ChallengeDAL.refereeConnected"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromReferee.possession" name="possession" signal="ChallengeDAL.possession"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromReferee.abort" name="abort" signal="ChallengeDAL.abort"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajFromReferee.refereeAck" name="refereeAck" signal="ChallengeDAL.refereeAck"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="ChallengeDAL.I_TrajToPlayer" name="I_TrajToPlayer">
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.moveForward" name="moveForward" signal="ChallengeDAL.moveForward"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.moveRight" name="moveRight" signal="ChallengeDAL.moveRight"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.spin" name="spin" signal="ChallengeDAL.spin"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.stop" name="stop" signal="ChallengeDAL.stop"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.setSuction" name="setSuction" signal="ChallengeDAL.setSuction"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.getSuction" name="getSuction" signal="ChallengeDAL.getSuction"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.getPlayerGPS" name="getPlayerGPS" signal="ChallengeDAL.getPlayerGPS"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.getBallGPS" name="getBallGPS" signal="ChallengeDAL.getBallGPS"/>
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToPlayer.getCompass" name="getCompass" signal="ChallengeDAL.getCompass"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="ChallengeDAL.I_TrajToReferee" name="I_TrajToReferee">
+    <ownedReception xmi:id="ChallengeDAL.I_TrajToReferee.checkReferee" name="checkReferee" signal="ChallengeDAL.checkReferee"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Interface" xmi:id="ChallengeDAL.I_ControllerFromReferee" name="I_ControllerFromReferee">
+    <ownedReception xmi:id="ChallengeDAL.I_ControllerFromReferee.done" name="done" signal="ChallengeDAL.done"/>
+    <ownedReception xmi:id="ChallengeDAL.I_ControllerFromReferee.opponentScored" name="opponentScored" signal="ChallengeDAL.opponentScored"/>
+    <ownedReception xmi:id="ChallengeDAL.I_ControllerFromReferee.timeout" name="timeout" signal="ChallengeDAL.timeout"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajFromPlayerProvider" clientDependency="a23" name="TrajFromPlayerProvider">
+    <interfaceRealization xmi:id="a23" client="ChallengeDAL.TrajFromPlayerProvider" supplier="ChallengeDAL.I_TrajFromPlayer" contract="ChallengeDAL.I_TrajFromPlayer"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajFromPlayerUser" clientDependency="ChallengeDAL.use_TrajFromPlayerUser" name="TrajFromPlayerUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_TrajFromPlayerUser" name="use_TrajFromPlayerUser" client="ChallengeDAL.TrajFromPlayerUser" supplier="ChallengeDAL.I_TrajFromPlayer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajFromRefereeProvider" clientDependency="a24" name="TrajFromRefereeProvider">
+    <interfaceRealization xmi:id="a24" client="ChallengeDAL.TrajFromRefereeProvider" supplier="ChallengeDAL.I_TrajFromReferee" contract="ChallengeDAL.I_TrajFromReferee"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajFromRefereeUser" clientDependency="ChallengeDAL.use_TrajFromRefereeUser" name="TrajFromRefereeUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_TrajFromRefereeUser" name="use_TrajFromRefereeUser" client="ChallengeDAL.TrajFromRefereeUser" supplier="ChallengeDAL.I_TrajFromReferee"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajToPlayerProvider" clientDependency="a25" name="TrajToPlayerProvider">
+    <interfaceRealization xmi:id="a25" client="ChallengeDAL.TrajToPlayerProvider" supplier="ChallengeDAL.I_TrajToPlayer" contract="ChallengeDAL.I_TrajToPlayer"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajToPlayerUser" clientDependency="ChallengeDAL.use_TrajToPlayerUser" name="TrajToPlayerUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_TrajToPlayerUser" name="use_TrajToPlayerUser" client="ChallengeDAL.TrajToPlayerUser" supplier="ChallengeDAL.I_TrajToPlayer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajToRefereeProvider" clientDependency="a26" name="TrajToRefereeProvider">
+    <interfaceRealization xmi:id="a26" client="ChallengeDAL.TrajToRefereeProvider" supplier="ChallengeDAL.I_TrajToReferee" contract="ChallengeDAL.I_TrajToReferee"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajToRefereeUser" clientDependency="ChallengeDAL.use_TrajToRefereeUser" name="TrajToRefereeUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_TrajToRefereeUser" name="use_TrajToRefereeUser" client="ChallengeDAL.TrajToRefereeUser" supplier="ChallengeDAL.I_TrajToReferee"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.ControllerFromRefereeProvider" clientDependency="a27" name="ControllerFromRefereeProvider">
+    <interfaceRealization xmi:id="a27" client="ChallengeDAL.ControllerFromRefereeProvider" supplier="ChallengeDAL.I_ControllerFromReferee" contract="ChallengeDAL.I_ControllerFromReferee"/>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.ControllerFromRefereeUser" clientDependency="ChallengeDAL.use_ControllerFromRefereeUser" name="ControllerFromRefereeUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_ControllerFromRefereeUser" name="use_ControllerFromRefereeUser" client="ChallengeDAL.ControllerFromRefereeUser" supplier="ChallengeDAL.I_ControllerFromReferee"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.RefereeUser" clientDependency="ChallengeDAL.use_RefereeUser_ControllerFromRefereeUser ChallengeDAL.use_RefereeUser_TrajFromRefereeUser" name="RefereeUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_RefereeUser_ControllerFromRefereeUser" name="use_RefereeUser_ControllerFromRefereeUser" client="ChallengeDAL.RefereeUser" supplier="ChallengeDAL.I_ControllerFromReferee"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_RefereeUser_TrajFromRefereeUser" name="use_RefereeUser_TrajFromRefereeUser" client="ChallengeDAL.RefereeUser" supplier="ChallengeDAL.I_TrajFromReferee"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.PlayerUser" clientDependency="ChallengeDAL.use_PlayerUser_TrajFromPlayer" name="PlayerUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_PlayerUser_TrajFromPlayer" name="use_PlayerUser_TrajFromPlayer" client="ChallengeDAL.PlayerUser" supplier="ChallengeDAL.I_TrajFromPlayer"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeDAL.TrajUser" clientDependency="ChallengeDAL.use_TrajUser_TrajToPlayer ChallengeDAL.use_TrajUser_TrajToReferee" name="TrajUser"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_TrajUser_TrajToPlayer" name="use_TrajUser_TrajToPlayer" client="ChallengeDAL.TrajUser" supplier="ChallengeDAL.I_TrajToPlayer"/>
+  <packagedElement xmi:type="uml:Usage" xmi:id="ChallengeDAL.use_TrajUser_TrajToReferee" name="use_TrajUser_TrajToReferee" client="ChallengeDAL.TrajUser" supplier="ChallengeDAL.I_TrajToReferee"/>
+</uml:Model>

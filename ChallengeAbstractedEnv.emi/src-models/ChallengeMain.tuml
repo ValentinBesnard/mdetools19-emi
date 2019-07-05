@@ -1,0 +1,46 @@
+model ChallengeMain with(
+	private "ChallengeSystem.uml#ChallengeSystem.System",
+	private "ChallengeSystem.uml#ChallengeSystem.ControllerToPlayerPortSys",
+	private "ChallengeSystem.uml#ChallengeSystem.ControllerToRefereePortSys",
+	private "ChallengeSystem.uml#ChallengeSystem.TrajToPlayerPortSys",
+	private "ChallengeSystem.uml#ChallengeSystem.TrajToRefereePortSys",
+
+	private "ChallengeEnv.uml#ChallengeEnv.Environment",
+	private "ChallengeEnv.uml#ChallengeEnv.ControllerToPlayerPortEnv",
+	private "ChallengeEnv.uml#ChallengeEnv.ControllerToRefereePortEnv",
+	private "ChallengeEnv.uml#ChallengeEnv.TrajToPlayerPortEnv",
+	private "ChallengeEnv.uml#ChallengeEnv.TrajToRefereePortEnv"
+) {
+
+	instance instMain of Main {
+
+	}
+
+	class Main {
+		public composite system[1-1] : System;
+		public composite environment[1-1] : Environment;
+
+		connector "c1" : System_Environment_ControllerToPlayer between system.controllerToPlayerPortSys and environment.controllerToPlayerPortEnv;
+		connector "c2" : System_Environment_ControllerToReferee between system.controllerToRefereePortSys and environment.controllerToRefereePortEnv;
+		connector "c3" : System_Environment_TrajToPlayer between system.trajToPlayerPortSys and environment.trajToPlayerPortEnv;
+		connector "c4" : System_Environment_TrajToReferee between system.trajToRefereePortSys and environment.trajToRefereePortEnv;
+	}
+
+	association System_Environment_ControllerToPlayer {
+		controllerToPlayerPortSys[1-1] : ControllerToPlayerPortSys in System_Environment_ControllerToPlayer;
+		controllerToPlayerPortEnv[1-1] : ControllerToPlayerPortEnv in System_Environment_ControllerToPlayer;
+	}
+	association System_Environment_ControllerToReferee {
+		controllerToRefereePortSys[1-1] : ControllerToRefereePortSys in System_Environment_ControllerToReferee;
+		controllerToRefereePortEnv[1-1] : ControllerToRefereePortEnv in System_Environment_ControllerToReferee;
+	}
+	association System_Environment_TrajToPlayer {
+		trajToPlayerPortSys[1-1] : TrajToPlayerPortSys in System_Environment_TrajToPlayer;
+		trajToPlayerPortEnv[1-1] : TrajToPlayerPortEnv in System_Environment_TrajToPlayer;
+	}
+	association System_Environment_TrajToReferee {
+		trajToRefereePortSys[1-1] : TrajToRefereePortSys in System_Environment_TrajToReferee;
+		trajToRefereePortEnv[1-1] : TrajToRefereePortEnv in System_Environment_TrajToReferee;
+	}
+
+}

@@ -1,0 +1,112 @@
+model ChallengeDAL {
+
+	primitiveType Integer;
+	primitiveType Boolean;
+	
+	signal moveForward {
+		speed[1-1] : Integer;
+	}
+	signalEvent moveForward_SE of moveForward;
+	signal moveRight {
+		speed[1-1] : Integer;
+	}
+	signalEvent moveRight_SE of moveRight;
+	signal spin {
+		speed[1-1] : Integer;
+		stopAfter[1-1] : Boolean;
+	}
+	signalEvent spin_SE of spin;
+	signal stop;
+	signalEvent stop_SE of stop;
+	signal setSuction {
+		power[1-1] : Integer;
+	}
+	signalEvent setSuction_SE of setSuction;
+	signal getSuction;
+	signalEvent getSuction_SE of getSuction;
+	signal getPlayerGPS;
+	signalEvent getPlayerGPS_SE of getPlayerGPS;
+	signal getBallGPS;
+	signalEvent getBallGPS_SE of getBallGPS;
+	signal getCompass;
+	signalEvent getCompass_SE of getCompass;
+
+	signal rspPlayerGPS {
+		x[1-1] : Integer;
+		z[1-1] : Integer;
+	}
+	signalEvent rspPlayerGPS_SE of rspPlayerGPS;
+	signal rspBallGPS {
+		x[1-1] : Integer;
+		z[1-1] : Integer;
+	}
+	signalEvent rspBallGPS_SE of rspBallGPS;
+	signal rspSuction {
+		power[1-1] : Integer;
+	}
+	signalEvent rspSuction_SE of rspSuction;
+	signal rspCompass {
+		direction[1-1] : Integer;
+	}
+	signalEvent rspCompass_SE of rspCompass;
+
+	signal playerConnected;
+	signalEvent playerConnected_SE of playerConnected;
+	signal refereeConnected;
+	signalEvent refereeConnected_SE of refereeConnected;
+
+	signal possession;
+	signalEvent possession_SE of possession;
+	signal abort;
+	signalEvent abort_SE of abort;
+	signal done;
+	signalEvent done_SE of done;
+	signal opponentScored;
+	signalEvent opponentScored_SE of opponentScored;
+	signal timeout;
+	signalEvent timeout_SE of timeout;
+	signal refereeAck;
+	signalEvent refereeAck_SE of refereeAck;
+
+	signal checkReferee;
+	signalEvent checkReferee_SE of checkReferee;
+
+	interface I_TrajFromPlayer receives playerConnected(playerConnected), rspPlayerGPS(rspPlayerGPS), rspBallGPS(rspBallGPS), rspCompass(rspCompass) {}
+	interface I_TrajFromReferee receives refereeConnected(refereeConnected), possession(possession), abort(abort), refereeAck(refereeAck) {}
+	interface I_TrajToPlayer receives moveForward(moveForward), moveRight(moveRight), spin(spin), stop(stop),
+						setSuction(setSuction), getSuction(getSuction), getPlayerGPS(getPlayerGPS), getBallGPS(getBallGPS), getCompass(getCompass) {}
+	interface I_TrajToReferee receives checkReferee(checkReferee) {}
+	interface I_ControllerFromReferee receives done(done), opponentScored(opponentScored), timeout(timeout) {}
+
+	class TrajFromPlayerProvider implements I_TrajFromPlayer {}
+	class TrajFromPlayerUser {}
+	usage use_TrajFromPlayerUser of I_TrajFromPlayer by TrajFromPlayerUser;
+
+	class TrajFromRefereeProvider implements I_TrajFromReferee {}
+	class TrajFromRefereeUser {}
+	usage use_TrajFromRefereeUser of I_TrajFromReferee by TrajFromRefereeUser;
+
+	class TrajToPlayerProvider implements I_TrajToPlayer {}
+	class TrajToPlayerUser {}
+	usage use_TrajToPlayerUser of I_TrajToPlayer by TrajToPlayerUser;
+
+	class TrajToRefereeProvider implements I_TrajToReferee {}
+	class TrajToRefereeUser {}
+	usage use_TrajToRefereeUser of I_TrajToReferee by TrajToRefereeUser;
+
+	class ControllerFromRefereeProvider implements I_ControllerFromReferee {}
+	class ControllerFromRefereeUser {}
+	usage use_ControllerFromRefereeUser of I_ControllerFromReferee by  ControllerFromRefereeUser;
+
+	class RefereeUser {}
+	usage use_RefereeUser_ControllerFromRefereeUser of I_ControllerFromReferee by RefereeUser;
+	usage use_RefereeUser_TrajFromRefereeUser of I_TrajFromReferee by RefereeUser;
+
+	class PlayerUser {}
+	usage use_PlayerUser_TrajFromPlayer of I_TrajFromPlayer by PlayerUser;
+
+	class TrajUser {}
+	usage use_TrajUser_TrajToPlayer of I_TrajToPlayer by TrajUser;
+	usage use_TrajUser_TrajToReferee of I_TrajToReferee by TrajUser;
+
+}

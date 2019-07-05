@@ -1,0 +1,136 @@
+model ChallengeEnv with(
+	private "ChallengeDAL.uml#ChallengeDAL.Integer",
+	private "ChallengeDAL.uml#ChallengeDAL.Boolean",
+
+	private "ChallengeDAL.uml#ChallengeDAL.moveForward_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.moveRight_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.spin_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.stop_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.setSuction_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getSuction_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getPlayerGPS_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getBallGPS_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getCompass_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.checkReferee_SE",
+
+	private "ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer",
+	private "ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee",
+	private "ChallengeDAL.uml#ChallengeDAL.TrajFromPlayerUser",
+	private "ChallengeDAL.uml#ChallengeDAL.TrajFromRefereeUser",
+	private "ChallengeDAL.uml#ChallengeDAL.PlayerUser",
+	private "ChallengeDAL.uml#ChallengeDAL.RefereeUser",
+	private "ChallengeDAL.uml#ChallengeDAL.ControllerFromRefereeUser"
+) {
+
+	class Environment {
+		public composite comPlayer[1-1] : CommunicationPlayer = instCommunicationPlayer;
+		public composite comReferee[1-1] : CommunicationReferee = instCommunicationReferee;
+
+		public composite port controllerToPlayerPortEnv[1-1] : ControllerToPlayerPortEnv;
+		public composite port controllerToRefereePortEnv[1-1] : ControllerToRefereePortEnv;
+		public composite port trajToPlayerPortEnv[1-1] : TrajToPlayerPortEnv;
+		public composite port trajToRefereePortEnv[1-1] : TrajToRefereePortEnv;
+
+		connector "c1" : CommunicationPlayer_ControllerToPlayerPortEnv between comPlayer and controllerToPlayerPortEnv;
+		connector "c2" : CommunicationReferee_ControllerToRefereePortEnv between comReferee and controllerToRefereePortEnv;
+		connector "c3" : CommunicationPlayer_TrajToPlayerPortEnv between comPlayer and trajToPlayerPortEnv;
+		connector "c4" : CommunicationReferee_TrajToRefereePortEnv between comReferee and trajToRefereePortEnv;
+	}
+
+	instance instCommunicationPlayer of CommunicationPlayer {
+		tcpPort = 9003;
+	}
+
+	instance instCommunicationReferee of CommunicationReferee {
+		tcpPort = 9007;
+	}
+
+	association CommunicationPlayer_ControllerToPlayerPortEnv {
+		comPlayer[1-1] : CommunicationPlayer in CommunicationPlayer_ControllerToPlayerPortEnv;
+		controller[1-1] : ControllerToPlayerPortEnv in CommunicationPlayer_ControllerToPlayerPortEnv;
+	}
+	association CommunicationReferee_ControllerToRefereePortEnv {
+		comReferee[1-1] : CommunicationReferee in CommunicationReferee_ControllerToRefereePortEnv;
+		controller[1-1] : ControllerToRefereePortEnv in CommunicationReferee_ControllerToRefereePortEnv;
+	}
+	association CommunicationPlayer_TrajToPlayerPortEnv {
+		comPlayer[1-1] : CommunicationPlayer in CommunicationPlayer_TrajToPlayerPortEnv;
+		trajectoryManager[1-1] : TrajToPlayerPortEnv in CommunicationPlayer_TrajToPlayerPortEnv;
+	}
+	association CommunicationReferee_TrajToRefereePortEnv {
+		comReferee[1-1] : CommunicationReferee in CommunicationReferee_TrajToRefereePortEnv;
+		trajectoryManager[1-1] : TrajToRefereePortEnv in CommunicationReferee_TrajToRefereePortEnv;
+	}
+
+	class ControllerToPlayerPortEnv extends TrajFromPlayerUser implements I_TrajToPlayer {}
+	class ControllerToRefereePortEnv extends ControllerFromRefereeUser {}
+	class TrajToPlayerPortEnv extends TrajFromPlayerUser implements I_TrajToPlayer {}
+	class TrajToRefereePortEnv extends TrajFromRefereeUser implements I_TrajToReferee {}
+
+	class |CommunicationPlayer| behavesAs SM extends PlayerUser implements I_TrajToPlayer {
+		private tcpPort[1-1] : Integer;
+		private connected[1-1] : Integer;
+
+		stateMachine SM {
+			region R {
+				Initial -> Connected: /
+						opaqueBehavior = 'SET(this, connected, TRUE); SEND(GET(this, trajectoryManager), playerConnected);' in C;;
+
+				Connected -> Connected : MoveForward : moveForward_SE / ;
+				Connected -> Connected : MoveRight : moveRight_SE / ;
+				Connected -> Connected : Spin : spin_SE / ;
+				Connected -> Connected : Stop : stop_SE / ;
+				Connected -> Connected : SetSuction : setSuction_SE / ;
+				Connected -> Connected : GetSuction : getSuction_SE / 
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), rspSuction, 0);' in C;;
+				Connected -> Connected : GetPlayerGPSBallPos : getPlayerGPS_SE /
+						// Player in shooting position
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), rspPlayerGPS, -20, 0);' in C;;
+				Connected -> Connected : GetPlayerGPSRandomPos : getPlayerGPS_SE /
+						// Player in random position
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), rspPlayerGPS, 10, 20);' in C;;
+				Connected -> Connected : GetBallGPS : getBallGPS_SE / 
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), rspBallGPS, 0, 0);' in C;;
+				Connected -> Connected : GetCompassShootDir : getCompass_SE / 
+						// Compass in shooting direction
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), rspCompass, 180);' in C;;
+				Connected -> Connected : GetCompasRandomDir : getCompass_SE / 
+						// Compass in random direction
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), rspCompass, 90);' in C;;
+						
+				initial pseudoState Initial;
+			}
+		}
+	}
+
+
+
+
+	class |CommunicationReferee| behavesAs SM extends RefereeUser implements I_TrajToReferee {
+		private tcpPort[1-1] : Integer;
+		private connected[1-1] : Integer;
+
+		stateMachine SM {
+			region R {
+				Initial -> Connected: /
+						opaqueBehavior = 'SET(this, connected, TRUE); SEND(GET(this, trajectoryManager), refereeConnected);' in C;;
+
+				Connected -> AckJoin : Nothing : checkReferee_SE / ;
+				Connected -> AckJoin : SendPossesion : checkReferee_SE /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), possession);' in C;;
+				Connected -> AckJoin : SendDone : checkReferee_SE /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), abort); SEND(GET(this, controller), done);' in C;;
+				Connected -> AckJoin : SendTimeout :  checkReferee_SE /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), abort); SEND(GET(this, controller), timeout);' in C;;
+				Connected -> AckJoin : SendOpponentScored : checkReferee_SE /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), abort); SEND(GET(this, controller), opponentScored);' in C;;
+				AckJoin -> Connected : SendAck : /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), refereeAck);' in C;;	
+							
+				initial pseudoState Initial;
+				join pseudoState AckJoin;
+			}
+		}
+	}
+
+}

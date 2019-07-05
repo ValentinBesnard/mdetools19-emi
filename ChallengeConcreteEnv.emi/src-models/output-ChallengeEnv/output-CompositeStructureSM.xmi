@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<xmi:XMI xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:PlantUML="PlantUML">
+  <PlantUML:Model>
+    <element xsi:type="PlantUML:StateDiagram">
+      <region>
+        <elements xsi:type="PlantUML:State" name="Environment">
+          <regions>
+            <elements xsi:type="PlantUML:State" name="ChallengeEnv_Environment_comPlayer" longName="comPlayer : CommunicationPlayer"/>
+            <elements xsi:type="PlantUML:State" name="ChallengeEnv_Environment_comReferee" longName="comReferee : CommunicationReferee"/>
+            <elements xsi:type="PlantUML:State" name="ChallengeEnv_Environment_controllerToPlayerPortEnv" longName="controllerToPlayerPortEnv : ControllerToPlayerPortEnv" kind="entrypoint"/>
+            <elements xsi:type="PlantUML:State" name="ChallengeEnv_Environment_controllerToRefereePortEnv" longName="controllerToRefereePortEnv : ControllerToRefereePortEnv" kind="entrypoint"/>
+            <elements xsi:type="PlantUML:State" name="ChallengeEnv_Environment_trajToPlayerPortEnv" longName="trajToPlayerPortEnv : TrajToPlayerPortEnv" kind="entrypoint"/>
+            <elements xsi:type="PlantUML:State" name="ChallengeEnv_Environment_trajToRefereePortEnv" longName="trajToRefereePortEnv : TrajToRefereePortEnv" kind="entrypoint"/>
+            <elements xsi:type="PlantUML:ExternalTransition" source="/0/@element.0/@region/@elements.0/@regions.0/@elements.0" target="/0/@element.0/@region/@elements.0/@regions.0/@elements.2" isVertical="true"/>
+            <elements xsi:type="PlantUML:ExternalTransition" source="/0/@element.0/@region/@elements.0/@regions.0/@elements.1" target="/0/@element.0/@region/@elements.0/@regions.0/@elements.3" isVertical="true"/>
+            <elements xsi:type="PlantUML:ExternalTransition" source="/0/@element.0/@region/@elements.0/@regions.0/@elements.0" target="/0/@element.0/@region/@elements.0/@regions.0/@elements.4" isVertical="true"/>
+            <elements xsi:type="PlantUML:ExternalTransition" source="/0/@element.0/@region/@elements.0/@regions.0/@elements.1" target="/0/@element.0/@region/@elements.0/@regions.0/@elements.5" isVertical="true"/>
+          </regions>
+        </elements>
+      </region>
+    </element>
+  </PlantUML:Model>
+  <PlantUML:InternalTransition>
+    <trigger>
+      <parts>tcpPort = 9003</parts>
+    </trigger>
+  </PlantUML:InternalTransition>
+  <PlantUML:InternalTransition>
+    <trigger>
+      <parts>tcpPort = 9007</parts>
+    </trigger>
+  </PlantUML:InternalTransition>
+</xmi:XMI>

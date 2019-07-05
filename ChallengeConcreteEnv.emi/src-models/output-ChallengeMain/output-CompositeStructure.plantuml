@@ -1,0 +1,12 @@
+
+
+@startuml
+	package Main <<card>> {
+		object "system : System" as ChallengeMain_Main_system
+		object "environment : Environment" as ChallengeMain_Main_environment
+		ChallengeMain_Main_system "controllerToPlayerPortSys" -- "controllerToPlayerPortEnv" ChallengeMain_Main_environment : System_Environment_ControllerToPlayer
+		ChallengeMain_Main_system "controllerToRefereePortSys" -- "controllerToRefereePortEnv" ChallengeMain_Main_environment : System_Environment_ControllerToReferee
+		ChallengeMain_Main_system "trajToPlayerPortSys" -- "trajToPlayerPortEnv" ChallengeMain_Main_environment : System_Environment_TrajToPlayer
+		ChallengeMain_Main_system "trajToRefereePortSys" -- "trajToRefereePortEnv" ChallengeMain_Main_environment : System_Environment_TrajToReferee
+	}
+@enduml

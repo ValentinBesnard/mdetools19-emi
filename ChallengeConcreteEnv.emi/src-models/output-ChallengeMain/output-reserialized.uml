@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="ChallengeMain" name="ChallengeMain">
+  <elementImport xmi:id="a1" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.System"/>
+  </elementImport>
+  <elementImport xmi:id="a2" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.ControllerToPlayerPortSys"/>
+  </elementImport>
+  <elementImport xmi:id="a3" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.ControllerToRefereePortSys"/>
+  </elementImport>
+  <elementImport xmi:id="a4" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.TrajToPlayerPortSys"/>
+  </elementImport>
+  <elementImport xmi:id="a5" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.TrajToRefereePortSys"/>
+  </elementImport>
+  <elementImport xmi:id="a6" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.Environment"/>
+  </elementImport>
+  <elementImport xmi:id="a7" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.ControllerToPlayerPortEnv"/>
+  </elementImport>
+  <elementImport xmi:id="a8" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.ControllerToRefereePortEnv"/>
+  </elementImport>
+  <elementImport xmi:id="a9" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.TrajToPlayerPortEnv"/>
+  </elementImport>
+  <elementImport xmi:id="a10" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.TrajToRefereePortEnv"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="ChallengeMain.instMain" name="instMain" classifier="ChallengeMain.Main"/>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeMain.Main" name="Main">
+    <ownedAttribute xmi:id="ChallengeMain.Main.system" name="system" isUnique="false" aggregation="composite">
+      <type xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.System"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a11" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a12" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeMain.Main.environment" name="environment" isUnique="false" aggregation="composite">
+      <type xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.Environment"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a13" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a14" value="1"/>
+    </ownedAttribute>
+    <ownedConnector xmi:id="ChallengeMain.Main.c1" name="c1" type="ChallengeMain.System_Environment_ControllerToPlayer">
+      <end xmi:id="a15" partWithPort="ChallengeMain.Main.system">
+        <role xmi:type="uml:Port" href="../ChallengeSystem.uml#ChallengeSystem.System.controllerToPlayerPortSys"/>
+      </end>
+      <end xmi:id="a16" partWithPort="ChallengeMain.Main.environment">
+        <role xmi:type="uml:Port" href="../ChallengeEnv.uml#ChallengeEnv.Environment.controllerToPlayerPortEnv"/>
+      </end>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeMain.Main.c2" name="c2" type="ChallengeMain.System_Environment_ControllerToReferee">
+      <end xmi:id="a17" partWithPort="ChallengeMain.Main.system">
+        <role xmi:type="uml:Port" href="../ChallengeSystem.uml#ChallengeSystem.System.controllerToRefereePortSys"/>
+      </end>
+      <end xmi:id="a18" partWithPort="ChallengeMain.Main.environment">
+        <role xmi:type="uml:Port" href="../ChallengeEnv.uml#ChallengeEnv.Environment.controllerToRefereePortEnv"/>
+      </end>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeMain.Main.c3" name="c3" type="ChallengeMain.System_Environment_TrajToPlayer">
+      <end xmi:id="a19" partWithPort="ChallengeMain.Main.system">
+        <role xmi:type="uml:Port" href="../ChallengeSystem.uml#ChallengeSystem.System.trajToPlayerPortSys"/>
+      </end>
+      <end xmi:id="a20" partWithPort="ChallengeMain.Main.environment">
+        <role xmi:type="uml:Port" href="../ChallengeEnv.uml#ChallengeEnv.Environment.trajToPlayerPortEnv"/>
+      </end>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeMain.Main.c4" name="c4" type="ChallengeMain.System_Environment_TrajToReferee">
+      <end xmi:id="a21" partWithPort="ChallengeMain.Main.system">
+        <role xmi:type="uml:Port" href="../ChallengeSystem.uml#ChallengeSystem.System.trajToRefereePortSys"/>
+      </end>
+      <end xmi:id="a22" partWithPort="ChallengeMain.Main.environment">
+        <role xmi:type="uml:Port" href="../ChallengeEnv.uml#ChallengeEnv.Environment.trajToRefereePortEnv"/>
+      </end>
+    </ownedConnector>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeMain.System_Environment_ControllerToPlayer" name="System_Environment_ControllerToPlayer" memberEnd="ChallengeMain.System_Environment_ControllerToPlayer.controllerToPlayerPortSys ChallengeMain.System_Environment_ControllerToPlayer.controllerToPlayerPortEnv">
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_ControllerToPlayer.controllerToPlayerPortSys" name="controllerToPlayerPortSys" isUnique="false" association="ChallengeMain.System_Environment_ControllerToPlayer">
+      <type xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.ControllerToPlayerPortSys"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a23" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a24" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_ControllerToPlayer.controllerToPlayerPortEnv" name="controllerToPlayerPortEnv" isUnique="false" association="ChallengeMain.System_Environment_ControllerToPlayer">
+      <type xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.ControllerToPlayerPortEnv"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a25" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a26" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeMain.System_Environment_ControllerToReferee" name="System_Environment_ControllerToReferee" memberEnd="ChallengeMain.System_Environment_ControllerToReferee.controllerToRefereePortSys ChallengeMain.System_Environment_ControllerToReferee.controllerToRefereePortEnv">
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_ControllerToReferee.controllerToRefereePortSys" name="controllerToRefereePortSys" isUnique="false" association="ChallengeMain.System_Environment_ControllerToReferee">
+      <type xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.ControllerToRefereePortSys"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a27" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a28" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_ControllerToReferee.controllerToRefereePortEnv" name="controllerToRefereePortEnv" isUnique="false" association="ChallengeMain.System_Environment_ControllerToReferee">
+      <type xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.ControllerToRefereePortEnv"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a29" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a30" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeMain.System_Environment_TrajToPlayer" name="System_Environment_TrajToPlayer" memberEnd="ChallengeMain.System_Environment_TrajToPlayer.trajToPlayerPortSys ChallengeMain.System_Environment_TrajToPlayer.trajToPlayerPortEnv">
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_TrajToPlayer.trajToPlayerPortSys" name="trajToPlayerPortSys" isUnique="false" association="ChallengeMain.System_Environment_TrajToPlayer">
+      <type xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.TrajToPlayerPortSys"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a31" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a32" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_TrajToPlayer.trajToPlayerPortEnv" name="trajToPlayerPortEnv" isUnique="false" association="ChallengeMain.System_Environment_TrajToPlayer">
+      <type xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.TrajToPlayerPortEnv"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a33" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a34" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeMain.System_Environment_TrajToReferee" name="System_Environment_TrajToReferee" memberEnd="ChallengeMain.System_Environment_TrajToReferee.trajToRefereePortSys ChallengeMain.System_Environment_TrajToReferee.trajToRefereePortEnv">
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_TrajToReferee.trajToRefereePortSys" name="trajToRefereePortSys" isUnique="false" association="ChallengeMain.System_Environment_TrajToReferee">
+      <type xmi:type="uml:Class" href="../ChallengeSystem.uml#ChallengeSystem.TrajToRefereePortSys"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a35" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a36" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeMain.System_Environment_TrajToReferee.trajToRefereePortEnv" name="trajToRefereePortEnv" isUnique="false" association="ChallengeMain.System_Environment_TrajToReferee">
+      <type xmi:type="uml:Class" href="../ChallengeEnv.uml#ChallengeEnv.TrajToRefereePortEnv"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a37" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a38" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+</uml:Model>

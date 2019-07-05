@@ -1,0 +1,16 @@
+
+
+@startuml
+	state Main {
+		
+			state "system : System" as ChallengeMain_Main_system {
+				
+					
+				
+			}
+			state "environment : Environment" as ChallengeMain_Main_environment {
+				
+					
+				
+			}
+			

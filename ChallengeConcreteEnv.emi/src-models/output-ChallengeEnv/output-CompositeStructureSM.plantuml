@@ -1,0 +1,18 @@
+
+
+@startuml
+	state Environment {
+		
+			state "comPlayer : CommunicationPlayer" as ChallengeEnv_Environment_comPlayer
+			state "comReferee : CommunicationReferee" as ChallengeEnv_Environment_comReferee
+			state "controllerToPlayerPortEnv : ControllerToPlayerPortEnv" as ChallengeEnv_Environment_controllerToPlayerPortEnv <<entrypoint>>
+			state "controllerToRefereePortEnv : ControllerToRefereePortEnv" as ChallengeEnv_Environment_controllerToRefereePortEnv <<entrypoint>>
+			state "trajToPlayerPortEnv : TrajToPlayerPortEnv" as ChallengeEnv_Environment_trajToPlayerPortEnv <<entrypoint>>
+			state "trajToRefereePortEnv : TrajToRefereePortEnv" as ChallengeEnv_Environment_trajToRefereePortEnv <<entrypoint>>
+			ChallengeEnv_Environment_comPlayer --> ChallengeEnv_Environment_controllerToPlayerPortEnv
+			ChallengeEnv_Environment_comReferee --> ChallengeEnv_Environment_controllerToRefereePortEnv
+			ChallengeEnv_Environment_comPlayer --> ChallengeEnv_Environment_trajToPlayerPortEnv
+			ChallengeEnv_Environment_comReferee --> ChallengeEnv_Environment_trajToRefereePortEnv
+		
+	}
+@enduml

@@ -1,0 +1,382 @@
+model ChallengeSystem with(
+	private "ChallengeDAL.uml#ChallengeDAL.Integer",
+	private "ChallengeDAL.uml#ChallengeDAL.Boolean",
+
+	private "ChallengeDAL.uml#ChallengeDAL.rspPlayerGPS_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.rspBallGPS_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.rspCompass_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.playerConnected_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.refereeConnected_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.possession_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.done_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.opponentScored_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.timeout_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.abort_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.refereeAck_SE",
+
+	private "ChallengeDAL.uml#ChallengeDAL.TrajUser",
+	private "ChallengeDAL.uml#ChallengeDAL.TrajToPlayerUser",
+	private "ChallengeDAL.uml#ChallengeDAL.TrajToRefereeUser",
+	private "ChallengeDAL.uml#ChallengeDAL.I_TrajFromPlayer",
+	private "ChallengeDAL.uml#ChallengeDAL.I_TrajFromReferee",
+	private "ChallengeDAL.uml#ChallengeDAL.I_ControllerFromReferee"
+) {
+
+	package observers {
+
+		class Obs {
+			public composite observer[1-1] : DirectionObserver;
+		}
+
+		instance instObs of Obs {
+
+		}
+
+		class |DirectionObserver| behavesAs SM {
+			stateMachine SM {
+				region R {
+					Initial -> Running;
+					Running -> Fail : [constraint "guard" is opaqueExpression = '
+							IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_Shoot)
+							&& 
+							!(GET(GET(GET(ROOT_instMain, system), trajectoryManager), aPlayer) > 170 && GET(GET(GET(ROOT_instMain, system), trajectoryManager), aPlayer) < 190)
+						' in C;] /;
+					initial pseudoState Initial;
+				}
+			}
+		}
+	}
+
+	
+	class System {
+		public composite controller[1-1] : Controller;
+		public composite trajectoryManager[1-1] : TrajectoryManager = instTrajectoryManager;
+		
+		public composite port controllerToPlayerPortSys[1-1] : ControllerToPlayerPortSys;
+		public composite port controllerToRefereePortSys[1-1] : ControllerToRefereePortSys;
+		public composite port trajToPlayerPortSys[1-1] : TrajToPlayerPortSys;
+		public composite port trajToRefereePortSys[1-1] : TrajToRefereePortSys;
+
+		connector "c1" : Controller_TrajectoryManager between controller and trajectoryManager;
+		connector "c2" : Controller_ControllerToPlayerPortSys between controller and controllerToPlayerPortSys;
+		connector "c3" : Controller_ControllerToRefereePortSys between controller and controllerToRefereePortSys;
+		connector "c4" : TrajectoryManager_TrajToPlayerPortSys between trajectoryManager and trajToPlayerPortSys;
+		connector "c5" : TrajectoryManager_TrajToRefereePortSys between trajectoryManager and trajToRefereePortSys;
+	}
+
+	instance instTrajectoryManager of TrajectoryManager {
+		kp = 20;
+	}
+
+	association Controller_TrajectoryManager {
+		controller[1-1] : Controller in Controller_TrajectoryManager;
+		trajectoryManager[1-1] : TrajectoryManager in Controller_TrajectoryManager;
+	}
+	association Controller_ControllerToPlayerPortSys {
+		controller[1-1] : Controller in Controller_ControllerToPlayerPortSys;
+		comPlayer[1-1] : ControllerToPlayerPortSys in Controller_ControllerToPlayerPortSys;
+	}
+	association Controller_ControllerToRefereePortSys {
+		controller[1-1] : Controller in Controller_ControllerToRefereePortSys;
+		comReferee[1-1] : ControllerToRefereePortSys in Controller_ControllerToRefereePortSys;
+	}
+	association TrajectoryManager_TrajToPlayerPortSys {
+		trajectoryManager[1-1] : TrajectoryManager in TrajectoryManager_TrajToPlayerPortSys;
+		comPlayer[1-1] : TrajToPlayerPortSys in TrajectoryManager_TrajToPlayerPortSys;
+	}
+	association TrajectoryManager_TrajToRefereePortSys {
+		trajectoryManager[1-1] : TrajectoryManager in TrajectoryManager_TrajToRefereePortSys;
+		comReferee[1-1] : TrajToRefereePortSys in TrajectoryManager_TrajToRefereePortSys;
+	}
+
+	signal connected;
+	signalEvent connected_SE of connected;
+
+	signal goPos {
+		ball[1-1] : Boolean;
+		x[1-1] : Integer;
+		z[1-1] : Integer;
+	}
+	signalEvent goPos_SE of goPos;
+	signal goAngle {
+		ball[1-1] : Boolean;
+		x[1-1] : Integer;
+		z[1-1] : Integer;
+	}
+	signalEvent goAngle_SE of goAngle;
+	signal finish;
+	signalEvent finish_SE of finish;
+	signal error;
+	signalEvent error_SE of error;
+
+	class ControllerToPlayerPortSys extends TrajToPlayerUser {}
+	class ControllerToRefereePortSys implements I_ControllerFromReferee {}
+	class TrajToPlayerPortSys extends TrajToPlayerUser implements I_TrajFromPlayer {}
+	class TrajToRefereePortSys extends TrajToRefereeUser implements I_TrajFromReferee {}
+
+	class |Controller| behavesAs SM extends TrajToPlayerUser implements I_ControllerFromReferee receives connected(connected), finish(finish), error(error) {
+		stateMachine SM {
+			region R {
+				Initial -> WaitConnection;
+				WaitConnection -> IdleJunction : connected_SE / ;
+				IdleJunction -> GoToBall : /
+					opaqueBehavior = 'SEND(GET(this, trajectoryManager), goPos, TRUE, 0, 0);' in C;;
+				GoToBall -> GoToGoal : finish_SE /
+					opaqueBehavior = 'SEND(GET(this, trajectoryManager), goPos, FALSE, -20, 0);' in C;;
+				GoToGoal -> Turn : finish_SE /
+					opaqueBehavior = 'SEND(GET(this, trajectoryManager), goAngle, FALSE, -50, 0);' in C;;
+				Turn -> Shoot : finish_SE /
+					opaqueBehavior = 'SEND(GET(this, comPlayer), setSuction, 100);' in C;;
+				Shoot -> IdleJunction : /
+					opaqueBehavior = 'usleep(500000);' in C;;
+
+				GoToBall -> ListenReferee : error_SE / ;
+				GoToGoal -> ListenReferee : error_SE / ;
+				Turn -> ListenReferee : error_SE / ;
+
+				ListenReferee -> End : done_SE / ;
+				ListenReferee -> IdleJunction : opponentScored_SE / ;
+				ListenReferee -> IdleJunction : timeout_SE / ;
+				
+				initial pseudoState Initial;
+				junction pseudoState IdleJunction;
+			}
+		}
+	}
+
+	class |TrajectoryManager| behavesAs SM extends TrajUser implements I_TrajFromPlayer, I_TrajFromReferee receives goPos(goPos), goAngle(goAngle) {
+		private xPlayer[1-1] : Integer;
+		private zPlayer[1-1] : Integer;
+		private aPlayer[1-1] : Integer;
+		private xBall[1-1] : Integer;
+		private zBall[1-1] : Integer;
+		private xArrived[1-1] : Boolean;
+		private zArrived[1-1] : Boolean;
+		private aArrived[1-1] : Boolean;
+		private trajectory[1-1] : Integer;  // 0 for going to a position and 1 to turn in a direction
+		private xTarget[1-1] : Integer;
+		private zTarget[1-1] : Integer;
+		private ballTarget[1-1] : Boolean;
+		private receivedBall[1-1] : Boolean;
+		private receivedPlayer[1-1] : Boolean;
+		private receivedCompass[1-1] : Boolean;
+		private needTurn[1-1] : Boolean;
+		private ballInRobot[1-1] : Boolean;
+		private playerConnected[1-1] : Boolean;
+		private refereeConnected[1-1] : Boolean;
+		private error[1-1] : Boolean;
+		private ack[1-1] : Boolean;
+		private kp[1-1] : Integer;
+
+		stateMachine SM {
+			region R {
+				Initial -> WaitConnection;
+				WaitConnection -> WaitConnection : playerConnected_SE /
+					opaqueBehavior = 'SET(this, playerConnected, TRUE);' in C;;
+				WaitConnection -> WaitConnection : refereeConnected_SE /
+					opaqueBehavior = 'SET(this, refereeConnected, TRUE);' in C;;
+				WaitConnection -> Idle : [constraint is opaqueExpression = 'GET(this, refereeConnected) && GET(this, playerConnected)' in C;] / 
+					opaqueBehavior = 'SEND(GET(this, controller), connected);' in C;;
+
+				Idle -> SendSignalsJunction : goPos_SE /
+					opaqueBehavior = '
+						SET(this, trajectory, 0);
+						SET(this, ballTarget, params->ball);
+						SET(this, xTarget, params->x);
+						SET(this, zTarget, params->z);
+						' in C;;
+				Idle -> SendSignalsJunction : goAngle_SE /
+					opaqueBehavior = '
+						SET(this, trajectory, 1);
+						SET(this, ballTarget, params->ball);
+						SET(this, xTarget, params->x);
+						SET(this, zTarget, params->z);
+						' in C;;
+				SendSignalsJunction -> WaitSignals : /
+					opaqueBehavior = '
+						SEND(GET(this, comPlayer), getPlayerGPS);
+						SEND(GET(this, comPlayer), getBallGPS);
+						SEND(GET(this, comPlayer), getCompass);
+						SEND(GET(this, comReferee), checkReferee);
+						SET(this, receivedPlayer, 0);
+						SET(this, receivedBall, 0);
+						SET(this, receivedCompass, 0);
+						SET(this, ack, FALSE);
+						' in C;;
+				WaitSignals -> WaitSignalsChoice: rspPlayerGPS_SE /
+					opaqueBehavior = '
+						SET(this, xPlayer, params->x);
+						SET(this, zPlayer, params->z);
+						SET(this, receivedPlayer, 1);
+						' in C;;
+				WaitSignals -> WaitSignalsChoice: rspBallGPS_SE /
+					opaqueBehavior = '
+						SET(this, xBall, params->x);
+						SET(this, zBall, params->z);
+						SET(this, receivedBall, 1);
+						' in C;;
+				WaitSignals -> WaitSignalsChoice: rspCompass_SE /
+					opaqueBehavior = '
+						SET(this, aPlayer, params->direction);
+						SET(this, receivedCompass, 1);
+						' in C;;
+				WaitSignals -> WaitSignalsChoice: possession_SE /
+					opaqueBehavior = '
+						SET(this, ballInRobot, TRUE);
+						' in C;;
+				WaitSignals -> WaitSignalsChoice: abort_SE /
+					opaqueBehavior = '
+						SET(this, error, TRUE);
+						' in C;;
+				WaitSignals -> WaitSignalsChoice: refereeAck_SE /
+					opaqueBehavior = '
+						SET(this, ack, TRUE);
+						' in C;;
+				WaitSignalsChoice -> Idle: [constraint is opaqueExpression = 'GET(this, ack) && GET(this, error) && GET(this, receivedBall) && GET(this, receivedPlayer) && GET(this, receivedCompass)' in C;] /
+					opaqueBehavior = '
+							SEND(GET(this, controller), error);
+							SET(this, error, FALSE);
+							' in C;;
+				WaitSignalsChoice -> ComputeTraj: [constraint is opaqueExpression = 'GET(this, ack) && !GET(this, error) && GET(this, receivedBall) && GET(this, receivedPlayer) && GET(this, receivedCompass)' in C;] / ;
+				WaitSignalsChoice -> WaitSignals : [constraint is opaqueExpression = 'else' in C;] / ;
+
+				ComputeTraj -> TrajGoPos : [constraint is opaqueExpression = 'GET(this, trajectory) == 0 && GET(this, needTurn) == 0' in C;] /
+					opaqueBehavior = '
+						SET(this, xArrived, 0);
+						SET(this, zArrived, 0);
+
+						int32_t xDest = 0, zDest = 0;
+						if(GET(this, ballTarget)) {
+							xDest = GET(this, xBall);
+							zDest = GET(this, zBall);
+						} else {
+							xDest = GET(this, xTarget);
+							zDest = GET(this, zTarget);
+						}
+
+						int32_t xDiff = xDest - GET(this, xPlayer);
+						int32_t zDiff = zDest - GET(this, zPlayer);
+
+						double aPlayerRad = (M_PI * GET(this, aPlayer)) / 180.0;
+						int32_t xRobot = xDiff * cos(aPlayerRad) - zDiff * sin(aPlayerRad);
+						int32_t zRobot = - xDiff * sin(aPlayerRad) - zDiff * cos(aPlayerRad);
+
+						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);
+						while(aRobot > 180)
+							aRobot -= 360;
+						while(aRobot < -180)
+							aRobot += 360;
+						if(GET(this, ballTarget) && (aRobot > 6 || aRobot < -6)) {
+							SET(this, needTurn, TRUE);
+						}
+
+						if(abs(xDiff) + abs(zDiff) < 20) {
+							SEND(GET(this, comPlayer), setSuction, -100);
+						}
+
+						int32_t dmf = GET(this, kp) * xRobot;
+						int32_t dmr = GET(this, kp) * zRobot;
+
+						if(dmf > 100) {
+							dmf = 100;
+						} else if(dmf < -100) {
+							dmf = -100;
+						}
+						if(dmr > 100) {
+							dmr = 100;
+						} else if(dmr < -100) {
+							dmr = -100;
+						}
+
+						if(GET(this, ballInRobot) && GET(this, ballTarget)) {
+							// The ball has been taken
+							SET(this, zArrived, 1);
+							SET(this, xArrived, 1);
+							SEND(GET(this, comPlayer), moveForward, 0);
+							SEND(GET(this, comPlayer), moveRight, 0);
+						} else {
+							if(abs(xRobot) > 2) {
+								SEND(GET(this, comPlayer), moveForward, dmf);
+							} else {
+								SEND(GET(this, comPlayer), moveForward, 0);
+								SET(this, xArrived, 1);
+							}
+
+							if(abs(zRobot) > 2) {
+								SEND(GET(this, comPlayer), moveRight, -dmr);
+							} else {
+								SEND(GET(this, comPlayer), moveRight, 0);
+								SET(this, zArrived, 1);
+							}
+						}
+						' in C;;
+				TrajGoPos -> Idle : [constraint is opaqueExpression = 'GET(this, xArrived) && GET(this, zArrived)' in C;] / 
+					opaqueBehavior = 'SEND(GET(this, controller), finish);' in C;;
+				TrajGoPos -> SendSignalsJunction : [constraint is opaqueExpression = 'else' in C;] / ;
+
+				ComputeTraj -> TrajGoAngle : [constraint is opaqueExpression = 'else' in C;] /
+					opaqueBehavior = '
+						SET(this, aArrived, 0);
+						int32_t xDest = 0, zDest = 0;
+						if(GET(this, ballTarget)) {
+							xDest = GET(this, xBall);
+							zDest = GET(this, zBall);
+						} else {
+							xDest = GET(this, xTarget);
+							zDest = GET(this, zTarget);
+						}
+						int32_t xDiff = xDest - GET(this, xPlayer);
+						int32_t zDiff = zDest - GET(this, zPlayer);
+
+						int32_t aRobot = - (atan2(zDiff, xDiff) * 180) / M_PI - GET(this, aPlayer);
+						while(aRobot > 180)
+							aRobot -= 360;
+						while(aRobot < -180)
+							aRobot += 360;
+
+						if(abs(aRobot) > 30) {
+							SEND(GET(this, comPlayer), stop);
+						}
+
+						bool stopAfter = FALSE;
+						if(abs(aRobot) < 30) {
+							stopAfter = TRUE;
+						}
+
+						if(GET(this, ballInRobot) && GET(this, ballTarget)) {
+							// The ball has been taken
+							SET(this, aArrived, 1);
+							SEND(GET(this, comPlayer), spin, 0, FALSE);
+						} else {
+							if(aRobot > 3 || aRobot < -3) {
+								SEND(GET(this, comPlayer), spin, ((aRobot > 0) ? 85:-85), stopAfter);
+							} else {
+								SEND(GET(this, comPlayer), spin, 0, FALSE);
+								SET(this, aArrived, 1);
+							}
+						}
+						' in C;;
+				TrajGoAngle -> Idle : [constraint is opaqueExpression = 'GET(this, trajectory) == 1 && GET(this, aArrived)' in C;] /
+					opaqueBehavior = 'SEND(GET(this, controller), finish);' in C;;
+				TrajGoAngle -> SendSignalsJunction : [constraint is opaqueExpression = 'GET(this, trajectory) == 0 && GET(this, aArrived)' in C;] /
+					opaqueBehavior = 'SET(this, needTurn, FALSE);' in C;;
+				TrajGoAngle -> SendSignalsJunction : [constraint is opaqueExpression = 'else' in C;] / ;
+
+				initial pseudoState Initial;
+				junction pseudoState SendSignalsJunction;
+				choice pseudoState WaitSignalsChoice;
+				choice pseudoState ComputeTraj;
+				choice pseudoState TrajGoPos;
+				choice pseudoState TrajGoAngle;
+				state Idle entry / opaqueBehavior = '
+					SET(this, needTurn, FALSE);
+					SET(this, ballInRobot, FALSE);
+					SET(this, xArrived, 0);
+					SET(this, zArrived, 0);
+					SET(this, aArrived, 0);
+					' in C;;
+			}
+		}
+	}
+
+}

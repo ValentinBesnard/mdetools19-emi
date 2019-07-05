@@ -1,0 +1,581 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uml:Model xmi:version="20110701" xmlns:xmi="http://www.omg.org/spec/XMI/20110701" xmlns:uml="http://www.eclipse.org/uml2/4.0.0/UML" xmi:id="ChallengeEnv" name="ChallengeEnv">
+  <elementImport xmi:id="a1" visibility="private">
+    <importedElement xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+  </elementImport>
+  <elementImport xmi:id="a2" visibility="private">
+    <importedElement xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Boolean"/>
+  </elementImport>
+  <elementImport xmi:id="a3" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.moveForward_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a4" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.moveRight_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a5" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.spin_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a6" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.stop_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a7" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.setSuction_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a8" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getSuction_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a9" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getPlayerGPS_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a10" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getBallGPS_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a11" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getCompass_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a12" visibility="private">
+    <importedElement xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.checkReferee_SE"/>
+  </elementImport>
+  <elementImport xmi:id="a13" visibility="private">
+    <importedElement xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+  </elementImport>
+  <elementImport xmi:id="a14" visibility="private">
+    <importedElement xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee"/>
+  </elementImport>
+  <elementImport xmi:id="a15" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.TrajFromPlayerUser"/>
+  </elementImport>
+  <elementImport xmi:id="a16" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.TrajFromRefereeUser"/>
+  </elementImport>
+  <elementImport xmi:id="a17" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.PlayerUser"/>
+  </elementImport>
+  <elementImport xmi:id="a18" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.RefereeUser"/>
+  </elementImport>
+  <elementImport xmi:id="a19" visibility="private">
+    <importedElement xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.ControllerFromRefereeUser"/>
+  </elementImport>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.Environment" name="Environment">
+    <ownedAttribute xmi:id="ChallengeEnv.Environment.comPlayer" name="comPlayer" type="ChallengeEnv.CommunicationPlayer" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a20" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a21" value="1"/>
+      <defaultValue xmi:type="uml:InstanceValue" xmi:id="a22" instance="ChallengeEnv.instCommunicationPlayer"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeEnv.Environment.comReferee" name="comReferee" type="ChallengeEnv.CommunicationReferee" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a23" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a24" value="1"/>
+      <defaultValue xmi:type="uml:InstanceValue" xmi:id="a25" instance="ChallengeEnv.instCommunicationReferee"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeEnv.Environment.controllerToPlayerPortEnv" name="controllerToPlayerPortEnv" type="ChallengeEnv.ControllerToPlayerPortEnv" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a26" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a27" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeEnv.Environment.controllerToRefereePortEnv" name="controllerToRefereePortEnv" type="ChallengeEnv.ControllerToRefereePortEnv" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a28" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a29" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeEnv.Environment.trajToPlayerPortEnv" name="trajToPlayerPortEnv" type="ChallengeEnv.TrajToPlayerPortEnv" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a30" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a31" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:type="uml:Port" xmi:id="ChallengeEnv.Environment.trajToRefereePortEnv" name="trajToRefereePortEnv" type="ChallengeEnv.TrajToRefereePortEnv" isUnique="false" aggregation="composite">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a32" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a33" value="1"/>
+    </ownedAttribute>
+    <ownedConnector xmi:id="ChallengeEnv.Environment.c1" name="c1" type="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv">
+      <end xmi:id="a34" role="ChallengeEnv.Environment.comPlayer"/>
+      <end xmi:id="a35" role="ChallengeEnv.Environment.controllerToPlayerPortEnv"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeEnv.Environment.c2" name="c2" type="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv">
+      <end xmi:id="a36" role="ChallengeEnv.Environment.comReferee"/>
+      <end xmi:id="a37" role="ChallengeEnv.Environment.controllerToRefereePortEnv"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeEnv.Environment.c3" name="c3" type="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv">
+      <end xmi:id="a38" role="ChallengeEnv.Environment.comPlayer"/>
+      <end xmi:id="a39" role="ChallengeEnv.Environment.trajToPlayerPortEnv"/>
+    </ownedConnector>
+    <ownedConnector xmi:id="ChallengeEnv.Environment.c4" name="c4" type="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv">
+      <end xmi:id="a40" role="ChallengeEnv.Environment.comReferee"/>
+      <end xmi:id="a41" role="ChallengeEnv.Environment.trajToRefereePortEnv"/>
+    </ownedConnector>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="ChallengeEnv.instCommunicationPlayer" name="instCommunicationPlayer" classifier="ChallengeEnv.CommunicationPlayer">
+    <slot xmi:id="a42" definingFeature="ChallengeEnv.CommunicationPlayer.tcpPort">
+      <value xmi:type="uml:LiteralInteger" xmi:id="a43" value="9003"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:InstanceSpecification" xmi:id="ChallengeEnv.instCommunicationReferee" name="instCommunicationReferee" classifier="ChallengeEnv.CommunicationReferee">
+    <slot xmi:id="a44" definingFeature="ChallengeEnv.CommunicationReferee.tcpPort">
+      <value xmi:type="uml:LiteralInteger" xmi:id="a45" value="9007"/>
+    </slot>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv" name="CommunicationPlayer_ControllerToPlayerPortEnv" memberEnd="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.comPlayer ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.controller">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.comPlayer" name="comPlayer" type="ChallengeEnv.CommunicationPlayer" isUnique="false" association="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a46" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a47" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv.controller" name="controller" type="ChallengeEnv.ControllerToPlayerPortEnv" isUnique="false" association="ChallengeEnv.CommunicationPlayer_ControllerToPlayerPortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a48" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a49" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv" name="CommunicationReferee_ControllerToRefereePortEnv" memberEnd="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.comReferee ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.controller">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.comReferee" name="comReferee" type="ChallengeEnv.CommunicationReferee" isUnique="false" association="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a50" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a51" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv.controller" name="controller" type="ChallengeEnv.ControllerToRefereePortEnv" isUnique="false" association="ChallengeEnv.CommunicationReferee_ControllerToRefereePortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a52" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a53" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv" name="CommunicationPlayer_TrajToPlayerPortEnv" memberEnd="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.comPlayer ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.trajectoryManager">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.comPlayer" name="comPlayer" type="ChallengeEnv.CommunicationPlayer" isUnique="false" association="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a54" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a55" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv.trajectoryManager" name="trajectoryManager" type="ChallengeEnv.TrajToPlayerPortEnv" isUnique="false" association="ChallengeEnv.CommunicationPlayer_TrajToPlayerPortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a56" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a57" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Association" xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv" name="CommunicationReferee_TrajToRefereePortEnv" memberEnd="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.comReferee ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.trajectoryManager">
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.comReferee" name="comReferee" type="ChallengeEnv.CommunicationReferee" isUnique="false" association="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a58" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a59" value="1"/>
+    </ownedEnd>
+    <ownedEnd xmi:id="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv.trajectoryManager" name="trajectoryManager" type="ChallengeEnv.TrajToRefereePortEnv" isUnique="false" association="ChallengeEnv.CommunicationReferee_TrajToRefereePortEnv">
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a60" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a61" value="1"/>
+    </ownedEnd>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.ControllerToPlayerPortEnv" clientDependency="a63" name="ControllerToPlayerPortEnv">
+    <generalization xmi:id="a62">
+      <general xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.TrajFromPlayerUser"/>
+    </generalization>
+    <interfaceRealization xmi:id="a63" client="ChallengeEnv.ControllerToPlayerPortEnv">
+      <supplier xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+      <contract href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+    </interfaceRealization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.ControllerToRefereePortEnv" name="ControllerToRefereePortEnv">
+    <generalization xmi:id="a64">
+      <general xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.ControllerFromRefereeUser"/>
+    </generalization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.TrajToPlayerPortEnv" clientDependency="a66" name="TrajToPlayerPortEnv">
+    <generalization xmi:id="a65">
+      <general xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.TrajFromPlayerUser"/>
+    </generalization>
+    <interfaceRealization xmi:id="a66" client="ChallengeEnv.TrajToPlayerPortEnv">
+      <supplier xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+      <contract href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+    </interfaceRealization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.TrajToRefereePortEnv" clientDependency="a68" name="TrajToRefereePortEnv">
+    <generalization xmi:id="a67">
+      <general xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.TrajFromRefereeUser"/>
+    </generalization>
+    <interfaceRealization xmi:id="a68" client="ChallengeEnv.TrajToRefereePortEnv">
+      <supplier xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee"/>
+      <contract href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee"/>
+    </interfaceRealization>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.CommunicationPlayer" clientDependency="a76" name="CommunicationPlayer" classifierBehavior="ChallengeEnv.CommunicationPlayer.SM" isActive="true">
+    <generalization xmi:id="a69">
+      <general xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.PlayerUser"/>
+    </generalization>
+    <ownedAttribute xmi:id="ChallengeEnv.CommunicationPlayer.tcpPort" name="tcpPort" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a70" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a71" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeEnv.CommunicationPlayer.connected" name="connected" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a72" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a73" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeEnv.CommunicationPlayer.status" name="status" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a74" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a75" value="1"/>
+    </ownedAttribute>
+    <interfaceRealization xmi:id="a76" client="ChallengeEnv.CommunicationPlayer">
+      <supplier xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+      <contract href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer"/>
+    </interfaceRealization>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="ChallengeEnv.CommunicationPlayer.SM" name="SM">
+      <region xmi:id="ChallengeEnv.CommunicationPlayer.SM.R" name="R">
+        <transition xmi:id="a77" source="ChallengeEnv.CommunicationPlayer.SM.R.Initial" target="ChallengeEnv.CommunicationPlayer.SM.R.Idle"/>
+        <transition xmi:id="a78" source="ChallengeEnv.CommunicationPlayer.SM.R.Idle" target="ChallengeEnv.CommunicationPlayer.SM.R.Connection">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a79">
+            <language>C</language>
+            <body>SET(this, connected, UML_TcpConnectionOpen(0, GET(this, tcpPort), TRUE));</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a80" source="ChallengeEnv.CommunicationPlayer.SM.R.Connection" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <ownedRule xmi:id="a81" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a82">
+              <language>C</language>
+              <body>GET(this, connected) == 1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a83">
+            <language>C</language>
+            <body>SEND(GET(this, trajectoryManager), playerConnected);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a84" source="ChallengeEnv.CommunicationPlayer.SM.R.Connection" target="ChallengeEnv.CommunicationPlayer.SM.R.Idle">
+          <ownedRule xmi:id="a85" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a86">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a87" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a88">
+            <language>C</language>
+            <body>char str[128]; sprintf(str, &quot;player2,moveForward(%d)\n&quot;, params->speed); UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a89">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.moveForward_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a90" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a91">
+            <language>C</language>
+            <body>char str[128]; sprintf(str, &quot;player2,moveRight(%d)\n&quot;, params->speed); UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a92">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.moveRight_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a93" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a94">
+            <language>C</language>
+            <body>
+						char str[128];
+						sprintf(str, &quot;player2,spin(%d)\n&quot;, params->speed); UML_TcpConnectionWrite(0, str, strlen(str) + 1);
+						if(params->stopAfter) {
+							sprintf(str, &quot;player2,spin(0)\n&quot;); UML_TcpConnectionWrite(0, str, strlen(str) + 1);
+						}
+						</body>
+          </effect>
+          <trigger xmi:id="a95">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.spin_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a96" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a97">
+            <language>C</language>
+            <body>char str[128] = &quot;player2,stop()\n&quot;; UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a98">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.stop_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a99" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a100">
+            <language>C</language>
+            <body>char str[128]; sprintf(str, &quot;player2,setSuction(%d)\n&quot;, params->power); UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a101">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.setSuction_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a102" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.ReadSuction">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a103">
+            <language>C</language>
+            <body>char str[128] = &quot;player2,getSuction()\n&quot;; UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a104">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getSuction_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a105" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.ReadPlayerGPS">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a106">
+            <language>C</language>
+            <body>char str[128] = &quot;player2,GPS()\n&quot;; UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a107">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getPlayerGPS_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a108" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.ReadBallGPS">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a109">
+            <language>C</language>
+            <body>char str[128] = &quot;ball,GPS()\n&quot;; UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a110">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getBallGPS_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a111" source="ChallengeEnv.CommunicationPlayer.SM.R.Connected" target="ChallengeEnv.CommunicationPlayer.SM.R.ReadCompass">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a112">
+            <language>C</language>
+            <body>char str[128] = &quot;player2,getCompass()\n&quot;; UML_TcpConnectionWrite(0, str, strlen(str) + 1);</body>
+          </effect>
+          <trigger xmi:id="a113">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.getCompass_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a114" source="ChallengeEnv.CommunicationPlayer.SM.R.ReadSuction" target="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a115">
+            <language>C</language>
+            <body>
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127)); 
+							if(GET(this, status)) { 
+								int power = 0; sscanf(str, &quot;player2,%d,%*d\n&quot;, &amp;power);
+								SEND(GET(this, trajectoryManager), rspSuction, power);
+							}
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a116" source="ChallengeEnv.CommunicationPlayer.SM.R.ReadPlayerGPS" target="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a117">
+            <language>C</language>
+            <body>
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127));
+							if(GET(this, status)) {
+								int x = 0, z = 0;
+								int nums[4] = {0};
+								int nb = 0;
+								char * pch = strtok (str,&quot;,&quot;); // Read player
+								while (pch != NULL &amp;&amp; nb &lt; 4) {
+									pch = strtok (NULL,&quot;,&quot;);
+									if(pch != NULL) {
+										sscanf(pch, &quot;%d&quot;, &amp;(nums[nb]));
+										if(nb > 0 &amp;&amp; strchr(pch, 'E') != NULL) {
+											nums[nb - 1] = 0;
+										}
+										nb++;
+									}
+								}
+								x = nums[0];
+								z = nums[nb-2];
+
+								SEND(GET(this, trajectoryManager), rspPlayerGPS, x, z);
+							}
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a118" source="ChallengeEnv.CommunicationPlayer.SM.R.ReadBallGPS" target="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a119">
+            <language>C</language>
+            <body>
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127)); 
+							if(GET(this, status)) {
+								int x = 0, z = 0;
+								int nums[4] = {0};
+								int nb = 0;
+								char * pch = strtok (str,&quot;,&quot;); // Read player
+								while (pch != NULL &amp;&amp; nb &lt; 4) {
+									pch = strtok (NULL,&quot;,&quot;);
+									if(pch != NULL) {
+										sscanf(pch, &quot;%d&quot;, &amp;(nums[nb]));
+										if(nb > 0 &amp;&amp; strchr(pch, 'E') != NULL) {
+											nums[nb - 1] = 0;
+										}
+										nb++;
+									}
+								}
+								x = nums[0];
+								z = nums[nb-2];
+
+								SEND(GET(this, trajectoryManager), rspBallGPS, x, z);
+							}
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a120" source="ChallengeEnv.CommunicationPlayer.SM.R.ReadCompass" target="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a121">
+            <language>C</language>
+            <body>
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127)); 
+							if(GET(this, status)) {
+								int direction = 0; sscanf(str, &quot;player2,%d,%*d\n&quot;, &amp;direction);
+								SEND(GET(this, trajectoryManager), rspCompass, direction);
+							}
+						</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a122" source="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus" target="ChallengeEnv.CommunicationPlayer.SM.R.Connected">
+          <ownedRule xmi:id="a123" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a124">
+              <language>C</language>
+              <body>GET(this, status) != 0</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a125" source="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus" target="ChallengeEnv.CommunicationPlayer.SM.R.Error">
+          <ownedRule xmi:id="a126" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a127">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a128">
+            <language>C</language>
+            <body>printf(&quot;Connection in error\n&quot;);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a129" source="ChallengeEnv.CommunicationPlayer.SM.R.Error" target="ChallengeEnv.CommunicationPlayer.SM.R.Idle">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a130">
+            <language>C</language>
+            <body>SET(this, connected, 0); UML_TcpConnectionClose(0);</body>
+          </effect>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.Initial" name="Initial"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.Connection" name="Connection" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.CheckStatus" name="CheckStatus" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.Idle" name="Idle"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.Connected" name="Connected"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.ReadSuction" name="ReadSuction"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.ReadPlayerGPS" name="ReadPlayerGPS"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.ReadBallGPS" name="ReadBallGPS"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.ReadCompass" name="ReadCompass"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationPlayer.SM.R.Error" name="Error"/>
+      </region>
+    </ownedBehavior>
+  </packagedElement>
+  <packagedElement xmi:type="uml:Class" xmi:id="ChallengeEnv.CommunicationReferee" clientDependency="a138" name="CommunicationReferee" classifierBehavior="ChallengeEnv.CommunicationReferee.SM" isActive="true">
+    <generalization xmi:id="a131">
+      <general xmi:type="uml:Class" href="../ChallengeDAL.uml#ChallengeDAL.RefereeUser"/>
+    </generalization>
+    <ownedAttribute xmi:id="ChallengeEnv.CommunicationReferee.tcpPort" name="tcpPort" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a132" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a133" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeEnv.CommunicationReferee.connected" name="connected" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a134" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a135" value="1"/>
+    </ownedAttribute>
+    <ownedAttribute xmi:id="ChallengeEnv.CommunicationReferee.status" name="status" visibility="private" isUnique="false">
+      <type xmi:type="uml:PrimitiveType" href="../ChallengeDAL.uml#ChallengeDAL.Integer"/>
+      <lowerValue xmi:type="uml:LiteralInteger" xmi:id="a136" value="1"/>
+      <upperValue xmi:type="uml:LiteralInteger" xmi:id="a137" value="1"/>
+    </ownedAttribute>
+    <interfaceRealization xmi:id="a138" client="ChallengeEnv.CommunicationReferee">
+      <supplier xmi:type="uml:Interface" href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee"/>
+      <contract href="../ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee"/>
+    </interfaceRealization>
+    <ownedBehavior xmi:type="uml:StateMachine" xmi:id="ChallengeEnv.CommunicationReferee.SM" name="SM">
+      <region xmi:id="ChallengeEnv.CommunicationReferee.SM.R" name="R">
+        <transition xmi:id="a139" source="ChallengeEnv.CommunicationReferee.SM.R.Initial" target="ChallengeEnv.CommunicationReferee.SM.R.Idle"/>
+        <transition xmi:id="a140" source="ChallengeEnv.CommunicationReferee.SM.R.Idle" target="ChallengeEnv.CommunicationReferee.SM.R.Connection">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a141">
+            <language>C</language>
+            <body>SET(this, connected, UML_TcpConnectionOpen(1, GET(this, tcpPort), FALSE));</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a142" source="ChallengeEnv.CommunicationReferee.SM.R.Connection" target="ChallengeEnv.CommunicationReferee.SM.R.Connected">
+          <ownedRule xmi:id="a143" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a144">
+              <language>C</language>
+              <body>GET(this, connected) == 1</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a145">
+            <language>C</language>
+            <body>SEND(GET(this, trajectoryManager), refereeConnected);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a146" source="ChallengeEnv.CommunicationReferee.SM.R.Connection" target="ChallengeEnv.CommunicationReferee.SM.R.Error">
+          <ownedRule xmi:id="a147" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a148">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a149" source="ChallengeEnv.CommunicationReferee.SM.R.Connected" target="ChallengeEnv.CommunicationReferee.SM.R.CheckStatus">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a150">
+            <language>C</language>
+            <body>
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(1, str, 127));
+							if(GET(this, status)) {
+								char * pch = strtok (str,&quot;;\n&quot;);
+								bool possession = FALSE;
+								bool timeout = FALSE;
+								bool scored = FALSE;
+								while (pch != NULL) {
+									if(strcmp(pch, &quot;Possesion&quot;) == 0) {
+										possession = TRUE;
+									} else if(strcmp(pch, &quot;TimeOut&quot;) == 0) {
+										timeout = TRUE;
+									} else if(strcmp(pch, &quot;scored&quot;) == 0) {
+										scored = TRUE;
+									} else if(strcmp(pch, &quot;Done&quot;) == 0) {
+										SEND(GET(this, trajectoryManager), abort);
+										SEND(GET(this, controller), done);
+									} else if(strcmp(pch, &quot;player2&quot;) == 0) {
+										if(possession) {
+											possession = FALSE;
+											SEND(GET(this, trajectoryManager), possession);
+										} else if(timeout) {
+											timeout = FALSE;
+											SEND(GET(this, trajectoryManager), abort);
+											SEND(GET(this, controller), timeout);
+										}
+									} else if(strcmp(pch, &quot;player1&quot;) == 0) {
+										if(scored) {
+											scored = FALSE;
+											SEND(GET(this, trajectoryManager), abort);
+											SEND(GET(this, controller), opponentScored);
+										}
+									} else {
+										possession = FALSE;
+										scored = FALSE;
+										timeout = FALSE;
+									}
+									pch = strtok (NULL,&quot;;\n&quot;);
+								}
+							}
+							SEND(GET(this, trajectoryManager), refereeAck);
+						</body>
+          </effect>
+          <trigger xmi:id="a151">
+            <event xmi:type="uml:SignalEvent" href="../ChallengeDAL.uml#ChallengeDAL.checkReferee_SE"/>
+          </trigger>
+        </transition>
+        <transition xmi:id="a152" source="ChallengeEnv.CommunicationReferee.SM.R.CheckStatus" target="ChallengeEnv.CommunicationReferee.SM.R.Connected">
+          <ownedRule xmi:id="a153" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a154">
+              <language>C</language>
+              <body>GET(this, status) != 0</body>
+            </specification>
+          </ownedRule>
+        </transition>
+        <transition xmi:id="a155" source="ChallengeEnv.CommunicationReferee.SM.R.CheckStatus" target="ChallengeEnv.CommunicationReferee.SM.R.Error">
+          <ownedRule xmi:id="a156" name="">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="a157">
+              <language>C</language>
+              <body>else</body>
+            </specification>
+          </ownedRule>
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a158">
+            <language>C</language>
+            <body>printf(&quot;Connection in error\n&quot;);</body>
+          </effect>
+        </transition>
+        <transition xmi:id="a159" source="ChallengeEnv.CommunicationReferee.SM.R.Error" target="ChallengeEnv.CommunicationReferee.SM.R.Idle">
+          <effect xmi:type="uml:OpaqueBehavior" xmi:id="a160">
+            <language>C</language>
+            <body>SET(this, connected, 0); UML_TcpConnectionClose(1);</body>
+          </effect>
+        </transition>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeEnv.CommunicationReferee.SM.R.Initial" name="Initial"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeEnv.CommunicationReferee.SM.R.Connection" name="Connection" kind="choice"/>
+        <subvertex xmi:type="uml:Pseudostate" xmi:id="ChallengeEnv.CommunicationReferee.SM.R.CheckStatus" name="CheckStatus" kind="choice"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationReferee.SM.R.Idle" name="Idle"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationReferee.SM.R.Connected" name="Connected"/>
+        <subvertex xmi:type="uml:State" xmi:id="ChallengeEnv.CommunicationReferee.SM.R.Error" name="Error"/>
+      </region>
+    </ownedBehavior>
+  </packagedElement>
+</uml:Model>

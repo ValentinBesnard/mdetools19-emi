@@ -1,0 +1,263 @@
+model ChallengeEnv with(
+	private "ChallengeDAL.uml#ChallengeDAL.Integer",
+	private "ChallengeDAL.uml#ChallengeDAL.Boolean",
+
+	private "ChallengeDAL.uml#ChallengeDAL.moveForward_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.moveRight_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.spin_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.stop_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.setSuction_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getSuction_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getPlayerGPS_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getBallGPS_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.getCompass_SE",
+	private "ChallengeDAL.uml#ChallengeDAL.checkReferee_SE",
+
+	private "ChallengeDAL.uml#ChallengeDAL.I_TrajToPlayer",
+	private "ChallengeDAL.uml#ChallengeDAL.I_TrajToReferee",
+	private "ChallengeDAL.uml#ChallengeDAL.TrajFromPlayerUser",
+	private "ChallengeDAL.uml#ChallengeDAL.TrajFromRefereeUser",
+	private "ChallengeDAL.uml#ChallengeDAL.PlayerUser",
+	private "ChallengeDAL.uml#ChallengeDAL.RefereeUser",
+	private "ChallengeDAL.uml#ChallengeDAL.ControllerFromRefereeUser"
+) {
+
+	class Environment {
+		public composite comPlayer[1-1] : CommunicationPlayer = instCommunicationPlayer;
+		public composite comReferee[1-1] : CommunicationReferee = instCommunicationReferee;
+
+		public composite port controllerToPlayerPortEnv[1-1] : ControllerToPlayerPortEnv;
+		public composite port controllerToRefereePortEnv[1-1] : ControllerToRefereePortEnv;
+		public composite port trajToPlayerPortEnv[1-1] : TrajToPlayerPortEnv;
+		public composite port trajToRefereePortEnv[1-1] : TrajToRefereePortEnv;
+
+		connector "c1" : CommunicationPlayer_ControllerToPlayerPortEnv between comPlayer and controllerToPlayerPortEnv;
+		connector "c2" : CommunicationReferee_ControllerToRefereePortEnv between comReferee and controllerToRefereePortEnv;
+		connector "c3" : CommunicationPlayer_TrajToPlayerPortEnv between comPlayer and trajToPlayerPortEnv;
+		connector "c4" : CommunicationReferee_TrajToRefereePortEnv between comReferee and trajToRefereePortEnv;
+	}
+
+	instance instCommunicationPlayer of CommunicationPlayer {
+		tcpPort = 9003;
+	}
+
+	instance instCommunicationReferee of CommunicationReferee {
+		tcpPort = 9007;
+	}
+
+	association CommunicationPlayer_ControllerToPlayerPortEnv {
+		comPlayer[1-1] : CommunicationPlayer in CommunicationPlayer_ControllerToPlayerPortEnv;
+		controller[1-1] : ControllerToPlayerPortEnv in CommunicationPlayer_ControllerToPlayerPortEnv;
+	}
+	association CommunicationReferee_ControllerToRefereePortEnv {
+		comReferee[1-1] : CommunicationReferee in CommunicationReferee_ControllerToRefereePortEnv;
+		controller[1-1] : ControllerToRefereePortEnv in CommunicationReferee_ControllerToRefereePortEnv;
+	}
+	association CommunicationPlayer_TrajToPlayerPortEnv {
+		comPlayer[1-1] : CommunicationPlayer in CommunicationPlayer_TrajToPlayerPortEnv;
+		trajectoryManager[1-1] : TrajToPlayerPortEnv in CommunicationPlayer_TrajToPlayerPortEnv;
+	}
+	association CommunicationReferee_TrajToRefereePortEnv {
+		comReferee[1-1] : CommunicationReferee in CommunicationReferee_TrajToRefereePortEnv;
+		trajectoryManager[1-1] : TrajToRefereePortEnv in CommunicationReferee_TrajToRefereePortEnv;
+	}
+
+	class ControllerToPlayerPortEnv extends TrajFromPlayerUser implements I_TrajToPlayer {}
+	class ControllerToRefereePortEnv extends ControllerFromRefereeUser {}
+	class TrajToPlayerPortEnv extends TrajFromPlayerUser implements I_TrajToPlayer {}
+	class TrajToRefereePortEnv extends TrajFromRefereeUser implements I_TrajToReferee {}
+
+	class |CommunicationPlayer| behavesAs SM extends PlayerUser implements I_TrajToPlayer {
+		private tcpPort[1-1] : Integer;
+		private connected[1-1] : Integer;
+		private status[1-1] : Integer;
+
+		stateMachine SM {
+			region R {
+				Initial -> Idle;
+				Idle -> Connection: /
+						opaqueBehavior = 'SET(this, connected, UML_TcpConnectionOpen(0, GET(this, tcpPort), TRUE));' in C;;
+				Connection -> Connected: [constraint "" is opaqueExpression = 'GET(this, connected) == 1' in C;] /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), playerConnected);' in C;;
+				Connection -> Idle: [constraint "" is opaqueExpression = 'else' in C;] /;
+
+				Connected -> Connected : moveForward_SE / 
+						opaqueBehavior = 'char str[128]; sprintf(str, "player2,moveForward(%d)\\n", params->speed); UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> Connected : moveRight_SE / 
+						opaqueBehavior = 'char str[128]; sprintf(str, "player2,moveRight(%d)\\n", params->speed); UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> Connected : spin_SE / 
+						opaqueBehavior = '
+						char str[128];
+						sprintf(str, "player2,spin(%d)\\n", params->speed); UML_TcpConnectionWrite(0, str, strlen(str) + 1);
+						if(params->stopAfter) {
+							sprintf(str, "player2,spin(0)\\n"); UML_TcpConnectionWrite(0, str, strlen(str) + 1);
+						}
+						' in C;;
+				Connected -> Connected : stop_SE / 
+						opaqueBehavior = 'char str[128] = "player2,stop()\\n"; UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> Connected : setSuction_SE / 
+						opaqueBehavior = 'char str[128]; sprintf(str, "player2,setSuction(%d)\\n", params->power); UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> ReadSuction : getSuction_SE / 
+						opaqueBehavior = 'char str[128] = "player2,getSuction()\\n"; UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> ReadPlayerGPS : getPlayerGPS_SE / 
+						opaqueBehavior = 'char str[128] = "player2,GPS()\\n"; UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> ReadBallGPS : getBallGPS_SE / 
+						opaqueBehavior = 'char str[128] = "ball,GPS()\\n"; UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+				Connected -> ReadCompass : getCompass_SE / 
+						opaqueBehavior = 'char str[128] = "player2,getCompass()\\n"; UML_TcpConnectionWrite(0, str, strlen(str) + 1);' in C;;
+
+				ReadSuction -> CheckStatus : /
+						opaqueBehavior = '
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127)); 
+							if(GET(this, status)) { 
+								int power = 0; sscanf(str, "player2,%d,%*d\\n", &power);
+								SEND(GET(this, trajectoryManager), rspSuction, power);
+							}
+						' in C;;
+				ReadPlayerGPS -> CheckStatus : /
+						opaqueBehavior = '
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127));
+							if(GET(this, status)) {
+								int x = 0, z = 0;
+								int nums[4] = {0};
+								int nb = 0;
+								char * pch = strtok (str,","); // Read player
+								while (pch != NULL && nb < 4) {
+									pch = strtok (NULL,",");
+									if(pch != NULL) {
+										sscanf(pch, "%d", &(nums[nb]));
+										if(nb > 0 && strchr(pch, \'E\') != NULL) {
+											nums[nb - 1] = 0;
+										}
+										nb++;
+									}
+								}
+								x = nums[0];
+								z = nums[nb-2];
+
+								SEND(GET(this, trajectoryManager), rspPlayerGPS, x, z);
+							}
+						' in C;;
+				ReadBallGPS -> CheckStatus : /
+						opaqueBehavior = '
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127)); 
+							if(GET(this, status)) {
+								int x = 0, z = 0;
+								int nums[4] = {0};
+								int nb = 0;
+								char * pch = strtok (str,","); // Read player
+								while (pch != NULL && nb < 4) {
+									pch = strtok (NULL,",");
+									if(pch != NULL) {
+										sscanf(pch, "%d", &(nums[nb]));
+										if(nb > 0 && strchr(pch, \'E\') != NULL) {
+											nums[nb - 1] = 0;
+										}
+										nb++;
+									}
+								}
+								x = nums[0];
+								z = nums[nb-2];
+
+								SEND(GET(this, trajectoryManager), rspBallGPS, x, z);
+							}
+						' in C;;
+				ReadCompass -> CheckStatus : /
+						opaqueBehavior = '
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(0, str, 127)); 
+							if(GET(this, status)) {
+								int direction = 0; sscanf(str, "player2,%d,%*d\\n", &direction);
+								SEND(GET(this, trajectoryManager), rspCompass, direction);
+							}
+						' in C;;
+
+				CheckStatus -> Connected : [constraint "" is opaqueExpression = 'GET(this, status) != 0' in C;] /;
+				CheckStatus -> Error : [constraint "" is opaqueExpression = 'else' in C;] /
+						opaqueBehavior = 'printf("Connection in error\\n");' in C;;
+
+				Error -> Idle : /
+						opaqueBehavior = 'SET(this, connected, 0); UML_TcpConnectionClose(0);' in C;;
+
+				initial pseudoState Initial;
+				choice pseudoState Connection;
+				choice pseudoState CheckStatus;
+			}
+		}
+	}
+
+
+
+
+	class |CommunicationReferee| behavesAs SM extends RefereeUser implements I_TrajToReferee {
+		private tcpPort[1-1] : Integer;
+		private connected[1-1] : Integer;
+		private status[1-1] : Integer;
+
+		stateMachine SM {
+			region R {
+				Initial -> Idle;
+				Idle -> Connection: /
+						opaqueBehavior = 'SET(this, connected, UML_TcpConnectionOpen(1, GET(this, tcpPort), FALSE));' in C;;
+				Connection -> Connected: [constraint "" is opaqueExpression = 'GET(this, connected) == 1' in C;] /
+						opaqueBehavior = 'SEND(GET(this, trajectoryManager), refereeConnected);' in C;;
+				Connection -> Error: [constraint "" is opaqueExpression = 'else' in C;] /;
+
+				Connected -> CheckStatus : checkReferee_SE /
+						opaqueBehavior = '
+							char str[128] = {0}; SET(this, status, UML_TcpConnectionRead(1, str, 127));
+							if(GET(this, status)) {
+								char * pch = strtok (str,";\\n");
+								bool possession = FALSE;
+								bool timeout = FALSE;
+								bool scored = FALSE;
+								while (pch != NULL) {
+									if(strcmp(pch, "Possesion") == 0) {
+										possession = TRUE;
+									} else if(strcmp(pch, "TimeOut") == 0) {
+										timeout = TRUE;
+									} else if(strcmp(pch, "scored") == 0) {
+										scored = TRUE;
+									} else if(strcmp(pch, "Done") == 0) {
+										SEND(GET(this, trajectoryManager), abort);
+										SEND(GET(this, controller), done);
+									} else if(strcmp(pch, "player2") == 0) {
+										if(possession) {
+											possession = FALSE;
+											SEND(GET(this, trajectoryManager), possession);
+										} else if(timeout) {
+											timeout = FALSE;
+											SEND(GET(this, trajectoryManager), abort);
+											SEND(GET(this, controller), timeout);
+										}
+									} else if(strcmp(pch, "player1") == 0) {
+										if(scored) {
+											scored = FALSE;
+											SEND(GET(this, trajectoryManager), abort);
+											SEND(GET(this, controller), opponentScored);
+										}
+									} else {
+										possession = FALSE;
+										scored = FALSE;
+										timeout = FALSE;
+									}
+									pch = strtok (NULL,";\\n");
+								}
+							}
+							SEND(GET(this, trajectoryManager), refereeAck);
+						' in C;;
+
+				CheckStatus -> Connected : [constraint "" is opaqueExpression = 'GET(this, status) != 0' in C;] /;
+				CheckStatus -> Error : [constraint "" is opaqueExpression = 'else' in C;] /
+						opaqueBehavior = 'printf("Connection in error\\n");' in C;;
+
+				Error -> Idle : /
+						opaqueBehavior = 'SET(this, connected, 0); UML_TcpConnectionClose(1);' in C;;
+							
+				initial pseudoState Initial;
+				choice pseudoState Connection;
+				choice pseudoState CheckStatus;
+			}
+		}
+	}
+
+}

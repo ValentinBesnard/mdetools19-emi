@@ -1,0 +1,33 @@
+// Atomic Propositions
+playerHasBall = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), ballInRobot) == TRUE|
+ballTarget = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), ballTarget) == TRUE|
+goalDirection = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), aPlayer) > 175 && GET(GET(GET(ROOT_instMain, system), trajectoryManager), aPlayer) < 185|
+trajPos = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), trajectory) == 0|
+atTargetPos = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), xPlayer) == GET(GET(GET(ROOT_instMain, system), trajectoryManager), xTarget) && GET(GET(GET(ROOT_instMain, system), trajectoryManager), zPlayer) == GET(GET(GET(ROOT_instMain, system), trajectoryManager), zTarget)|
+
+notInWaitConnection = |!IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_WaitConnection)|
+goToBall = |IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_GoToBall)|
+goToGoal = |IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_GoToGoal)|
+inShootPos = |IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_Shoot)|
+listenReferee = |IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_ListenReferee)|
+end = |IS_IN_STATE(GET(GET(ROOT_instMain, system), controller), STATE_Controller_End)|
+
+tmIdle = |IS_IN_STATE(GET(GET(ROOT_instMain, system), trajectoryManager), STATE_TrajectoryManager_Idle)|
+
+finish = |EP_CONTAINS(GET(GET(ROOT_instMain, system), controller), SIGNAL_finish)|
+done = |EP_CONTAINS(GET(GET(ROOT_instMain, system), controller), SIGNAL_done)|
+timeout = |EP_CONTAINS(GET(GET(ROOT_instMain, system), controller), SIGNAL_timeout)|
+opponentScored = |EP_CONTAINS(GET(GET(ROOT_instMain, system), controller), SIGNAL_opponentScored)|
+
+playerConnected = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), playerConnected) == 1|
+refereeConnected = |GET(GET(GET(ROOT_instMain, system), trajectoryManager), refereeConnected) == 1|
+
+// Properties
+prop1 = [] ((playerHasBall && goToBall) -> <> (goToGoal or listenReferee))
+prop2 = [] !(inShootPos && !goalDirection)
+prop3 = [] (timeout -> <> (listenReferee -> <> goToBall))
+prop4 = [] (opponentScored -> <> (listenReferee -> <> goToBall))
+prop5 = [] (done -> <> end)
+prop6 = [] (notInWaitConnection -> (playerConnected && refereeConnected))
+prop7 = [] ((ballTarget && !tmIdle && trajPos) -> <> ((finish && playerHasBall) or !finish))
+prop8 = [] ((!ballTarget && !tmIdle && trajPos) -> <> ((finish && atTargetPos) or !finish))
