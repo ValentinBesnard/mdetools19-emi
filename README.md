@@ -1,5 +1,3 @@
-<script src="http://api.html5media.info/1.1.8/html5media.min.js"></script>
-
 # Solution to the MDETools'19 Challenge Problem using EMI (Embedded Model Interpreter)
 
 This repository contains several folders and files;
@@ -19,5 +17,3 @@ Folders suffixed by **.emi** also contain several subfolders and files:
 
 To run EMI with the concrete environment model, the following command line must be executed in the **ChallengeConcreteEnv.emi** folder:
 ```./build/host/interpreter```
-
-<video src="/video/mdetools.mp4" width="320" height="200" controls preload></video>
